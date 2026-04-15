@@ -132,7 +132,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.deepNavy.withValues(alpha: 0.15),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.15),
                         blurRadius: 12,
                         offset: const Offset(0, 4),
                       ),
@@ -146,7 +146,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                       return const Icon(
                         Icons.business,
                         size: 64,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       );
                     },
                   ),
@@ -158,7 +158,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                   'Welcome to',
                   style: TextStyle(
                     fontSize: 24,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -168,7 +168,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                   style: const TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary,
+                    color: const Color(0xFF1A1A2E),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -177,7 +177,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                   '$_roleTitle Login',
                   style: const TextStyle(
                     fontSize: 16,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -187,15 +187,15 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                 Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: AppColors.cleanWhite,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                      color: AppColors.borderColor,
+                      color: const Color(0xFFE5E7EB),
                       width: 0.5,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.deepNavy.withValues(alpha: 0.08),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
                         blurRadius: 8,
                         offset: const Offset(0, 2),
                       ),
@@ -209,7 +209,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                          color: const Color(0xFF1A1A2E),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -218,7 +218,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                         'Use your Google account to continue',
                         style: TextStyle(
                           fontSize: 14,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -231,7 +231,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                         child: OutlinedButton.icon(
                           onPressed: _isLoading ? null : _signInWithGoogle,
                           style: OutlinedButton.styleFrom(
-                            side: const BorderSide(color: AppColors.borderColor),
+                            side: const BorderSide(color: const Color(0xFFE5E7EB)),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
@@ -251,7 +251,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                                     return const Icon(
                                       Icons.g_mobiledata,
                                       size: 32,
-                                      color: AppColors.deepNavy,
+                                      color: const Color(0xFF1A1A2E),
                                     );
                                   },
                                 ),
@@ -260,7 +260,7 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
-                              color: AppColors.textPrimary,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                         ),

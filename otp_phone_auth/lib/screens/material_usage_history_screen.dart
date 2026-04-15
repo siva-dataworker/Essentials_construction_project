@@ -93,9 +93,9 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,7 +125,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                   Icon(
                     Icons.history,
                     size: 64,
-                    color: AppColors.mediumGray,
+                    color: const Color(0xFF9E9E9E),
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -133,14 +133,14 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.textPrimary,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     'No usage records found for this material.',
                     style: TextStyle(
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -181,7 +181,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                                 child: Icon(
                                   Icons.arrow_forward_ios,
                                   size: 16,
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                 ),
                               ),
                               const SizedBox(width: 12),
@@ -203,7 +203,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                                       '${entries.length} ${entries.length == 1 ? 'entry' : 'entries'}',
                                       style: TextStyle(
                                         fontSize: 12,
-                                        color: AppColors.textSecondary,
+                                        color: const Color(0xFF6B7280),
                                       ),
                                     ),
                                   ],
@@ -225,7 +225,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                                     'Total Used',
                                     style: TextStyle(
                                       fontSize: 12,
-                                      color: AppColors.textSecondary,
+                                      color: const Color(0xFF6B7280),
                                     ),
                                   ),
                                 ],
@@ -239,9 +239,9 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                       if (isExpanded)
                         Container(
                           decoration: BoxDecoration(
-                            color: AppColors.lightGray,
+                            color: const Color(0xFFE5E7EB),
                             border: Border(
-                              top: BorderSide(color: AppColors.mediumGray),
+                              top: BorderSide(color: const Color(0xFF9E9E9E)),
                             ),
                           ),
                           child: ListView.separated(
@@ -250,7 +250,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                             itemCount: entries.length,
                             separatorBuilder: (context, index) => Divider(
                               height: 1,
-                              color: AppColors.mediumGray,
+                              color: const Color(0xFF9E9E9E),
                             ),
                             itemBuilder: (context, entryIndex) {
                               final entry = entries[entryIndex];
@@ -282,7 +282,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                                           timeStr,
                                           style: TextStyle(
                                             fontSize: 12,
-                                            color: AppColors.textSecondary,
+                                            color: const Color(0xFF6B7280),
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -298,7 +298,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                                               Icon(
                                                 Icons.person_outline,
                                                 size: 16,
-                                                color: AppColors.textSecondary,
+                                                color: const Color(0xFF6B7280),
                                               ),
                                               const SizedBox(width: 4),
                                               Expanded(
@@ -317,7 +317,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                                               notes,
                                               style: TextStyle(
                                                 fontSize: 12,
-                                                color: AppColors.textSecondary,
+                                                color: const Color(0xFF6B7280),
                                               ),
                                             ),
                                           ],
@@ -334,7 +334,7 @@ class _MaterialUsageHistoryScreenState extends State<MaterialUsageHistoryScreen>
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(color: AppColors.mediumGray),
+                                        border: Border.all(color: const Color(0xFF9E9E9E)),
                                       ),
                                       child: Text(
                                         '${quantityUsed.toStringAsFixed(1)} $unit',

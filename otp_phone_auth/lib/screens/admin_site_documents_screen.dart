@@ -34,17 +34,17 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
     'PLAN': {
       'title': 'Plans',
       'icon': Icons.architecture,
-      'color': AppColors.deepNavy,
+      'color': const Color(0xFF1A1A2E),
     },
     'ELEVATION': {
       'title': 'Elevations',
       'icon': Icons.apartment,
-      'color': AppColors.safetyOrange,
+      'color': const Color(0xFFFF9800),
     },
     'STRUCTURE': {
       'title': 'Structure',
       'icon': Icons.foundation,
-      'color': AppColors.statusCompleted,
+      'color': const Color(0xFF4CAF50),
     },
     'FINAL_OUTPUT': {
       'title': 'Final Output',
@@ -93,7 +93,7 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,7 +101,7 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
             const Text(
               'Site Documents',
               style: TextStyle(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -109,22 +109,22 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
             Text(
               widget.siteName,
               style: TextStyle(
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontSize: 12,
               ),
             ),
           ],
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
       ),
       body: Column(
         children: [
           // Document type tabs
           Container(
             padding: const EdgeInsets.all(16),
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -144,7 +144,7 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
           Expanded(
             child: _isLoading
                 ? const Center(
-                    child: CircularProgressIndicator(color: AppColors.deepNavy),
+                    child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                   )
                 : _documents[_selectedType]!.isEmpty
                     ? Center(
@@ -154,14 +154,14 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
                             Icon(
                               _documentTypes[_selectedType]!['icon'],
                               size: 80,
-                              color: AppColors.textSecondary.withOpacity(0.5),
+                              color: const Color(0xFF6B7280).withOpacity(0.5),
                             ),
                             const SizedBox(height: 16),
                             Text(
                               'No ${_documentTypes[_selectedType]!['title'].toLowerCase()} found',
                               style: TextStyle(
                                 fontSize: 16,
-                                color: AppColors.textSecondary,
+                                color: const Color(0xFF6B7280),
                               ),
                             ),
                           ],
@@ -197,7 +197,7 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
         margin: const EdgeInsets.only(right: 8),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         decoration: BoxDecoration(
-          color: isSelected ? color : AppColors.lightSlate,
+          color: isSelected ? color : const Color(0xFFF8F9FA),
           borderRadius: BorderRadius.circular(20),
           boxShadow: isSelected
               ? [
@@ -215,7 +215,7 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
             Icon(
               icon,
               size: 18,
-              color: isSelected ? Colors.white : AppColors.textSecondary,
+              color: isSelected ? Colors.white : const Color(0xFF6B7280),
             ),
             const SizedBox(width: 8),
             Text(
@@ -223,7 +223,7 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.bold,
-                color: isSelected ? Colors.white : AppColors.textSecondary,
+                color: isSelected ? Colors.white : const Color(0xFF6B7280),
               ),
             ),
             if (count > 0) ...[
@@ -257,7 +257,7 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -291,7 +291,7 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 6),
@@ -300,14 +300,14 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
                     Icon(
                       Icons.person,
                       size: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                     const SizedBox(width: 4),
                     Text(
                       doc['uploaded_by'] ?? 'Unknown',
                       style: TextStyle(
                         fontSize: 12,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -318,14 +318,14 @@ class _AdminSiteDocumentsScreenState extends State<AdminSiteDocumentsScreen> {
                     Icon(
                       Icons.access_time,
                       size: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                     const SizedBox(width: 4),
                     Text(
                       _formatDate(doc['uploaded_at']),
                       style: TextStyle(
                         fontSize: 12,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],

@@ -282,7 +282,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
           'Sign Out',
-          style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+          style: TextStyle(fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
         ),
         content: const Text('Are you sure you want to sign out?'),
         actions: [
@@ -290,13 +290,13 @@ class _AdminDashboardState extends State<AdminDashboard> {
             onPressed: () => Navigator.pop(context, false),
             child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: const Color(0xFF6B7280)),
             ),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.statusOverdue,
+              backgroundColor: const Color(0xFFF44336),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text(
@@ -322,24 +322,24 @@ class _AdminDashboardState extends State<AdminDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Text(
           _getAppBarTitle(),
           style: const TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
         actions: [
           // Notification badge
           Stack(
             children: [
               IconButton(
-                icon: const Icon(Icons.notifications_outlined, color: AppColors.deepNavy),
+                icon: const Icon(Icons.notifications_outlined, color: const Color(0xFF1A1A2E)),
                 onPressed: () {
                   setState(() => _selectedIndex = 2);
                 },
@@ -351,7 +351,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   child: Container(
                     padding: const EdgeInsets.all(4),
                     decoration: const BoxDecoration(
-                      color: AppColors.safetyOrange,
+                      color: const Color(0xFFFF9800),
                       shape: BoxShape.circle,
                     ),
                     constraints: const BoxConstraints(
@@ -373,7 +373,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           ),
           // Logout button
           IconButton(
-            icon: const Icon(Icons.logout, color: AppColors.deepNavy),
+            icon: const Icon(Icons.logout, color: const Color(0xFF1A1A2E)),
             onPressed: _logout,
             tooltip: 'Sign Out',
           ),
@@ -395,10 +395,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.10),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.10),
             blurRadius: 20,
             offset: const Offset(0, -4),
           ),
@@ -426,12 +426,12 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     vertical: 8,
                   ),
                   decoration: BoxDecoration(
-                    gradient: selected ? AppColors.orangeGradient : null,
+                    gradient: selected ? LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight) : null,
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: selected
                         ? [
                             BoxShadow(
-                              color: AppColors.safetyOrange.withValues(alpha: 0.35),
+                              color: const Color(0xFFFF9800).withValues(alpha: 0.35),
                               blurRadius: 10,
                               offset: const Offset(0, 4),
                             )
@@ -447,7 +447,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         children: [
                           Icon(
                             selected ? item.activeIcon : item.icon,
-                            color: selected ? Colors.white : AppColors.textSecondary,
+                            color: selected ? Colors.white : const Color(0xFF6B7280),
                             size: 22,
                           ),
                           if (i == 2 && _pendingUsers.isNotEmpty)
@@ -458,7 +458,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                                 width: 9,
                                 height: 9,
                                 decoration: const BoxDecoration(
-                                  color: AppColors.statusOverdue,
+                                  color: const Color(0xFFF44336),
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -532,7 +532,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
         Container(
           padding: const EdgeInsets.all(16),
           decoration: const BoxDecoration(
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             boxShadow: [
               BoxShadow(
                 color: Color(0x0F000000),
@@ -578,7 +578,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           child: _isLoading
               ? const Center(
                   child: CircularProgressIndicator(
-                    color: AppColors.safetyOrange,
+                    color: const Color(0xFFFF9800),
                   ),
                 )
               : _showNewUsers
@@ -596,13 +596,13 @@ class _AdminDashboardState extends State<AdminDashboard> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
-          gradient: isSelected ? AppColors.orangeGradient : null,
-          color: isSelected ? null : AppColors.lightSlate,
+          gradient: isSelected ? LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight) : null,
+          color: isSelected ? null : const Color(0xFFF8F9FA),
           borderRadius: BorderRadius.circular(25),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: AppColors.safetyOrange.withValues(alpha: 0.3),
+                    color: const Color(0xFFFF9800).withValues(alpha: 0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -617,7 +617,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
-                color: isSelected ? Colors.white : AppColors.textSecondary,
+                color: isSelected ? Colors.white : const Color(0xFF6B7280),
               ),
             ),
             if (badge > 0) ...[
@@ -625,7 +625,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
-                  color: isSelected ? Colors.white : AppColors.safetyOrange,
+                  color: isSelected ? Colors.white : const Color(0xFFFF9800),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -633,7 +633,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
-                    color: isSelected ? AppColors.safetyOrange : Colors.white,
+                    color: isSelected ? const Color(0xFFFF9800) : Colors.white,
                   ),
                 ),
               ),
@@ -654,7 +654,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               width: 120,
               height: 120,
               decoration: BoxDecoration(
-                gradient: AppColors.orangeGradient,
+                gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                 shape: BoxShape.circle,
               ),
               child: const Icon(
@@ -669,7 +669,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 12),
@@ -677,7 +677,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               'No pending user approvals',
               style: TextStyle(
                 fontSize: 16,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -687,7 +687,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
     return RefreshIndicator(
       onRefresh: _loadPendingUsers,
-      color: AppColors.safetyOrange,
+      color: const Color(0xFFFF9800),
       child: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _pendingUsers.length,
@@ -708,14 +708,14 @@ class _AdminDashboardState extends State<AdminDashboard> {
             Icon(
               Icons.people_outline,
               size: 80,
-              color: AppColors.textSecondary.withValues(alpha: 0.5),
+              color: const Color(0xFF6B7280).withValues(alpha: 0.5),
             ),
             const SizedBox(height: 16),
             Text(
               'No users found',
               style: TextStyle(
                 fontSize: 18,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -725,7 +725,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
     return RefreshIndicator(
       onRefresh: _loadAllUsers,
-      color: AppColors.safetyOrange,
+      color: const Color(0xFFFF9800),
       child: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _allUsers.length,
@@ -811,7 +811,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
       children: [
         // Global Labour Rates card
         Container(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
           child: GestureDetector(
             onTap: () => Navigator.push(
@@ -825,8 +825,8 @@ class _AdminDashboardState extends State<AdminDashboard> {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    AppColors.safetyOrange,
-                    AppColors.safetyOrange.withValues(alpha: 0.8),
+                    const Color(0xFFFF9800),
+                    const Color(0xFFFF9800).withValues(alpha: 0.8),
                   ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -869,7 +869,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
         ),
         // Header
         Container(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -878,7 +878,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy)),
+                      color: const Color(0xFF1A1A2E))),
               const SizedBox(height: 12),
               // Area dropdown
               DropdownButtonFormField<String>(
@@ -886,7 +886,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 decoration: InputDecoration(
                   labelText: 'Select Area',
                   prefixIcon: const Icon(Icons.location_city,
-                      color: AppColors.deepNavy, size: 20),
+                      color: const Color(0xFF1A1A2E), size: 20),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
                   contentPadding:
@@ -912,7 +912,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   decoration: InputDecoration(
                     labelText: 'Select Street',
                     prefixIcon: const Icon(Icons.streetview,
-                        color: AppColors.deepNavy, size: 20),
+                        color: const Color(0xFF1A1A2E), size: 20),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     contentPadding: const EdgeInsets.symmetric(
@@ -941,7 +941,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           child: _sitesLoading
               ? const Center(
                   child: CircularProgressIndicator(
-                      color: AppColors.safetyOrange))
+                      color: const Color(0xFFFF9800)))
               : _selectedArea == null
                   ? Center(
                       child: Column(
@@ -950,11 +950,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           Icon(Icons.location_on_outlined,
                               size: 60,
                               color:
-                                  AppColors.textSecondary.withValues(alpha: 0.4)),
+                                  const Color(0xFF6B7280).withValues(alpha: 0.4)),
                           const SizedBox(height: 12),
                           Text('Select an area to view sites',
                               style: TextStyle(
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                   fontSize: 14)),
                         ],
                       ),
@@ -963,14 +963,14 @@ class _AdminDashboardState extends State<AdminDashboard> {
                       ? Center(
                           child: Text('Select a street to view sites',
                               style: TextStyle(
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                   fontSize: 14)),
                         )
                       : _sites.isEmpty
                           ? Center(
                               child: Text('No sites found',
                                   style: TextStyle(
-                                      color: AppColors.textSecondary,
+                                      color: const Color(0xFF6B7280),
                                       fontSize: 14)),
                             )
                           : ListView.builder(
@@ -995,17 +995,17 @@ class _AdminDashboardState extends State<AdminDashboard> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(14),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
         ],
         border: Border.all(
-            color: AppColors.deepNavy.withValues(alpha: 0.08)),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1015,7 +1015,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              color: AppColors.deepNavy.withValues(alpha: 0.04),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.04),
               borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(14)),
             ),
@@ -1024,11 +1024,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 Container(
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    color: AppColors.safetyOrange.withValues(alpha: 0.12),
+                    color: const Color(0xFFFF9800).withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(Icons.apartment,
-                      color: AppColors.safetyOrange, size: 18),
+                      color: const Color(0xFFFF9800), size: 18),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -1037,7 +1037,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy),
+                        color: const Color(0xFF1A1A2E)),
                   ),
                 ),
               ],
@@ -1049,7 +1049,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             child: _buildSiteActionButton(
               icon: Icons.account_balance_wallet_outlined,
               label: 'Budget Management',
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -1101,7 +1101,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
   Widget _buildNotificationsTab() {
     if (_notificationsLoading) {
       return Center(
-        child: CircularProgressIndicator(color: AppColors.primary),
+        child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
       );
     }
 
@@ -1114,7 +1114,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               width: 100,
               height: 100,
               decoration: BoxDecoration(
-                gradient: AppColors.orangeGradient,
+                gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                 shape: BoxShape.circle,
               ),
               child: const Icon(
@@ -1129,7 +1129,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1138,7 +1138,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
             const SizedBox(height: 24),
@@ -1147,7 +1147,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               icon: const Icon(Icons.refresh),
               label: const Text('Refresh Notifications'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.safetyOrange,
+                backgroundColor: const Color(0xFFFF9800),
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -1165,7 +1165,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.05),
@@ -1181,7 +1181,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
               if (_unreadCount > 0) ...[
@@ -1214,7 +1214,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   icon: const Icon(Icons.done_all, size: 18),
                   label: const Text('Mark all read'),
                   style: TextButton.styleFrom(
-                    foregroundColor: AppColors.primary,
+                    foregroundColor: const Color(0xFF1A1A2E),
                   ),
                 ),
             ],
@@ -1303,7 +1303,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       elevation: isRead ? 0 : 2,
-      color: isRead ? AppColors.lightSlate : Colors.white,
+      color: isRead ? const Color(0xFFF8F9FA) : Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
         side: BorderSide(
@@ -1370,7 +1370,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           timeAgo,
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                       ],
@@ -1415,7 +1415,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   Icon(
                     Icons.location_on,
                     size: 16,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                   const SizedBox(width: 4),
                   Expanded(
@@ -1423,7 +1423,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                       siteName,
                       style: TextStyle(
                         fontSize: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ),
@@ -1435,7 +1435,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   Icon(
                     Icons.person,
                     size: 16,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                   const SizedBox(width: 4),
                   Expanded(
@@ -1443,7 +1443,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                       supervisorName,
                       style: TextStyle(
                         fontSize: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ),
@@ -1456,14 +1456,14 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     Icon(
                       Icons.access_time,
                       size: 16,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                     const SizedBox(width: 4),
                     Text(
                       'Submitted at: $actualTime',
                       style: TextStyle(
                         fontSize: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -1489,11 +1489,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
           Container(
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: AppColors.cleanWhite,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.deepNavy.withValues(alpha: 0.07),
+                  color: const Color(0xFF1A1A2E).withValues(alpha: 0.07),
                   blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),
@@ -1505,7 +1505,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   width: 80,
                   height: 80,
                   decoration: BoxDecoration(
-                    gradient: AppColors.orangeGradient,
+                    gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
@@ -1527,14 +1527,14 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 4),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   decoration: BoxDecoration(
-                    gradient: AppColors.orangeGradient,
+                    gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: const Text(
@@ -1562,7 +1562,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           _buildSectionHeader('Account'),
           _buildProfileActionTile(
             icon: Icons.edit_outlined,
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             title: 'Edit Profile',
             subtitle: 'Update name and phone',
             onTap: _showEditProfileDialog,
@@ -1581,7 +1581,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           ),
           _buildProfileActionTile(
             icon: Icons.admin_panel_settings_outlined,
-            color: AppColors.safetyOrange,
+            color: const Color(0xFFFF9800),
             title: 'Create Admin',
             subtitle: 'Add another admin account',
             onTap: _showCreateAdminDialog,
@@ -1605,7 +1605,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               label: const Text('Sign Out',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.statusOverdue,
+                backgroundColor: const Color(0xFFF44336),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
@@ -1629,7 +1629,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: AppColors.textSecondary,
+            color: const Color(0xFF6B7280),
             letterSpacing: 0.8,
           ),
         ),
@@ -1641,10 +1641,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, size: 16, color: AppColors.textSecondary),
+        Icon(icon, size: 16, color: const Color(0xFF6B7280)),
         const SizedBox(width: 6),
         Text(value,
-            style: TextStyle(fontSize: 14, color: AppColors.textSecondary)),
+            style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280))),
       ],
     );
   }
@@ -1662,11 +1662,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.05),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
               blurRadius: 8,
               offset: const Offset(0, 3),
             ),
@@ -1695,12 +1695,12 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   const SizedBox(height: 2),
                   Text(subtitle,
                       style: TextStyle(
-                          fontSize: 12, color: AppColors.textSecondary)),
+                          fontSize: 12, color: const Color(0xFF6B7280))),
                 ],
               ),
             ),
             Icon(Icons.arrow_forward_ios,
-                color: AppColors.textSecondary, size: 16),
+                color: const Color(0xFF6B7280), size: 16),
           ],
         ),
       ),
@@ -1723,7 +1723,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           title: const Text('Edit Profile',
               style: TextStyle(
-                  color: AppColors.deepNavy, fontWeight: FontWeight.bold)),
+                  color: const Color(0xFF1A1A2E), fontWeight: FontWeight.bold)),
           content: Form(
             key: formKey,
             child: Column(
@@ -1734,13 +1734,13 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   decoration: InputDecoration(
                     labelText: 'Full Name',
                     prefixIcon: const Icon(Icons.person_outline,
-                        color: AppColors.deepNavy),
+                        color: const Color(0xFF1A1A2E)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12)),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: const BorderSide(
-                          color: AppColors.deepNavy, width: 2),
+                          color: const Color(0xFF1A1A2E), width: 2),
                     ),
                   ),
                   validator: (v) => (v == null || v.trim().isEmpty)
@@ -1757,13 +1757,13 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     labelText: 'Phone Number',
                     counterText: '',
                     prefixIcon: const Icon(Icons.phone_outlined,
-                        color: AppColors.deepNavy),
+                        color: const Color(0xFF1A1A2E)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12)),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: const BorderSide(
-                          color: AppColors.deepNavy, width: 2),
+                          color: const Color(0xFF1A1A2E), width: 2),
                     ),
                   ),
                   validator: (v) {
@@ -1781,11 +1781,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
             TextButton(
               onPressed: isSaving ? null : () => Navigator.pop(ctx),
               child: Text('Cancel',
-                  style: TextStyle(color: AppColors.textSecondary)),
+                  style: TextStyle(color: const Color(0xFF6B7280))),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
@@ -1814,7 +1814,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                             ? 'Profile updated!'
                             : result['error'] ?? 'Update failed'),
                         backgroundColor: result['success'] == true
-                            ? AppColors.statusCompleted
+                            ? const Color(0xFF4CAF50)
                             : Colors.red,
                       ));
                     },
@@ -2103,7 +2103,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 onPressed: isSaving ? null : () => Navigator.pop(ctx),
                 child: Text('Cancel',
                     style:
-                        TextStyle(color: AppColors.textSecondary)),
+                        TextStyle(color: const Color(0xFF6B7280))),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -2171,7 +2171,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(success ? '✅ $message' : '❌ $message'),
                               backgroundColor: success
-                                  ? AppColors.statusCompleted
+                                  ? const Color(0xFF4CAF50)
                                   : Colors.red,
                             ));
                             if (success) _loadAllUsers();
@@ -2225,7 +2225,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               borderRadius: BorderRadius.circular(16)),
           title: const Text('Create Admin',
               style: TextStyle(
-                  color: AppColors.safetyOrange,
+                  color: const Color(0xFFFF9800),
                   fontWeight: FontWeight.bold)),
           content: SingleChildScrollView(
             child: Form(
@@ -2273,11 +2273,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
             TextButton(
               onPressed: isSaving ? null : () => Navigator.pop(ctx),
               child: Text('Cancel',
-                  style: TextStyle(color: AppColors.textSecondary)),
+                  style: TextStyle(color: const Color(0xFF6B7280))),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.safetyOrange,
+                backgroundColor: const Color(0xFFFF9800),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
@@ -2312,7 +2312,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                               ? data['message'] ?? 'Admin created!'
                               : data['error'] ?? 'Failed'),
                           backgroundColor: res.statusCode == 201
-                              ? AppColors.statusCompleted
+                              ? const Color(0xFF4CAF50)
                               : Colors.red,
                         ));
                       } catch (e) {
@@ -2385,7 +2385,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             TextButton(
               onPressed: isSaving ? null : () => Navigator.pop(ctx),
               child: Text('Cancel',
-                  style: TextStyle(color: AppColors.textSecondary)),
+                  style: TextStyle(color: const Color(0xFF6B7280))),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -2419,7 +2419,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                               ? data['message'] ?? 'Role created!'
                               : data['error'] ?? 'Failed'),
                           backgroundColor: res.statusCode == 201
-                              ? AppColors.statusCompleted
+                              ? const Color(0xFF4CAF50)
                               : Colors.red,
                         ));
                       } catch (e) {
@@ -2466,11 +2466,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
       decoration: InputDecoration(
         labelText: label,
         counterText: maxLength != null ? '' : null,
-        prefixIcon: Icon(icon, color: AppColors.deepNavy),
+        prefixIcon: Icon(icon, color: const Color(0xFF1A1A2E)),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.deepNavy, width: 2),
+          borderSide: const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
         ),
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
@@ -2483,11 +2483,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -2506,7 +2506,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   width: 56,
                   height: 56,
                   decoration: BoxDecoration(
-                    gradient: AppColors.orangeGradient,
+                    gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
@@ -2530,7 +2530,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -2540,7 +2540,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          gradient: AppColors.navyGradient,
+                          gradient: LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Text(
@@ -2581,7 +2581,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   child: _buildActionPillButton(
                     'Approve',
                     Icons.check_circle_outline,
-                    AppColors.statusCompleted,
+                    const Color(0xFF4CAF50),
                     () => _showApproveDialog(user['id'], user['username']),
                   ),
                 ),
@@ -2590,7 +2590,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   child: _buildActionPillButton(
                     'Reject',
                     Icons.cancel_outlined,
-                    AppColors.statusOverdue,
+                    const Color(0xFFF44336),
                     () => _showRejectDialog(user['id'], user['username']),
                   ),
                 ),
@@ -2608,10 +2608,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: AppColors.lightSlate,
+            color: const Color(0xFFF8F9FA),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Icon(icon, size: 18, color: AppColors.deepNavy),
+          child: Icon(icon, size: 18, color: const Color(0xFF1A1A2E)),
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -2619,7 +2619,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             text,
             style: const TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
         ),
@@ -2661,19 +2661,19 @@ class _AdminDashboardState extends State<AdminDashboard> {
     final status = user['status'] ?? 'UNKNOWN';
     final isActive = user['is_active'] ?? true;
     
-    Color statusColor = AppColors.textSecondary;
-    if (status == 'APPROVED') statusColor = AppColors.statusCompleted;
-    if (status == 'REJECTED') statusColor = AppColors.statusOverdue;
-    if (status == 'PENDING') statusColor = AppColors.statusPending;
+    Color statusColor = const Color(0xFF6B7280);
+    if (status == 'APPROVED') statusColor = const Color(0xFF4CAF50);
+    if (status == 'REJECTED') statusColor = const Color(0xFFF44336);
+    if (status == 'PENDING') statusColor = const Color(0xFFFF9800);
     
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 3),
           ),
@@ -2692,7 +2692,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                    gradient: AppColors.navyGradient,
+                    gradient: LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
@@ -2716,7 +2716,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 6),
@@ -2749,7 +2749,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                               vertical: 3,
                             ),
                             decoration: BoxDecoration(
-                              color: AppColors.lightSlate,
+                              color: const Color(0xFFF8F9FA),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Text(
@@ -2757,7 +2757,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                               style: const TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.deepNavy,
+                                color: const Color(0xFF1A1A2E),
                               ),
                             ),
                           ),
@@ -2771,7 +2771,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   width: 10,
                   height: 10,
                   decoration: BoxDecoration(
-                    color: isActive ? AppColors.statusCompleted : AppColors.textSecondary,
+                    color: isActive ? const Color(0xFF4CAF50) : const Color(0xFF6B7280),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -2821,7 +2821,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
           'Approve User',
-          style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+          style: TextStyle(fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
         ),
         content: Text('Are you sure you want to approve $username?'),
         actions: [
@@ -2829,7 +2829,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             onPressed: () => Navigator.pop(context),
             child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: const Color(0xFF6B7280)),
             ),
           ),
           ElevatedButton(
@@ -2838,7 +2838,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               _approveUser(userId, username);
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.statusCompleted,
+              backgroundColor: const Color(0xFF4CAF50),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text(
@@ -2858,7 +2858,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
           'Reject User',
-          style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+          style: TextStyle(fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
         ),
         content: Text('Are you sure you want to reject $username?'),
         actions: [
@@ -2866,7 +2866,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             onPressed: () => Navigator.pop(context),
             child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: const Color(0xFF6B7280)),
             ),
           ),
           ElevatedButton(
@@ -2875,7 +2875,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               _rejectUser(userId, username);
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.statusOverdue,
+              backgroundColor: const Color(0xFFF44336),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text(

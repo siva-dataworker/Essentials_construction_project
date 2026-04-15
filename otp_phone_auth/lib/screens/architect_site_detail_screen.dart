@@ -88,19 +88,19 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Text(
           widget.site['display_name'] ?? widget.site['site_name'] ?? 'Site Details',
           style: const TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
       ),
       body: IndexedStack(
         index: _currentIndex,
@@ -112,9 +112,9 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         selectedItemColor: Colors.purple.shade600,
-        unselectedItemColor: AppColors.textSecondary,
+        unselectedItemColor: const Color(0xFF6B7280),
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
         unselectedLabelStyle: const TextStyle(fontSize: 12),
         items: const [
@@ -137,7 +137,7 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
         // Upload Button
         Container(
           padding: const EdgeInsets.all(16),
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           child: ElevatedButton.icon(
             onPressed: () => _showUploadDialog(),
             icon: const Icon(Icons.upload_file, size: 20),
@@ -178,7 +178,7 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
         // Raise Complaint Button
         Container(
           padding: const EdgeInsets.all(16),
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           child: ElevatedButton.icon(
             onPressed: () => _showComplaintDialog(),
             icon: const Icon(Icons.add, size: 20),
@@ -221,9 +221,9 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -250,13 +250,13 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         fileType.replaceAll('_', ' '),
-                        style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                        style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                       ),
                     ],
                   ),
@@ -283,7 +283,7 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
               const SizedBox(height: 12),
               Text(
                 file['description'],
-                style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
+                style: TextStyle(fontSize: 13, color: const Color(0xFF6B7280)),
               ),
             ],
             if (file['amount'] != null) ...[
@@ -331,18 +331,18 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
             const SizedBox(height: 12),
             Row(
               children: [
-                Icon(Icons.person, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.person, size: 14, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 4),
                 Text(
                   file['uploaded_by'] ?? 'Unknown',
-                  style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                 ),
                 const Spacer(),
-                Icon(Icons.calendar_today, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.calendar_today, size: 14, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 4),
                 Text(
                   _formatDate(file['uploaded_at']),
-                  style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                 ),
               ],
             ),
@@ -356,14 +356,14 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
     final priority = complaint['priority'] ?? 'MEDIUM';
     final status = complaint['status'] ?? 'OPEN';
     final priorityColor = _getPriorityColor(priority);
-    final statusColor = status == 'RESOLVED' ? AppColors.statusCompleted : Colors.orange;
+    final statusColor = status == 'RESOLVED' ? const Color(0xFF4CAF50) : Colors.orange;
     
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
         border: Border.all(color: priorityColor.withValues(alpha: 0.3), width: 2),
       ),
       child: Padding(
@@ -388,7 +388,7 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                 ),
@@ -413,7 +413,7 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
             const SizedBox(height: 12),
             Text(
               complaint['description'] ?? '',
-              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
             ),
             const SizedBox(height: 12),
             Row(
@@ -434,11 +434,11 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
                   ),
                 ),
                 const Spacer(),
-                Icon(Icons.calendar_today, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.calendar_today, size: 14, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 4),
                 Text(
                   _formatDate(complaint['created_at']),
-                  style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                 ),
               ],
             ),
@@ -446,11 +446,11 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
               const SizedBox(height: 8),
               Row(
                 children: [
-                  Icon(Icons.person_outline, size: 14, color: AppColors.textSecondary),
+                  Icon(Icons.person_outline, size: 14, color: const Color(0xFF6B7280)),
                   const SizedBox(width: 4),
                   Text(
                     'Assigned to: ${complaint['assigned_to_name']}',
-                    style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                    style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                   ),
                 ],
               ),
@@ -468,16 +468,16 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.folder_open, size: 80, color: AppColors.textSecondary.withValues(alpha: 0.5)),
+            Icon(Icons.folder_open, size: 80, color: const Color(0xFF6B7280).withValues(alpha: 0.5)),
             const SizedBox(height: 16),
             const Text(
               'No Project Files',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 8),
             Text(
               'Upload estimation files, plans, and designs',
-              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
               textAlign: TextAlign.center,
             ),
           ],
@@ -493,16 +493,16 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.check_circle_outline, size: 80, color: AppColors.statusCompleted.withValues(alpha: 0.5)),
+            Icon(Icons.check_circle_outline, size: 80, color: const Color(0xFF4CAF50).withValues(alpha: 0.5)),
             const SizedBox(height: 16),
             const Text(
               'No Complaints',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 8),
             Text(
               'All clear! No complaints raised yet',
-              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
               textAlign: TextAlign.center,
             ),
           ],
@@ -871,7 +871,7 @@ class _ArchitectSiteDetailScreenState extends State<ArchitectSiteDetailScreen> {
   Color _getPriorityColor(String priority) {
     switch (priority) {
       case 'LOW':
-        return AppColors.statusCompleted;
+        return const Color(0xFF4CAF50);
       case 'MEDIUM':
         return Colors.orange;
       case 'HIGH':

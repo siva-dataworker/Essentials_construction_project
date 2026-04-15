@@ -22,12 +22,12 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.deepNavy),
+          icon: const Icon(Icons.arrow_back, color: const Color(0xFF1A1A2E)),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Column(
@@ -38,14 +38,14 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             Text(
               'Raised by Architect',
               style: TextStyle(
                 fontSize: 12,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontWeight: FontWeight.normal,
               ),
             ),
@@ -59,7 +59,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
 
           if (isLoading) {
             return const Center(
-              child: CircularProgressIndicator(color: AppColors.deepNavy),
+              child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
             );
           }
 
@@ -72,13 +72,13 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                     width: 120,
                     height: 120,
                     decoration: BoxDecoration(
-                      color: AppColors.lightSlate,
+                      color: const Color(0xFFF8F9FA),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
                       Icons.check_circle_outline,
                       size: 60,
-                      color: AppColors.statusCompleted,
+                      color: const Color(0xFF4CAF50),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -87,7 +87,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -95,7 +95,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                     'All complaints have been resolved',
                     style: TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -125,11 +125,11 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 20,
             offset: const Offset(0, 4),
           ),
@@ -147,13 +147,13 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                   height: 48,
                   decoration: BoxDecoration(
                     color: isOpen
-                        ? AppColors.statusOverdue.withValues(alpha: 0.2)
-                        : AppColors.statusCompleted.withValues(alpha: 0.2),
+                        ? const Color(0xFFF44336).withValues(alpha: 0.2)
+                        : const Color(0xFF4CAF50).withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(
                     isOpen ? Icons.warning_amber_rounded : Icons.check_circle,
-                    color: isOpen ? AppColors.statusOverdue : AppColors.statusCompleted,
+                    color: isOpen ? const Color(0xFFF44336) : const Color(0xFF4CAF50),
                     size: 26,
                   ),
                 ),
@@ -167,7 +167,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -175,7 +175,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                         complaint['created_at'] ?? '',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -185,8 +185,8 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: isOpen
-                        ? AppColors.statusOverdue.withValues(alpha: 0.1)
-                        : AppColors.statusCompleted.withValues(alpha: 0.1),
+                        ? const Color(0xFFF44336).withValues(alpha: 0.1)
+                        : const Color(0xFF4CAF50).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -194,7 +194,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color: isOpen ? AppColors.statusOverdue : AppColors.statusCompleted,
+                      color: isOpen ? const Color(0xFFF44336) : const Color(0xFF4CAF50),
                     ),
                   ),
                 ),
@@ -203,7 +203,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
           ),
           Container(
             height: 1,
-            color: AppColors.lightSlate,
+            color: const Color(0xFFF8F9FA),
           ),
           Padding(
             padding: const EdgeInsets.all(20),
@@ -214,7 +214,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                   complaint['description'] ?? 'No description',
                   style: const TextStyle(
                     fontSize: 14,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                     height: 1.5,
                   ),
                 ),
@@ -232,7 +232,7 @@ class _SiteEngineerComplaintsScreenState extends State<SiteEngineerComplaintsScr
                     icon: const Icon(Icons.camera_alt),
                     label: const Text('Upload Rectification Photo'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.deepNavy,
+                      backgroundColor: const Color(0xFF1A1A2E),
                       foregroundColor: Colors.white,
                       minimumSize: const Size(double.infinity, 48),
                       shape: RoundedRectangleBorder(

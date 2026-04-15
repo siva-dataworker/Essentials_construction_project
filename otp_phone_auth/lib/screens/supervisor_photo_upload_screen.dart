@@ -238,7 +238,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
                 : '❌ ${result['error']}'
             ),
             backgroundColor: result['success'] 
-              ? (isOnTime ? AppColors.statusCompleted : Colors.orange)
+              ? (isOnTime ? const Color(0xFF4CAF50) : Colors.orange)
               : Colors.red,
             duration: Duration(seconds: result['success'] && !isOnTime ? 4 : 2),
           ),
@@ -272,10 +272,10 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text('Upload Site Photos'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
@@ -286,8 +286,8 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
             width: double.infinity,
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              gradient: AppColors.navyGradient,
-              boxShadow: [AppColors.cardShadow],
+              gradient: LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)], begin: Alignment.topLeft, end: Alignment.bottomRight),
+              boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -319,17 +319,17 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
           Container(
             margin: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppColors.lightSlate,
+              color: const Color(0xFFF8F9FA),
               borderRadius: BorderRadius.circular(12),
             ),
             child: TabBar(
               controller: _tabController,
               indicator: BoxDecoration(
-                gradient: AppColors.orangeGradient,
+                gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                 borderRadius: BorderRadius.circular(12),
               ),
               labelColor: Colors.white,
-              unselectedLabelColor: AppColors.textSecondary,
+              unselectedLabelColor: const Color(0xFF6B7280),
               labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               unselectedLabelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               tabs: const [
@@ -372,7 +372,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 16),
@@ -386,7 +386,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
                   icon: const Icon(Icons.camera_alt),
                   label: const Text('Take Photo'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.deepNavy,
+                    backgroundColor: const Color(0xFF1A1A2E),
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
@@ -402,7 +402,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
                   icon: const Icon(Icons.photo_library),
                   label: const Text('Choose Photos'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.statusCompleted,
+                    backgroundColor: const Color(0xFF4CAF50),
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
@@ -419,14 +419,14 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
           if (photos.isNotEmpty) ...[
             Row(
               children: [
-                const Icon(Icons.upload_file, size: 18, color: AppColors.safetyOrange),
+                const Icon(Icons.upload_file, size: 18, color: const Color(0xFFFF9800)),
                 const SizedBox(width: 8),
                 Text(
                   'Ready to Upload (${photos.length})',
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.safetyOrange,
+                    color: const Color(0xFFFF9800),
                   ),
                 ),
               ],
@@ -449,7 +449,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
             ElevatedButton(
               onPressed: isUploading ? null : () => _uploadPhotos(isMorning),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.safetyOrange,
+                backgroundColor: const Color(0xFFFF9800),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
@@ -479,14 +479,14 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
           // Uploaded Photos Section
           Row(
             children: [
-              const Icon(Icons.cloud_done, size: 18, color: AppColors.statusCompleted),
+              const Icon(Icons.cloud_done, size: 18, color: const Color(0xFF4CAF50)),
               const SizedBox(width: 8),
               Text(
                 'Uploaded Photos (${uploadedPhotos.length})',
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.statusCompleted,
+                  color: const Color(0xFF4CAF50),
                 ),
               ),
               const Spacer(),
@@ -514,9 +514,9 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
   Widget _buildEmptyState(String timeLabel) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.borderColor),
+        border: Border.all(color: const Color(0xFFE5E7EB)),
       ),
       child: Center(
         child: Column(
@@ -525,7 +525,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
             Icon(
               Icons.add_photo_alternate_outlined,
               size: 80,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
             const SizedBox(height: 16),
             Text(
@@ -533,7 +533,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -541,7 +541,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
               'Take a photo or choose from gallery',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -553,9 +553,9 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
   Widget _buildEmptyUploadedState(String timeLabel) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.borderColor),
+        border: Border.all(color: const Color(0xFFE5E7EB)),
       ),
       child: Center(
         child: Column(
@@ -564,7 +564,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
             Icon(
               Icons.cloud_off_outlined,
               size: 60,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
             const SizedBox(height: 16),
             Text(
@@ -572,7 +572,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -580,7 +580,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
               'Upload photos to see them here',
               style: TextStyle(
                 fontSize: 13,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -649,7 +649,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;
                 return Container(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   child: Center(
                     child: CircularProgressIndicator(
                       value: loadingProgress.expectedTotalBytes != null
@@ -663,10 +663,10 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
               },
               errorBuilder: (context, error, stackTrace) {
                 return Container(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   child: const Icon(
                     Icons.broken_image,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 );
               },
@@ -770,9 +770,9 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Column(
         children: [
@@ -793,10 +793,10 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: isExpanded ? AppColors.statusCompleted.withValues(alpha: 0.05) : Colors.transparent,
+                  color: isExpanded ? const Color(0xFF4CAF50).withValues(alpha: 0.05) : Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: isExpanded ? AppColors.statusCompleted.withValues(alpha: 0.2) : Colors.transparent,
+                    color: isExpanded ? const Color(0xFF4CAF50).withValues(alpha: 0.2) : Colors.transparent,
                     width: 1,
                   ),
                 ),
@@ -806,13 +806,13 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
                     Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        gradient: isExpanded ? AppColors.greenGradient : null,
-                        color: isExpanded ? null : AppColors.statusCompleted.withValues(alpha: 0.1),
+                        gradient: isExpanded ? LinearGradient(colors: [Color(0xFF4CAF50), Color(0xFF2E7D32)], begin: Alignment.topLeft, end: Alignment.bottomRight) : null,
+                        color: isExpanded ? null : const Color(0xFF4CAF50).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Icon(
                         Icons.calendar_today,
-                        color: isExpanded ? Colors.white : AppColors.statusCompleted,
+                        color: isExpanded ? Colors.white : const Color(0xFF4CAF50),
                         size: 20,
                       ),
                     ),
@@ -828,14 +828,14 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                             decoration: BoxDecoration(
-                              color: AppColors.statusCompleted.withValues(alpha: 0.1),
+                              color: const Color(0xFF4CAF50).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(
@@ -843,7 +843,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: AppColors.statusCompleted,
+                                color: const Color(0xFF4CAF50),
                               ),
                             ),
                           ),
@@ -857,7 +857,7 @@ class _SupervisorPhotoUploadScreenState extends State<SupervisorPhotoUploadScree
                       duration: const Duration(milliseconds: 200),
                       child: const Icon(
                         Icons.keyboard_arrow_down,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         size: 24,
                       ),
                     ),

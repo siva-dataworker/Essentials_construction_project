@@ -71,7 +71,7 @@ class SiteSelectionScreen extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false, // Remove back button
           title: const Text('Select Site'),
-          backgroundColor: AppColors.deepNavy,
+          backgroundColor: const Color(0xFF1A1A2E),
           foregroundColor: Colors.white,
           elevation: 0,
           actions: [
@@ -96,7 +96,7 @@ class SiteSelectionScreen extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
@@ -162,10 +162,10 @@ class SiteSelectionScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.borderColor, width: 1),
+        border: Border.all(color: const Color(0xFFE5E7EB), width: 1),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -192,13 +192,13 @@ class SiteSelectionScreen extends StatelessWidget {
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
-                    color: AppColors.safetyOrange.withValues(alpha: 0.1),
+                    color: const Color(0xFFFF9800).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(
                     Icons.apartment_rounded,
                     size: 32,
-                    color: AppColors.safetyOrange,
+                    color: const Color(0xFFFF9800),
                   ),
                 ),
                 
@@ -214,7 +214,7 @@ class SiteSelectionScreen extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.textPrimary,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -222,7 +222,7 @@ class SiteSelectionScreen extends StatelessWidget {
                         '${site.builtUpArea.toInt()} sq ft',
                         style: const TextStyle(
                           fontSize: 14,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -232,7 +232,7 @@ class SiteSelectionScreen extends StatelessWidget {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: AppColors.statusCompleted.withValues(alpha: 0.1),
+                          color: const Color(0xFF4CAF50).withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: const Text(
@@ -240,7 +240,7 @@ class SiteSelectionScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.statusCompleted,
+                            color: const Color(0xFF4CAF50),
                           ),
                         ),
                       ),
@@ -252,13 +252,13 @@ class SiteSelectionScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy.withValues(alpha: 0.1),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
                     Icons.arrow_forward_ios_rounded,
                     size: 16,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
               ],

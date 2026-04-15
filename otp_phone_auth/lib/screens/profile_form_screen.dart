@@ -95,7 +95,7 @@ class _ProfileFormScreenState extends State<ProfileFormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundLight,
+      backgroundColor: const Color(0xFFF8F9FA)Light,
       body: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(24.0),
@@ -109,11 +109,11 @@ class _ProfileFormScreenState extends State<ProfileFormScreen> {
                   Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.deepNavy.withValues(alpha: 0.15),
+                          color: const Color(0xFF1A1A2E).withValues(alpha: 0.15),
                           blurRadius: 12,
                           offset: const Offset(0, 4),
                         ),
@@ -131,7 +131,7 @@ class _ProfileFormScreenState extends State<ProfileFormScreen> {
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.textPrimary,
+                      color: const Color(0xFF1A1A2E),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -143,7 +143,7 @@ class _ProfileFormScreenState extends State<ProfileFormScreen> {
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         
                       ),
                       textAlign: TextAlign.center,
@@ -154,7 +154,7 @@ class _ProfileFormScreenState extends State<ProfileFormScreen> {
                     'Please complete your profile to continue',
                     style: TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -268,7 +268,7 @@ class _ProfileFormScreenState extends State<ProfileFormScreen> {
                   '* Required fields',
                   style: TextStyle(
                     fontSize: 12,
-                    color: AppColors.textTertiary,
+                    color: const Color(0xFF9CA3AF),
                   ),
                   textAlign: TextAlign.center,
                 ),

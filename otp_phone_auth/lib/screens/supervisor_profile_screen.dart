@@ -98,7 +98,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Profile updated successfully!'),
-            backgroundColor: AppColors.statusCompleted,
+            backgroundColor: const Color(0xFF4CAF50),
             behavior: SnackBarBehavior.floating,
             duration: Duration(seconds: 2),
           ),
@@ -181,10 +181,10 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text('Profile'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -209,11 +209,11 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: AppColors.safetyOrange,
+                      color: const Color(0xFFFF9800),
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.safetyOrange.withValues(alpha: 0.3),
+                          color: const Color(0xFFFF9800).withValues(alpha: 0.3),
                           blurRadius: 20,
                           offset: const Offset(0, 8),
                         ),
@@ -236,7 +236,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.deepNavy.withValues(alpha: 0.05),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                         blurRadius: 10,
                         offset: const Offset(0, 2),
                       ),
@@ -273,7 +273,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.deepNavy.withValues(alpha: 0.05),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                         blurRadius: 10,
                         offset: const Offset(0, 2),
                       ),
@@ -313,7 +313,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.textPrimary,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -334,7 +334,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.deepNavy.withValues(alpha: 0.05),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                         blurRadius: 10,
                         offset: const Offset(0, 2),
                       ),
@@ -374,7 +374,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.deepNavy.withValues(alpha: 0.05),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                         blurRadius: 10,
                         offset: const Offset(0, 2),
                       ),
@@ -421,7 +421,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy.withValues(alpha: 0.05),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Column(
@@ -453,7 +453,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                   child: ElevatedButton(
                     onPressed: _isLoading ? null : _saveProfile,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.safetyOrange,
+                      backgroundColor: const Color(0xFFFF9800),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -485,10 +485,10 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: AppColors.safetyOrange.withValues(alpha: 0.1),
+                    color: const Color(0xFFFF9800).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColors.safetyOrange.withValues(alpha: 0.3),
+                      color: const Color(0xFFFF9800).withValues(alpha: 0.3),
                     ),
                   ),
                   child: Row(
@@ -496,7 +496,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: AppColors.safetyOrange,
+                          color: const Color(0xFFFF9800),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Icon(
@@ -513,7 +513,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                             'Role',
                             style: TextStyle(
                               fontSize: 12,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                           Text(
@@ -521,7 +521,7 @@ class _SupervisorProfileScreenState extends State<SupervisorProfileScreen> {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: AppColors.textPrimary,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                         ],

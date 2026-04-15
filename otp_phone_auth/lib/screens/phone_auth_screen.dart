@@ -91,7 +91,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                       ],
                     ),
                     child: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: AppColors.deepNavy),
+                      icon: const Icon(Icons.arrow_back, color: const Color(0xFF1A1A2E)),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
@@ -114,11 +114,11 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                     Container(
                       padding: const EdgeInsets.all(24),
                       decoration: BoxDecoration(
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.deepNavy.withValues(alpha: 0.15),
+                            color: const Color(0xFF1A1A2E).withValues(alpha: 0.15),
                             blurRadius: 12,
                             offset: const Offset(0, 4),
                           ),
@@ -138,7 +138,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                         style: const TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.textPrimary,
+                          color: const Color(0xFF1A1A2E),
                         ),
                         textAlign: TextAlign.center,
                     ),
@@ -149,15 +149,15 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                     Container(
                       padding: const EdgeInsets.all(24),
                       decoration: BoxDecoration(
-                        color: AppColors.cleanWhite,
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: AppColors.borderColor,
+                          color: const Color(0xFFE5E7EB),
                           width: 0.5,
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.deepNavy.withValues(alpha: 0.08),
+                            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
                             blurRadius: 8,
                             offset: const Offset(0, 2),
                           ),
@@ -171,7 +171,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: AppColors.textPrimary,
+                              color: const Color(0xFF1A1A2E),
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -180,7 +180,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                             'We will send you a verification code',
                             style: TextStyle(
                               fontSize: 14,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -190,7 +190,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                           IntlPhoneField(
                             controller: _phoneController,
                             style: const TextStyle(
-                              color: AppColors.textPrimary,
+                              color: const Color(0xFF1A1A2E),
                               fontSize: 16,
                             ),
                             decoration: const InputDecoration(
@@ -199,7 +199,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                             ),
                             initialCountryCode: 'IN',
                             dropdownTextStyle: const TextStyle(
-                              color: AppColors.textPrimary,
+                              color: const Color(0xFF1A1A2E),
                             ),
                             dropdownIconPosition: IconPosition.trailing,
                             onChanged: (phone) {

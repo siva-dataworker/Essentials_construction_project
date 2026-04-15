@@ -92,10 +92,10 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Text('Bills & Agreements - ${widget.siteName}'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
         bottom: TabBar(
           controller: _tabController,
@@ -121,7 +121,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
         onPressed: () => _showUploadDialog(),
         icon: const Icon(Icons.add),
         label: const Text('Add Bill/Agreement'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
       ),
     );
@@ -129,7 +129,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
 
   Widget _buildMaterialBillsTab() {
     if (_isLoadingMaterial) {
-      return const Center(child: CircularProgressIndicator(color: AppColors.deepNavy));
+      return const Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)));
     }
     
     if (_materialBills.isEmpty) {
@@ -143,7 +143,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
     
     return RefreshIndicator(
       onRefresh: _loadMaterialBills,
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _materialBills.length,
@@ -157,7 +157,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
 
   Widget _buildVendorBillsTab() {
     if (_isLoadingVendor) {
-      return const Center(child: CircularProgressIndicator(color: AppColors.deepNavy));
+      return const Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)));
     }
     
     if (_vendorBills.isEmpty) {
@@ -171,7 +171,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
     
     return RefreshIndicator(
       onRefresh: _loadVendorBills,
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _vendorBills.length,
@@ -185,7 +185,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
 
   Widget _buildAgreementsTab() {
     if (_isLoadingAgreements) {
-      return const Center(child: CircularProgressIndicator(color: AppColors.deepNavy));
+      return const Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)));
     }
     
     if (_agreements.isEmpty) {
@@ -199,7 +199,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
     
     return RefreshIndicator(
       onRefresh: _loadAgreements,
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _agreements.length,
@@ -221,16 +221,16 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 80, color: AppColors.textSecondary),
+          Icon(icon, size: 80, color: const Color(0xFF6B7280)),
           const SizedBox(height: 16),
           Text(
             title,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
           ),
           const SizedBox(height: 8),
           Text(
             subtitle,
-            style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+            style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
           ),
           const SizedBox(height: 24),
           ElevatedButton.icon(
@@ -238,7 +238,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
             icon: const Icon(Icons.upload_file),
             label: const Text('Upload Now'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.deepNavy,
+              backgroundColor: const Color(0xFF1A1A2E),
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
@@ -259,9 +259,9 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Material(
         color: Colors.transparent,
@@ -294,13 +294,13 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
                           Text(
                             '${bill['vendor_type']} • ${bill['material_type']}',
-                            style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                            style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                           ),
                         ],
                       ),
@@ -338,7 +338,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                         const SizedBox(height: 4),
                         Text(
                           bill['bill_date'] ?? '',
-                          style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                          style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                         ),
                       ],
                     ),
@@ -350,12 +350,12 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         Text(
                           '${bill['quantity']} ${bill['unit']}',
-                          style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                          style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                         ),
                       ],
                     ),
@@ -380,9 +380,9 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Material(
         color: Colors.transparent,
@@ -415,13 +415,13 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
                           Text(
                             '${bill['vendor_type']} • ${bill['service_type']}',
-                            style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                            style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                           ),
                         ],
                       ),
@@ -459,7 +459,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                         const SizedBox(height: 4),
                         Text(
                           bill['bill_date'] ?? '',
-                          style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                          style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                         ),
                       ],
                     ),
@@ -468,7 +468,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                   ],
@@ -492,9 +492,9 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Material(
         color: Colors.transparent,
@@ -527,7 +527,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -535,7 +535,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                           const SizedBox(height: 4),
                           Text(
                             agreement['agreement_type'] ?? '',
-                            style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                            style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                           ),
                         ],
                       ),
@@ -573,7 +573,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                         const SizedBox(height: 4),
                         Text(
                           '${agreement['party_type']} • ${agreement['agreement_date']}',
-                          style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                          style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                         ),
                       ],
                     ),
@@ -583,7 +583,7 @@ class _AccountantBillsScreenState extends State<AccountantBillsScreen> with Sing
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                   ],

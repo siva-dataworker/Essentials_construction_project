@@ -1796,7 +1796,7 @@ class _SupervisorDashboardFeedState extends State<SupervisorDashboardFeed> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: const Text('Material usage recorded successfully'),
-              backgroundColor: AppColors.success,
+              backgroundColor: const Color(0xFF4CAF50),
             ),
           );
         },

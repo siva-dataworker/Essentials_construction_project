@@ -265,7 +265,7 @@ class SummaryCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.06),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -300,7 +300,7 @@ class SummaryCard extends StatelessWidget {
               title,
               style: const TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -346,7 +346,7 @@ class EntryCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.04),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.04),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -378,7 +378,7 @@ class EntryCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -386,7 +386,7 @@ class EntryCard extends StatelessWidget {
                         subtitle,
                         style: const TextStyle(
                           fontSize: 14,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -409,7 +409,7 @@ class EntryCard extends StatelessWidget {
                           unit!,
                           style: const TextStyle(
                             fontSize: 12,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                     ],
@@ -483,13 +483,13 @@ class DetailRow extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 6),
       child: Row(
         children: [
-          Icon(icon, size: 16, color: iconColor ?? AppColors.textSecondary),
+          Icon(icon, size: 16, color: iconColor ?? const Color(0xFF6B7280)),
           const SizedBox(width: 8),
           Text(
             '$label: ',
             style: const TextStyle(
               fontSize: 13,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -498,7 +498,7 @@ class DetailRow extends StatelessWidget {
               value ?? 'N/A',
               style: const TextStyle(
                 fontSize: 13,
-                color: AppColors.textPrimary,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -528,7 +528,7 @@ class SectionHeader extends StatelessWidget {
       child: Row(
         children: [
           if (icon != null) ...[
-            Icon(icon, size: 20, color: AppColors.deepNavy),
+            Icon(icon, size: 20, color: const Color(0xFF1A1A2E)),
             const SizedBox(width: 8),
           ],
           Text(
@@ -536,7 +536,7 @@ class SectionHeader extends StatelessWidget {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const Spacer(),

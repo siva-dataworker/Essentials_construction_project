@@ -70,25 +70,25 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text(
           'Site Comparison',
           style: TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
       ),
       body: Column(
         children: [
           // Site selectors
           Container(
             padding: const EdgeInsets.all(16),
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             child: Column(
               children: [
                 Row(
@@ -102,7 +102,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 8),
@@ -113,7 +113,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               filled: true,
-                              fillColor: AppColors.lightSlate,
+                              fillColor: const Color(0xFFF8F9FA),
                               contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 12,
                                 vertical: 8,
@@ -138,7 +138,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8),
-                      child: Icon(Icons.compare_arrows, color: AppColors.safetyOrange),
+                      child: Icon(Icons.compare_arrows, color: const Color(0xFFFF9800)),
                     ),
                     Expanded(
                       child: Column(
@@ -149,7 +149,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 8),
@@ -160,7 +160,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               filled: true,
-                              fillColor: AppColors.lightSlate,
+                              fillColor: const Color(0xFFF8F9FA),
                               contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 12,
                                 vertical: 8,
@@ -189,7 +189,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                 ElevatedButton(
                   onPressed: _isLoading ? null : _compareSites,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.safetyOrange,
+                    backgroundColor: const Color(0xFFFF9800),
                     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 32),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -227,14 +227,14 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                         Icon(
                           Icons.compare_arrows,
                           size: 80,
-                          color: AppColors.textSecondary.withOpacity(0.5),
+                          color: const Color(0xFF6B7280).withOpacity(0.5),
                         ),
                         const SizedBox(height: 16),
                         Text(
                           'Select two sites to compare',
                           style: TextStyle(
                             fontSize: 16,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                       ],
@@ -294,21 +294,21 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         children: [
           Row(
             children: [
-              Icon(icon, color: AppColors.safetyOrange, size: 20),
+              Icon(icon, color: const Color(0xFFFF9800), size: 20),
               const SizedBox(width: 8),
               Text(
                 label,
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ],
@@ -320,7 +320,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: AppColors.lightSlate,
+                    color: const Color(0xFFF8F9FA),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
@@ -329,7 +329,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                 ),
@@ -339,7 +339,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: AppColors.lightSlate,
+                    color: const Color(0xFFF8F9FA),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
@@ -348,7 +348,7 @@ class _AdminSiteComparisonScreenState extends State<AdminSiteComparisonScreen> {
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                 ),

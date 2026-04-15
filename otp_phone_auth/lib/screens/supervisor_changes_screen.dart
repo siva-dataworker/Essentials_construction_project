@@ -44,27 +44,27 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
         });
 
         return Scaffold(
-          backgroundColor: AppColors.lightSlate,
+          backgroundColor: const Color(0xFFF8F9FA),
           appBar: AppBar(
             title: const Text(
               'Modified Entries',
               style: TextStyle(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            backgroundColor: AppColors.cleanWhite,
+            backgroundColor: Colors.white,
             elevation: 0,
-            iconTheme: const IconThemeData(color: AppColors.deepNavy),
+            iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
           ),
           body: isLoading
               ? const Center(
-                  child: CircularProgressIndicator(color: AppColors.deepNavy),
+                  child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                 )
               : RefreshIndicator(
                   onRefresh: () => provider.loadModifiedEntries(forceRefresh: true),
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   child: allEntries.isEmpty
                       ? _buildEmptyState()
                       : _buildEntriesList(allEntries),
@@ -82,7 +82,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
           Icon(
             Icons.edit_off,
             size: 80,
-            color: AppColors.textSecondary.withValues(alpha: 0.5),
+            color: const Color(0xFF6B7280).withValues(alpha: 0.5),
           ),
           const SizedBox(height: 16),
           const Text(
@@ -90,7 +90,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 8),
@@ -98,7 +98,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
             'Entries modified by accountant will appear here',
             style: TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
             textAlign: TextAlign.center,
           ),
@@ -132,7 +132,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ),
@@ -153,15 +153,15 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.statusOverdue.withValues(alpha: 0.5),
+          color: const Color(0xFFF44336).withValues(alpha: 0.5),
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -176,20 +176,20 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: AppColors.statusOverdue.withValues(alpha: 0.15),
+                color: const Color(0xFFF44336).withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.edit, size: 14, color: AppColors.statusOverdue),
+                  Icon(Icons.edit, size: 14, color: const Color(0xFFF44336)),
                   SizedBox(width: 4),
                   Text(
                     'MODIFIED',
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.statusOverdue,
+                      color: const Color(0xFFF44336),
                       letterSpacing: 0.5,
                     ),
                   ),
@@ -203,10 +203,10 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy.withValues(alpha: 0.1),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Icon(Icons.person, size: 18, color: AppColors.deepNavy),
+                  child: const Icon(Icons.person, size: 18, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -217,7 +217,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                         'Modified by',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                       Text(
@@ -225,7 +225,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                     ],
@@ -240,7 +240,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -251,7 +251,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                   child: _buildInfoChip(
                     Icons.engineering,
                     entry['labour_type'] ?? 'General',
-                    AppColors.deepNavy,
+                    const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -259,7 +259,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                   child: _buildInfoChip(
                     Icons.groups,
                     '${entry['labour_count'] ?? 0} Workers',
-                    AppColors.statusCompleted,
+                    const Color(0xFF4CAF50),
                   ),
                 ),
               ],
@@ -269,7 +269,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -277,14 +277,14 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                   children: [
                     const Row(
                       children: [
-                        Icon(Icons.info_outline, size: 16, color: AppColors.deepNavy),
+                        Icon(Icons.info_outline, size: 16, color: const Color(0xFF1A1A2E)),
                         SizedBox(width: 6),
                         Text(
                           'Reason for Change',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ],
@@ -294,7 +294,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                       entry['modification_reason'],
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -311,15 +311,15 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.statusOverdue.withValues(alpha: 0.5),
+          color: const Color(0xFFF44336).withValues(alpha: 0.5),
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -334,20 +334,20 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: AppColors.statusOverdue.withValues(alpha: 0.15),
+                color: const Color(0xFFF44336).withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.edit, size: 14, color: AppColors.statusOverdue),
+                  Icon(Icons.edit, size: 14, color: const Color(0xFFF44336)),
                   SizedBox(width: 4),
                   Text(
                     'MODIFIED',
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.statusOverdue,
+                      color: const Color(0xFFF44336),
                       letterSpacing: 0.5,
                     ),
                   ),
@@ -361,10 +361,10 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy.withValues(alpha: 0.1),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Icon(Icons.person, size: 18, color: AppColors.deepNavy),
+                  child: const Icon(Icons.person, size: 18, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -375,7 +375,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                         'Modified by',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                       Text(
@@ -383,7 +383,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                     ],
@@ -398,7 +398,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -409,7 +409,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                   child: _buildInfoChip(
                     Icons.category,
                     entry['material_type'] ?? 'Unknown',
-                    AppColors.deepNavy,
+                    const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -417,7 +417,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                   child: _buildInfoChip(
                     Icons.straighten,
                     '${entry['quantity'] ?? 0} ${entry['unit'] ?? ''}',
-                    AppColors.statusCompleted,
+                    const Color(0xFF4CAF50),
                   ),
                 ),
               ],
@@ -427,7 +427,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -435,14 +435,14 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                   children: [
                     const Row(
                       children: [
-                        Icon(Icons.info_outline, size: 16, color: AppColors.deepNavy),
+                        Icon(Icons.info_outline, size: 16, color: const Color(0xFF1A1A2E)),
                         SizedBox(width: 6),
                         Text(
                           'Reason for Change',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ],
@@ -452,7 +452,7 @@ class _SupervisorChangesScreenState extends State<SupervisorChangesScreen> {
                       entry['modification_reason'],
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],

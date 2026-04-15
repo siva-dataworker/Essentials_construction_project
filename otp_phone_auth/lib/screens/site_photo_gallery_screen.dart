@@ -49,7 +49,7 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('Failed to load photos: ${response.body}'),
-              backgroundColor: AppColors.statusOverdue,
+              backgroundColor: const Color(0xFFF44336),
             ),
           );
         }
@@ -60,7 +60,7 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error loading photos: $e'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -75,15 +75,15 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text(
           'Photo Gallery',
-          style: TextStyle(color: AppColors.deepNavy, fontSize: 18, fontWeight: FontWeight.bold),
+          style: TextStyle(color: const Color(0xFF1A1A2E), fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -98,18 +98,18 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(16),
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   widget.site['display_name'] ?? widget.site['site_name'] ?? 'Unknown Site',
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   '${widget.site['area'] ?? ''}, ${widget.site['street'] ?? ''}',
-                  style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
                 ),
               ],
             ),
@@ -118,7 +118,7 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
           // Filter Chips
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             child: Row(
               children: [
                 _buildFilterChip('ALL', 'All Photos'),
@@ -133,12 +133,12 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
           // Photos Grid
           Expanded(
             child: _isLoading
-                ? const Center(child: CircularProgressIndicator(color: AppColors.deepNavy))
+                ? const Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)))
                 : _filteredPhotos.isEmpty
                     ? _buildEmptyState()
                     : RefreshIndicator(
                         onRefresh: _loadPhotos,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         child: GridView.builder(
                           padding: const EdgeInsets.all(16),
                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -166,10 +166,10 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 10),
           decoration: BoxDecoration(
-            color: isSelected ? AppColors.deepNavy : AppColors.lightSlate,
+            color: isSelected ? const Color(0xFF1A1A2E) : const Color(0xFFF8F9FA),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: isSelected ? AppColors.deepNavy : AppColors.deepNavy.withValues(alpha: 0.2),
+              color: isSelected ? const Color(0xFF1A1A2E) : const Color(0xFF1A1A2E).withValues(alpha: 0.2),
               width: isSelected ? 2 : 1,
             ),
           ),
@@ -179,7 +179,7 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
             style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.bold,
-              color: isSelected ? Colors.white : AppColors.deepNavy,
+              color: isSelected ? Colors.white : const Color(0xFF1A1A2E),
             ),
           ),
         ),
@@ -198,9 +198,9 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
       onTap: () => _openFullScreen(index),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-          boxShadow: [AppColors.cardShadow],
+          boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -214,14 +214,14 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
                   fit: BoxFit.cover,
                   width: double.infinity,
                   placeholder: (context, url) => Container(
-                    color: AppColors.lightSlate,
+                    color: const Color(0xFFF8F9FA),
                     child: const Center(
-                      child: CircularProgressIndicator(color: AppColors.deepNavy, strokeWidth: 2),
+                      child: CircularProgressIndicator(color: const Color(0xFF1A1A2E), strokeWidth: 2),
                     ),
                   ),
                   errorWidget: (context, url, error) => Container(
-                    color: AppColors.lightSlate,
-                    child: const Icon(Icons.broken_image, size: 48, color: AppColors.textSecondary),
+                    color: const Color(0xFFF8F9FA),
+                    child: const Icon(Icons.broken_image, size: 48, color: const Color(0xFF6B7280)),
                   ),
                 ),
               ),
@@ -246,7 +246,7 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
                           style: const TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ),
@@ -255,13 +255,13 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
                   const SizedBox(height: 6),
                   Text(
                     _formatDate(photo['update_date']),
-                    style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                    style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                   ),
                   if (photo['description'] != null && photo['description'].toString().isNotEmpty) ...[
                     const SizedBox(height: 6),
                     Text(
                       photo['description'],
-                      style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                      style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -269,12 +269,12 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
                   const SizedBox(height: 6),
                   Row(
                     children: [
-                      Icon(Icons.person, size: 12, color: AppColors.textSecondary),
+                      Icon(Icons.person, size: 12, color: const Color(0xFF6B7280)),
                       const SizedBox(width: 4),
                       Expanded(
                         child: Text(
                           photo['uploaded_by'] ?? 'Unknown',
-                          style: TextStyle(fontSize: 10, color: AppColors.textSecondary),
+                          style: TextStyle(fontSize: 10, color: const Color(0xFF6B7280)),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -295,18 +295,18 @@ class _SitePhotoGalleryScreenState extends State<SitePhotoGalleryScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.photo_library, size: 80, color: AppColors.textSecondary.withValues(alpha: 0.5)),
+          Icon(Icons.photo_library, size: 80, color: const Color(0xFF6B7280).withValues(alpha: 0.5)),
           const SizedBox(height: 16),
           const Text(
             'No Photos Yet',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
           ),
           const SizedBox(height: 8),
           Text(
             _filterType == 'ALL'
                 ? 'Photos will appear here when uploaded'
                 : 'No ${_filterType == "STARTED" ? "morning" : "evening"} photos yet',
-            style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+            style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
           ),
         ],
       ),

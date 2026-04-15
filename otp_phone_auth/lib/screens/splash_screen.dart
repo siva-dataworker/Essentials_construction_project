@@ -87,8 +87,8 @@ class _SplashScreenState extends State<SplashScreen>
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              AppColors.deepNavy,
-              AppColors.deepNavyLight,
+              const Color(0xFF1A1A2E),
+              const Color(0xFF1A1A2E)Light,
               Color(0xFF42A5F5),
             ],
             stops: [0.0, 0.5, 1.0],
@@ -149,7 +149,7 @@ class _SplashScreenState extends State<SplashScreen>
                           child: const LinearProgressIndicator(
                             backgroundColor: Colors.white24,
                             valueColor: AlwaysStoppedAnimation<Color>(
-                              AppColors.safetyOrange,
+                              const Color(0xFFFF9800),
                             ),
                             minHeight: 4,
                           ),
@@ -198,7 +198,7 @@ return Container(
                       return const Icon(
                         Icons.business,
                         size: 64,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       );
                     },
                   ),

@@ -69,10 +69,10 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text('Working Sites'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -85,10 +85,10 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
       ),
       body: RefreshIndicator(
         onRefresh: _loadWorkingSites,
-        color: AppColors.safetyOrange,
+        color: const Color(0xFFFF9800),
         child: _isLoading
             ? const Center(
-                child: CircularProgressIndicator(color: AppColors.deepNavy),
+                child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
               )
             : _workingSites.isEmpty
                 ? _buildEmptyState()
@@ -112,7 +112,7 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
           Icon(
             Icons.work_outline,
             size: 80,
-            color: AppColors.textSecondary,
+            color: const Color(0xFF6B7280),
           ),
           const SizedBox(height: 16),
           const Text(
@@ -120,7 +120,7 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 8),
@@ -128,7 +128,7 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
             'Your accountant will assign sites to you',
             style: TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
         ],
@@ -140,9 +140,9 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Material(
         color: Colors.transparent,
@@ -160,7 +160,7 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(
-                        gradient: AppColors.navyGradient,
+                        gradient: LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Icon(
@@ -176,14 +176,14 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                     ),
                     const Icon(
                       Icons.arrow_forward_ios,
                       size: 16,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ],
                 ),
@@ -194,7 +194,7 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: AppColors.lightSlate,
+                      color: const Color(0xFFF8F9FA),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
@@ -203,7 +203,7 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
                         Icon(
                           Icons.info_outline,
                           size: 18,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                         const SizedBox(width: 8),
                         Expanded(
@@ -211,7 +211,7 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
                             site['description'],
                             style: const TextStyle(
                               fontSize: 13,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                         ),
@@ -228,14 +228,14 @@ class _WorkingSitesScreenState extends State<WorkingSitesScreen> {
                       Icon(
                         Icons.calendar_today,
                         size: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                       const SizedBox(width: 6),
                       Text(
                         'Assigned: ${site['assigned_date']}',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],

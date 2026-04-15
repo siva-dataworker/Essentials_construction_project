@@ -310,7 +310,7 @@ class _SimpleBudgetScreenState extends State<SimpleBudgetScreen> {
               icon: const Icon(Icons.add),
               label: const Text('Create New Area / Street / Site'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.safetyOrange,
+                backgroundColor: const Color(0xFFFF9800),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
               ),
