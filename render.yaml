@@ -5,14 +5,16 @@ services:
     region: singapore
     plan: free
     branch: main
-    buildCommand: "cd django-backend && pip install -r requirements.txt"
-    startCommand: "cd django-backend && gunicorn backend.wsgi:application"
+    buildCommand: "cd django-backend && chmod +x build.sh && ./build.sh"
+    startCommand: "cd django-backend && gunicorn backend.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
-        value: False
+        value: "False"
       - key: ALLOWED_HOSTS
-        value: "*"
+        value: ".onrender.com"
+      - key: DJANGO_SETTINGS_MODULE
+        value: "backend.settings"
