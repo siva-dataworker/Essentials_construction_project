@@ -25,7 +25,7 @@ class OptimizedLoading extends StatelessWidget {
             height: size,
             child: CircularProgressIndicator(
               strokeWidth: 3,
-              color: color ?? AppColors.primary,
+              color: color ?? const Color(0xFF1A1A2E),
             ),
           ),
           if (message != null) ...[
@@ -33,7 +33,7 @@ class OptimizedLoading extends StatelessWidget {
             Text(
               message!,
               style: TextStyle(
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontSize: 14,
               ),
             ),
@@ -104,7 +104,7 @@ class _SkeletonItemState extends State<_SkeletonItem>
           height: widget.height,
           margin: EdgeInsets.only(bottom: 12),
           decoration: BoxDecoration(
-            color: AppColors.textSecondary.withOpacity(_animation.value),
+            color: const Color(0xFF6B7280).withOpacity(_animation.value),
             borderRadius: BorderRadius.circular(12),
           ),
         );

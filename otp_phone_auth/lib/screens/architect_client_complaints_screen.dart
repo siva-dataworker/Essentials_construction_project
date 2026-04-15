@@ -85,9 +85,9 @@ class _ArchitectClientComplaintsScreenState extends State<ArchitectClientComplai
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         title: const Text('Client Complaints', style: TextStyle(color: Colors.white)),
         iconTheme: const IconThemeData(color: Colors.white),
         actions: [
@@ -111,7 +111,7 @@ class _ArchitectClientComplaintsScreenState extends State<ArchitectClientComplai
       ),
       body: RefreshIndicator(
         onRefresh: _loadComplaints,
-        color: AppColors.deepNavy,
+        color: const Color(0xFF1A1A2E),
         child: _isLoading
             ? const Center(child: CircularProgressIndicator())
             : _complaints.isEmpty
@@ -181,7 +181,7 @@ class _ArchitectClientComplaintsScreenState extends State<ArchitectClientComplai
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.deepNavy.withOpacity(0.05),
+                color: const Color(0xFF1A1A2E).withOpacity(0.05),
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
               ),
               child: Row(
@@ -195,7 +195,7 @@ class _ArchitectClientComplaintsScreenState extends State<ArchitectClientComplai
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         const SizedBox(height: 4),

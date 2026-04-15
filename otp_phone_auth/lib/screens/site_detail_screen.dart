@@ -101,9 +101,9 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.light(
-              primary: AppColors.deepNavy,
+              primary: const Color(0xFF1A1A2E),
               onPrimary: Colors.white,
-              onSurface: AppColors.deepNavy,
+              onSurface: const Color(0xFF1A1A2E),
             ),
           ),
           child: child!,
@@ -295,17 +295,17 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       body: RefreshIndicator(
         onRefresh: _forceRefresh,
-        color: AppColors.safetyOrange,
+        color: const Color(0xFFFF9800),
         child: CustomScrollView(
           slivers: [
             // Site Header
             SliverAppBar(
               expandedHeight: 280,
               pinned: true,
-              backgroundColor: AppColors.deepNavy,
+              backgroundColor: const Color(0xFF1A1A2E),
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () => Navigator.pop(context),
@@ -376,8 +376,8 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          AppColors.lightSlate,
-                          AppColors.deepNavy.withValues(alpha: 0.9),
+                          const Color(0xFFF8F9FA),
+                          const Color(0xFF1A1A2E).withValues(alpha: 0.9),
                         ],
                       ),
                     ),
@@ -418,7 +418,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                             value: 0.65,
                             minHeight: 8,
                             backgroundColor: Colors.white.withValues(alpha: 0.3),
-                            valueColor: const AlwaysStoppedAnimation<Color>(AppColors.safetyOrange),
+                            valueColor: const AlwaysStoppedAnimation<Color>(const Color(0xFFFF9800)),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -449,13 +449,13 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.deepNavy.withValues(alpha: 0.1),
+                          color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Material(
@@ -471,7 +471,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                                   const Icon(
                                     Icons.calendar_today,
                                     size: 16,
-                                    color: AppColors.deepNavy,
+                                    color: const Color(0xFF1A1A2E),
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
@@ -479,7 +479,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                                     style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
-                                      color: AppColors.deepNavy,
+                                      color: const Color(0xFF1A1A2E),
                                     ),
                                   ),
                                 ],
@@ -495,21 +495,21 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
-                      color: AppColors.statusCompleted.withValues(alpha: 0.1),
+                      color: const Color(0xFF4CAF50).withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: AppColors.statusCompleted.withValues(alpha: 0.3)),
+                      border: Border.all(color: const Color(0xFF4CAF50).withValues(alpha: 0.3)),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.access_time, size: 14, color: AppColors.statusCompleted),
+                        const Icon(Icons.access_time, size: 14, color: const Color(0xFF4CAF50)),
                         const SizedBox(width: 6),
                         Text(
                           'IST: ${TimeValidator.formatISTTime(TimeValidator.getISTTime())}',
                           style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.statusCompleted,
+                            color: const Color(0xFF4CAF50),
                           ),
                         ),
                       ],
@@ -517,7 +517,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                   ),
                   const SizedBox(height: 16),
                   if (_isLoading)
-                    const Center(child: CircularProgressIndicator(color: AppColors.safetyOrange))
+                    const Center(child: CircularProgressIndicator(color: const Color(0xFFFF9800)))
                   else if (_todayEntries == null || (_todayEntries!['labour_entries']?.isEmpty ?? true) && (_todayEntries!['material_entries']?.isEmpty ?? true))
                     _buildEmptyState()
                   else
@@ -538,7 +538,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
     return Container(
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -547,22 +547,22 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
             width: 80,
             height: 80,
             decoration: BoxDecoration(
-              color: AppColors.lightSlate,
+              color: const Color(0xFFF8F9FA),
               shape: BoxShape.circle,
             ),
-            child: const Icon(Icons.add_circle_outline, size: 40, color: AppColors.deepNavy),
+            child: const Icon(Icons.add_circle_outline, size: 40, color: const Color(0xFF1A1A2E)),
           ),
           const SizedBox(height: 16),
           Text(
             _isToday() ? 'No entries yet today' : 'No entries for this date',
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
           ),
           const SizedBox(height: 8),
           Text(
             _isToday() 
                 ? 'Tap the + button to add labour or materials'
                 : 'No data was recorded on this date',
-            style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+            style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
             textAlign: TextAlign.center,
           ),
         ],
@@ -625,9 +625,9 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Column(
         children: [
@@ -648,10 +648,10 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: isExpanded ? AppColors.deepNavy.withValues(alpha: 0.05) : Colors.transparent,
+                  color: isExpanded ? const Color(0xFF1A1A2E).withValues(alpha: 0.05) : Colors.transparent,
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: isExpanded ? AppColors.deepNavy.withValues(alpha: 0.2) : Colors.transparent,
+                    color: isExpanded ? const Color(0xFF1A1A2E).withValues(alpha: 0.2) : Colors.transparent,
                     width: 1,
                   ),
                 ),
@@ -661,13 +661,13 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                     Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        gradient: isExpanded ? AppColors.navyGradient : null,
-                        color: isExpanded ? null : AppColors.deepNavy.withValues(alpha: 0.1),
+                        gradient: isExpanded ? LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)], begin: Alignment.topLeft, end: Alignment.bottomRight) : null,
+                        color: isExpanded ? null : const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Icon(
                         Icons.calendar_today,
-                        color: isExpanded ? Colors.white : AppColors.deepNavy,
+                        color: isExpanded ? Colors.white : const Color(0xFF1A1A2E),
                         size: 20,
                       ),
                     ),
@@ -683,7 +683,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -693,7 +693,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                                   decoration: BoxDecoration(
-                                    color: AppColors.safetyOrange.withValues(alpha: 0.1),
+                                    color: const Color(0xFFFF9800).withValues(alpha: 0.1),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: Text(
@@ -701,7 +701,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                                     style: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
-                                      color: AppColors.safetyOrange,
+                                      color: const Color(0xFFFF9800),
                                     ),
                                   ),
                                 ),
@@ -711,7 +711,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                                   decoration: BoxDecoration(
-                                    color: AppColors.statusCompleted.withValues(alpha: 0.1),
+                                    color: const Color(0xFF4CAF50).withValues(alpha: 0.1),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: Text(
@@ -719,7 +719,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                                     style: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
-                                      color: AppColors.statusCompleted,
+                                      color: const Color(0xFF4CAF50),
                                     ),
                                   ),
                                 ),
@@ -729,7 +729,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                   decoration: BoxDecoration(
-                                    color: AppColors.deepNavy.withValues(alpha: 0.1),
+                                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                                     borderRadius: BorderRadius.circular(6),
                                   ),
                                   child: const Text(
@@ -737,7 +737,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                                     style: TextStyle(
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold,
-                                      color: AppColors.deepNavy,
+                                      color: const Color(0xFF1A1A2E),
                                     ),
                                   ),
                                 ),
@@ -754,7 +754,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                       duration: const Duration(milliseconds: 200),
                       child: Icon(
                         Icons.keyboard_arrow_down,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         size: 24,
                       ),
                     ),
@@ -773,7 +773,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
               child: Column(
                 children: [
-                  const Divider(color: AppColors.lightSlate, height: 1),
+                  const Divider(color: const Color(0xFFF8F9FA), height: 1),
                   const SizedBox(height: 16),
                   // Labour entries
                   ...labourEntries.map((entry) => _buildLabourCard(entry)),
@@ -820,10 +820,10 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.safetyOrange.withValues(alpha: 0.05),
+        color: const Color(0xFFFF9800).withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.safetyOrange.withValues(alpha: 0.2),
+          color: const Color(0xFFFF9800).withValues(alpha: 0.2),
           width: 1,
         ),
       ),
@@ -833,7 +833,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              gradient: AppColors.orangeGradient,
+              gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
               borderRadius: BorderRadius.circular(10),
             ),
             child: const Icon(Icons.people, color: Colors.white, size: 20),
@@ -848,7 +848,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -856,7 +856,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                   '${entry['labour_count']} workers',
                   style: TextStyle(
                     fontSize: 13,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
                 if (entry['entry_time'] != null) ...[
@@ -865,7 +865,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                     'Time: ${entry['entry_time']}',
                     style: TextStyle(
                       fontSize: 11,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                       fontStyle: FontStyle.italic,
                     ),
                   ),
@@ -876,7 +876,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
-              gradient: AppColors.orangeGradient,
+              gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -898,10 +898,10 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.statusCompleted.withValues(alpha: 0.05),
+        color: const Color(0xFF4CAF50).withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.statusCompleted.withValues(alpha: 0.2),
+          color: const Color(0xFF4CAF50).withValues(alpha: 0.2),
           width: 1,
         ),
       ),
@@ -911,7 +911,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              gradient: AppColors.greenGradient,
+              gradient: LinearGradient(colors: [Color(0xFF4CAF50), Color(0xFF2E7D32)], begin: Alignment.topLeft, end: Alignment.bottomRight),
               borderRadius: BorderRadius.circular(10),
             ),
             child: const Icon(Icons.inventory_2, color: Colors.white, size: 20),
@@ -926,7 +926,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -934,7 +934,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                   '${entry['quantity']} ${entry['unit'] ?? 'units'}',
                   style: TextStyle(
                     fontSize: 13,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
                 if (entry['entry_time'] != null) ...[
@@ -943,7 +943,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
                     'Time: ${entry['entry_time']}',
                     style: TextStyle(
                       fontSize: 11,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                       fontStyle: FontStyle.italic,
                     ),
                   ),
@@ -956,7 +956,7 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: AppColors.statusCompleted,
+              color: const Color(0xFF4CAF50),
             ),
           ),
         ],
@@ -969,11 +969,11 @@ class _SiteDetailScreenState extends State<SiteDetailScreen> {
       width: 64,
       height: 64,
       decoration: BoxDecoration(
-        gradient: AppColors.orangeGradient,
+        gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: AppColors.safetyOrange.withValues(alpha: 0.4),
+            color: const Color(0xFFFF9800).withValues(alpha: 0.4),
             blurRadius: 16,
             offset: const Offset(0, 8),
           ),
@@ -1009,7 +1009,7 @@ class _QuickActionsSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
       ),
       padding: const EdgeInsets.all(24),
@@ -1020,21 +1020,21 @@ class _QuickActionsSheet extends StatelessWidget {
             width: 40,
             height: 4,
             decoration: BoxDecoration(
-              color: AppColors.textSecondary.withValues(alpha: 0.3),
+              color: const Color(0xFF6B7280).withValues(alpha: 0.3),
               borderRadius: BorderRadius.circular(2),
             ),
           ),
           const SizedBox(height: 24),
           const Text(
             'Quick Actions',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
           ),
           const SizedBox(height: 24),
           _buildActionCard(
             icon: Icons.people_outline,
             title: 'Labour Count',
             subtitle: 'Add workers by type',
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             onTap: onLabourTap,
           ),
           const SizedBox(height: 16),
@@ -1042,7 +1042,7 @@ class _QuickActionsSheet extends StatelessWidget {
             icon: Icons.inventory_2_outlined,
             title: 'Material Balance',
             subtitle: 'Update materials',
-            color: AppColors.statusCompleted,
+            color: const Color(0xFF4CAF50),
             onTap: onMaterialTap,
           ),
           const SizedBox(height: 16),
@@ -1050,7 +1050,7 @@ class _QuickActionsSheet extends StatelessWidget {
             icon: Icons.add_a_photo_outlined,
             title: 'Add Photo',
             subtitle: 'Upload site progress pictures',
-            color: AppColors.safetyOrange,
+            color: const Color(0xFFFF9800),
             onTap: onPhotoTap,
           ),
           const SizedBox(height: 16),
@@ -1100,7 +1100,7 @@ class _QuickActionsSheet extends StatelessWidget {
                   children: [
                     Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: color)),
                     const SizedBox(height: 4),
-                    Text(subtitle, style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                    Text(subtitle, style: TextStyle(fontSize: 13, color: const Color(0xFF6B7280))),
                   ],
                 ),
               ),
@@ -1336,7 +1336,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
       ),
       padding: EdgeInsets.only(
@@ -1353,7 +1353,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
             children: [
               const Text(
                 '👷 Labour Count',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
               ),
               const Spacer(),
               Column(
@@ -1362,7 +1362,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      gradient: AppColors.orangeGradient,
+                      gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Text(
@@ -1433,18 +1433,18 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
           // Tab Bar
           Container(
             decoration: BoxDecoration(
-              color: AppColors.lightSlate,
+              color: const Color(0xFFF8F9FA),
               borderRadius: BorderRadius.circular(12),
             ),
             child: TabBar(
               controller: _tabController,
               onTap: (_) => setState(() {}),
               indicator: BoxDecoration(
-                gradient: AppColors.orangeGradient,
+                gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                 borderRadius: BorderRadius.circular(12),
               ),
               labelColor: Colors.white,
-              unselectedLabelColor: AppColors.textSecondary,
+              unselectedLabelColor: const Color(0xFF6B7280),
               labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               unselectedLabelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               tabs: const [
@@ -1573,7 +1573,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
         ElevatedButton(
           onPressed: _totalCount > 0 && !_isSubmitting ? () => _submit(isMorning) : null,
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.safetyOrange,
+            backgroundColor: const Color(0xFFFF9800),
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
@@ -1655,7 +1655,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
             const Center(
               child: Padding(
                 padding: EdgeInsets.all(24),
-                child: CircularProgressIndicator(color: AppColors.safetyOrange),
+                child: CircularProgressIndicator(color: const Color(0xFFFF9800)),
               ),
             )
           else if (_morningData != null && _morningData!['entries'] != null)
@@ -1689,7 +1689,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
           // Evening History Section
           if (_isLoadingEveningData)
             const Center(
-              child: CircularProgressIndicator(color: AppColors.safetyOrange),
+              child: CircularProgressIndicator(color: const Color(0xFFFF9800)),
             )
           else if (_eveningHistoryData.isEmpty)
             Center(
@@ -1924,19 +1924,19 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: AppColors.deepNavy.withValues(alpha: 0.1),
+                color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
                 children: [
-                  Icon(Icons.calendar_today, size: 16, color: AppColors.deepNavy),
+                  Icon(Icons.calendar_today, size: 16, color: const Color(0xFF1A1A2E)),
                   const SizedBox(width: 8),
                   Text(
                     _formatDate(date),
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const Spacer(),
@@ -1998,7 +1998,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.deepNavy.withValues(alpha: 0.2),
+          color: const Color(0xFF1A1A2E).withValues(alpha: 0.2),
           width: 2,
         ),
         boxShadow: [
@@ -2018,7 +2018,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Icon(icon, color: Colors.white, size: 20),
@@ -2033,7 +2033,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     if (entryTime != null)
@@ -2052,7 +2052,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   Text(
@@ -2153,10 +2153,10 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.deepNavy.withValues(alpha: 0.05),
+        color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.deepNavy.withValues(alpha: 0.2),
+          color: const Color(0xFF1A1A2E).withValues(alpha: 0.2),
           width: 2,
         ),
       ),
@@ -2166,7 +2166,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(icon, color: Colors.white, size: 20),
@@ -2181,7 +2181,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 Text(
@@ -2198,7 +2198,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: BoxDecoration(
-              gradient: AppColors.orangeGradient,
+              gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(
@@ -2237,10 +2237,10 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: count > 0 ? AppColors.deepNavy.withValues(alpha: 0.05) : AppColors.lightSlate,
+        color: count > 0 ? const Color(0xFF1A1A2E).withValues(alpha: 0.05) : const Color(0xFFF8F9FA),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: count > 0 ? AppColors.deepNavy.withValues(alpha: 0.2) : Colors.transparent,
+          color: count > 0 ? const Color(0xFF1A1A2E).withValues(alpha: 0.2) : Colors.transparent,
           width: 2,
         ),
       ),
@@ -2250,7 +2250,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: count > 0 ? AppColors.deepNavy : AppColors.textSecondary,
+              color: count > 0 ? const Color(0xFF1A1A2E) : const Color(0xFF6B7280),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(icon, color: Colors.white, size: 20),
@@ -2265,7 +2265,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: count > 0 ? FontWeight.bold : FontWeight.w500,
-                    color: count > 0 ? AppColors.deepNavy : AppColors.textSecondary,
+                    color: count > 0 ? const Color(0xFF1A1A2E) : const Color(0xFF6B7280),
                   ),
                 ),
                 Text(
@@ -2274,7 +2274,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                       : '₹${rate.toStringAsFixed(0)}/day',
                   style: TextStyle(
                     fontSize: 12,
-                    color: count > 0 ? Colors.green.shade700 : AppColors.textSecondary,
+                    color: count > 0 ? Colors.green.shade700 : const Color(0xFF6B7280),
                     fontWeight: count > 0 ? FontWeight.w600 : FontWeight.normal,
                   ),
                 ),
@@ -2286,14 +2286,14 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
               IconButton(
                 onPressed: () => setState(() => labourCounts[type] = (count - 1).clamp(0, 50)),
                 icon: const Icon(Icons.remove_circle_outline, size: 32),
-                color: count > 0 ? AppColors.safetyOrange : AppColors.textSecondary,
+                color: count > 0 ? const Color(0xFFFF9800) : const Color(0xFF6B7280),
               ),
               Container(
                 width: 50,
                 height: 40,
                 decoration: BoxDecoration(
-                  gradient: count > 0 ? AppColors.orangeGradient : null,
-                  color: count == 0 ? AppColors.lightSlate : null,
+                  gradient: count > 0 ? LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight) : null,
+                  color: count == 0 ? const Color(0xFFF8F9FA) : null,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
@@ -2302,7 +2302,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: count > 0 ? Colors.white : AppColors.textSecondary,
+                      color: count > 0 ? Colors.white : const Color(0xFF6B7280),
                     ),
                   ),
                 ),
@@ -2310,7 +2310,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
               IconButton(
                 onPressed: () => setState(() => labourCounts[type] = (count + 1).clamp(0, 50)),
                 icon: const Icon(Icons.add_circle_outline, size: 32),
-                color: AppColors.safetyOrange,
+                color: const Color(0xFFFF9800),
               ),
             ],
           ),
@@ -2417,7 +2417,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                 ? '$successCount labour types submitted successfully!'
                 : '⚠️ $successCount labour types submitted (Late entry - Admin notified)',
             ),
-            backgroundColor: isOnTime ? AppColors.statusCompleted : Colors.orange,
+            backgroundColor: isOnTime ? const Color(0xFF4CAF50) : Colors.orange,
             duration: Duration(seconds: isOnTime ? 2 : 4),
           ),
         );
@@ -2450,23 +2450,23 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.deepNavy.withValues(alpha: 0.05),
+        color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.deepNavy.withValues(alpha: 0.2)),
+        border: Border.all(color: const Color(0xFF1A1A2E).withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(Icons.access_time, size: 20, color: AppColors.deepNavy),
+              Icon(Icons.access_time, size: 20, color: const Color(0xFF1A1A2E)),
               const SizedBox(width: 8),
               const Text(
                 'Entry Time',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ],
@@ -2479,20 +2479,20 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                 child: Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: AppColors.lightSlate,
+                    color: const Color(0xFFF8F9FA),
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: AppColors.deepNavy.withValues(alpha: 0.15)),
+                    border: Border.all(color: const Color(0xFF1A1A2E).withValues(alpha: 0.15)),
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.calendar_today, size: 18, color: AppColors.textSecondary),
+                      Icon(Icons.calendar_today, size: 18, color: const Color(0xFF6B7280)),
                       const SizedBox(width: 8),
                       Text(
                         _formatDateTime(selectedDateTime),
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -2509,18 +2509,18 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.deepNavy.withValues(alpha: 0.3)),
+                      border: Border.all(color: const Color(0xFF1A1A2E).withValues(alpha: 0.3)),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.schedule, size: 18, color: AppColors.deepNavy),
+                        Icon(Icons.schedule, size: 18, color: const Color(0xFF1A1A2E)),
                         const SizedBox(width: 8),
                         Text(
                           _formatTime(selectedDateTime),
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ],
@@ -2535,7 +2535,7 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
             'Today: ${_formatDateTime(selectedDateTime)} • Tap time to change',
             style: TextStyle(
               fontSize: 12,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
               fontStyle: FontStyle.italic,
             ),
           ),
@@ -2566,9 +2566,9 @@ class _LabourEntrySheetState extends State<_LabourEntrySheet> with SingleTickerP
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.light(
-              primary: AppColors.deepNavy,
+              primary: const Color(0xFF1A1A2E),
               onPrimary: Colors.white,
-              onSurface: AppColors.deepNavy,
+              onSurface: const Color(0xFF1A1A2E),
             ),
           ),
           child: child!,
@@ -2679,7 +2679,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
       ),
       padding: EdgeInsets.only(
@@ -2696,13 +2696,13 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
             children: [
               const Text(
                 '📦 Material Balance',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
               ),
               const Spacer(),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  gradient: AppColors.greenGradient,
+                  gradient: LinearGradient(colors: [Color(0xFF4CAF50), Color(0xFF2E7D32)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -2759,18 +2759,18 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
           // Tab Bar
           Container(
             decoration: BoxDecoration(
-              color: AppColors.lightSlate,
+              color: const Color(0xFFF8F9FA),
               borderRadius: BorderRadius.circular(12),
             ),
             child: TabBar(
               controller: _tabController,
               onTap: (_) => setState(() {}),
               indicator: BoxDecoration(
-                gradient: AppColors.greenGradient,
+                gradient: LinearGradient(colors: [Color(0xFF4CAF50), Color(0xFF2E7D32)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                 borderRadius: BorderRadius.circular(12),
               ),
               labelColor: Colors.white,
-              unselectedLabelColor: AppColors.textSecondary,
+              unselectedLabelColor: const Color(0xFF6B7280),
               labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               unselectedLabelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               tabs: const [
@@ -2808,7 +2808,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(40),
-                child: CircularProgressIndicator(color: AppColors.primary),
+                child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
               ),
             )
           else if (_materialQuantities.isEmpty)
@@ -2816,22 +2816,22 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
               height: 200,
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: AppColors.lightSlate,
+                color: const Color(0xFFF8F9FA),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.borderColor),
+                border: Border.all(color: const Color(0xFFE5E7EB)),
               ),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.inventory_2_outlined, size: 60, color: AppColors.textSecondary),
+                    Icon(Icons.inventory_2_outlined, size: 60, color: const Color(0xFF6B7280)),
                     const SizedBox(height: 16),
                     Text(
                       'No materials available',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -2839,7 +2839,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                       'Site Engineer needs to add materials first',
                       style: TextStyle(
                         fontSize: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -2928,7 +2928,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
         ElevatedButton(
           onPressed: _totalItems > 0 && !_isSubmitting ? _submit : null,
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.statusCompleted,
+            backgroundColor: const Color(0xFF4CAF50),
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
@@ -2957,7 +2957,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
             ? Center(
                 child: Padding(
                   padding: EdgeInsets.all(40),
-                  child: CircularProgressIndicator(color: AppColors.primary),
+                  child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                 ),
               )
             : _availableMaterials.isEmpty
@@ -2965,22 +2965,22 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                     height: 400,
                     padding: EdgeInsets.all(24),
                     decoration: BoxDecoration(
-                      color: AppColors.lightSlate,
+                      color: const Color(0xFFF8F9FA),
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: AppColors.borderColor),
+                      border: Border.all(color: const Color(0xFFE5E7EB)),
                     ),
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.inventory_2_outlined, size: 80, color: AppColors.textSecondary),
+                          Icon(Icons.inventory_2_outlined, size: 80, color: const Color(0xFF6B7280)),
                           SizedBox(height: 16),
                           Text(
                             'No materials available',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.textPrimary,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           SizedBox(height: 8),
@@ -2988,7 +2988,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                             'Site Engineer needs to add materials to inventory first',
                             style: TextStyle(
                               fontSize: 14,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -3022,14 +3022,14 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppColors.statusCompleted.withValues(alpha: 0.1),
-            AppColors.statusCompleted.withValues(alpha: 0.05),
+            const Color(0xFF4CAF50).withValues(alpha: 0.1),
+            const Color(0xFF4CAF50).withValues(alpha: 0.05),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.statusCompleted.withValues(alpha: 0.3), width: 2),
+        border: Border.all(color: const Color(0xFF4CAF50).withValues(alpha: 0.3), width: 2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -3040,7 +3040,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                 width: 50,
                 height: 50,
                 decoration: BoxDecoration(
-                  gradient: AppColors.greenGradient,
+                  gradient: LinearGradient(colors: [Color(0xFF4CAF50), Color(0xFF2E7D32)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(icon, color: Colors.white, size: 26),
@@ -3055,7 +3055,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -3063,7 +3063,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                       'Unit: $unit',
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -3078,20 +3078,20 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.statusCompleted.withValues(alpha: 0.2)),
+              border: Border.all(color: const Color(0xFF4CAF50).withValues(alpha: 0.2)),
             ),
             child: Row(
               children: [
                 Expanded(
                   child: Column(
                     children: [
-                      Icon(Icons.inventory, color: AppColors.statusCompleted, size: 28),
+                      Icon(Icons.inventory, color: const Color(0xFF4CAF50), size: 28),
                       const SizedBox(height: 8),
                       Text(
                         'Available',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -3101,14 +3101,14 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.statusCompleted,
+                          color: const Color(0xFF4CAF50),
                         ),
                       ),
                       Text(
                         unit,
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -3117,18 +3117,18 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                 Container(
                   width: 1,
                   height: 80,
-                  color: AppColors.borderColor,
+                  color: const Color(0xFFE5E7EB),
                 ),
                 Expanded(
                   child: Column(
                     children: [
-                      Icon(Icons.trending_down, color: AppColors.safetyOrange, size: 28),
+                      Icon(Icons.trending_down, color: const Color(0xFFFF9800), size: 28),
                       const SizedBox(height: 8),
                       Text(
                         'Total Used',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -3138,14 +3138,14 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.safetyOrange,
+                          color: const Color(0xFFFF9800),
                         ),
                       ),
                       Text(
                         unit,
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -3176,10 +3176,10 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: quantity > 0 ? AppColors.statusCompleted.withValues(alpha: 0.05) : AppColors.lightSlate,
+        color: quantity > 0 ? const Color(0xFF4CAF50).withValues(alpha: 0.05) : const Color(0xFFF8F9FA),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: quantity > 0 ? AppColors.statusCompleted.withValues(alpha: 0.2) : Colors.transparent,
+          color: quantity > 0 ? const Color(0xFF4CAF50).withValues(alpha: 0.2) : Colors.transparent,
           width: 2,
         ),
       ),
@@ -3192,7 +3192,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: quantity > 0 ? AppColors.statusCompleted : AppColors.textSecondary,
+                  color: quantity > 0 ? const Color(0xFF4CAF50) : const Color(0xFF6B7280),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Icon(icon, color: Colors.white, size: 20),
@@ -3207,7 +3207,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: quantity > 0 ? FontWeight.bold : FontWeight.w500,
-                        color: quantity > 0 ? AppColors.deepNavy : AppColors.textSecondary,
+                        color: quantity > 0 ? const Color(0xFF1A1A2E) : const Color(0xFF6B7280),
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -3217,7 +3217,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                           'Available: ',
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -3225,7 +3225,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                           '${availableBalance.toInt()} $unit',
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.statusCompleted,
+                            color: const Color(0xFF4CAF50),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -3237,7 +3237,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                         'Using: ${quantity.toInt()} $unit',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.safetyOrange,
+                          color: const Color(0xFFFF9800),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -3248,7 +3248,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
               IconButton(
                 onPressed: () => setState(() => _materialQuantities[type] = 0),
                 icon: const Icon(Icons.refresh, size: 24),
-                color: quantity > 0 ? AppColors.safetyOrange : AppColors.textSecondary,
+                color: quantity > 0 ? const Color(0xFFFF9800) : const Color(0xFF6B7280),
               ),
             ],
           ),
@@ -3261,8 +3261,8 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                   min: 0,
                   max: availableBalance > 0 ? availableBalance : 100,
                   divisions: (availableBalance > 0 ? availableBalance : 100).toInt(),
-                  activeColor: AppColors.statusCompleted,
-                  inactiveColor: AppColors.lightSlate,
+                  activeColor: const Color(0xFF4CAF50),
+                  inactiveColor: const Color(0xFFF8F9FA),
                   onChanged: (value) => setState(() => _materialQuantities[type] = value),
                 ),
               ),
@@ -3274,7 +3274,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: quantity > 0 ? AppColors.statusCompleted : AppColors.textSecondary,
+                    color: quantity > 0 ? const Color(0xFF4CAF50) : const Color(0xFF6B7280),
                   ),
                   textAlign: TextAlign.right,
                 ),
@@ -3400,8 +3400,8 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
               : '❌ ${result['error']}'
           ),
           backgroundColor: result['success'] 
-            ? (isOnTime ? AppColors.statusCompleted : Colors.orange)
-            : AppColors.statusOverdue,
+            ? (isOnTime ? const Color(0xFF4CAF50) : Colors.orange)
+            : const Color(0xFFF44336),
           duration: Duration(seconds: result['success'] && !isOnTime ? 4 : 2),
         ),
       );
@@ -3412,23 +3412,23 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.statusCompleted.withValues(alpha: 0.05),
+        color: const Color(0xFF4CAF50).withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.statusCompleted.withValues(alpha: 0.2)),
+        border: Border.all(color: const Color(0xFF4CAF50).withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(Icons.access_time, size: 20, color: AppColors.statusCompleted),
+              Icon(Icons.access_time, size: 20, color: const Color(0xFF4CAF50)),
               const SizedBox(width: 8),
               const Text(
                 'Entry Time',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.statusCompleted,
+                  color: const Color(0xFF4CAF50),
                 ),
               ),
             ],
@@ -3444,18 +3444,18 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.statusCompleted.withValues(alpha: 0.3)),
+                      border: Border.all(color: const Color(0xFF4CAF50).withValues(alpha: 0.3)),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.calendar_today, size: 18, color: AppColors.statusCompleted),
+                        Icon(Icons.calendar_today, size: 18, color: const Color(0xFF4CAF50)),
                         const SizedBox(width: 8),
                         Text(
                           _formatDate(_selectedDateTime),
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.statusCompleted,
+                            color: const Color(0xFF4CAF50),
                           ),
                         ),
                       ],
@@ -3472,18 +3472,18 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.statusCompleted.withValues(alpha: 0.3)),
+                      border: Border.all(color: const Color(0xFF4CAF50).withValues(alpha: 0.3)),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.schedule, size: 18, color: AppColors.statusCompleted),
+                        Icon(Icons.schedule, size: 18, color: const Color(0xFF4CAF50)),
                         const SizedBox(width: 8),
                         Text(
                           _formatTime(_selectedDateTime),
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.statusCompleted,
+                            color: const Color(0xFF4CAF50),
                           ),
                         ),
                       ],
@@ -3498,7 +3498,7 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
             'Selected: ${_formatDate(_selectedDateTime)} at ${_formatTime(_selectedDateTime)} • Tap to change',
             style: TextStyle(
               fontSize: 12,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
               fontStyle: FontStyle.italic,
             ),
           ),
@@ -3529,9 +3529,9 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.light(
-              primary: AppColors.statusCompleted,
+              primary: const Color(0xFF4CAF50),
               onPrimary: Colors.white,
-              onSurface: AppColors.statusCompleted,
+              onSurface: const Color(0xFF4CAF50),
             ),
           ),
           child: child!,
@@ -3561,9 +3561,9 @@ class _MaterialEntrySheetState extends State<_MaterialEntrySheet> with SingleTic
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.light(
-              primary: AppColors.statusCompleted,
+              primary: const Color(0xFF4CAF50),
               onPrimary: Colors.white,
-              onSurface: AppColors.statusCompleted,
+              onSurface: const Color(0xFF4CAF50),
             ),
           ),
           child: child!,
@@ -3608,7 +3608,7 @@ class _ConfirmationDialog extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -3619,7 +3619,7 @@ class _ConfirmationDialog extends StatelessWidget {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                gradient: isLabour ? AppColors.navyGradient : AppColors.greenGradient,
+                gradient: isLabour ? LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)], begin: Alignment.topLeft, end: Alignment.bottomRight) : LinearGradient(colors: [Color(0xFF4CAF50), Color(0xFF2E7D32)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                 shape: BoxShape.circle,
               ),
               child: Icon(
@@ -3634,7 +3634,7 @@ class _ConfirmationDialog extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
               textAlign: TextAlign.center,
             ),
@@ -3643,7 +3643,7 @@ class _ConfirmationDialog extends StatelessWidget {
               'Please review your entries',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
               textAlign: TextAlign.center,
             ),
@@ -3675,7 +3675,7 @@ class _ConfirmationDialog extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                gradient: isLabour ? AppColors.orangeGradient : AppColors.greenGradient,
+                gradient: isLabour ? LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight) : LinearGradient(colors: [Color(0xFF4CAF50), Color(0xFF2E7D32)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -3707,7 +3707,7 @@ class _ConfirmationDialog extends StatelessWidget {
                     onPressed: () => Navigator.pop(context, false),
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 14),
-                      side: const BorderSide(color: AppColors.textSecondary),
+                      side: const BorderSide(color: const Color(0xFF6B7280)),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -3717,7 +3717,7 @@ class _ConfirmationDialog extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ),
@@ -3727,7 +3727,7 @@ class _ConfirmationDialog extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () => Navigator.pop(context, true),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: isLabour ? AppColors.safetyOrange : AppColors.statusCompleted,
+                      backgroundColor: isLabour ? const Color(0xFFFF9800) : const Color(0xFF4CAF50),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -3756,7 +3756,7 @@ class _ConfirmationDialog extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.lightSlate,
+        color: const Color(0xFFF8F9FA),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -3765,7 +3765,7 @@ class _ConfirmationDialog extends StatelessWidget {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(_getLabourIcon(type), color: Colors.white, size: 18),
@@ -3777,14 +3777,14 @@ class _ConfirmationDialog extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              gradient: AppColors.orangeGradient,
+              gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -3806,7 +3806,7 @@ class _ConfirmationDialog extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.lightSlate,
+        color: const Color(0xFFF8F9FA),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -3815,7 +3815,7 @@ class _ConfirmationDialog extends StatelessWidget {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              color: AppColors.statusCompleted,
+              color: const Color(0xFF4CAF50),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(_getMaterialIcon(type), color: Colors.white, size: 18),
@@ -3827,7 +3827,7 @@ class _ConfirmationDialog extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -3836,7 +3836,7 @@ class _ConfirmationDialog extends StatelessWidget {
             style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
-              color: AppColors.statusCompleted,
+              color: const Color(0xFF4CAF50),
             ),
           ),
         ],

@@ -106,14 +106,14 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
         final uniqueStreets = _getUniqueStreets(allSites);
 
         return Scaffold(
-          backgroundColor: AppColors.lightSlate,
+          backgroundColor: const Color(0xFFF8F9FA),
           body: CustomScrollView(
             slivers: [
               // Header
               SliverAppBar(
                 floating: true,
                 snap: true,
-                backgroundColor: AppColors.cleanWhite,
+                backgroundColor: Colors.white,
                 elevation: 0,
                 toolbarHeight: 70,
                 title: Row(
@@ -156,7 +156,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                             style: const TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                               letterSpacing: -0.5,
                             ),
                           ),
@@ -176,7 +176,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                                 'Architect',
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -195,7 +195,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                         IconButton(
                           icon: Icon(
                             _showFilters ? Icons.filter_alt : Icons.filter_alt_outlined,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                             size: 26,
                           ),
                           onPressed: () => setState(() => _showFilters = !_showFilters),
@@ -217,7 +217,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                     ),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.logout_rounded, color: AppColors.deepNavy, size: 24),
+                    icon: const Icon(Icons.logout_rounded, color: const Color(0xFF1A1A2E), size: 24),
                     onPressed: _logout,
                   ),
                   const SizedBox(width: 8),
@@ -227,13 +227,13 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
               // Search Bar
               SliverToBoxAdapter(
                 child: Container(
-                  color: AppColors.cleanWhite,
+                  color: Colors.white,
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   child: Column(
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.lightSlate,
+                          color: const Color(0xFFF8F9FA),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: TextField(
@@ -242,13 +242,13 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           decoration: InputDecoration(
                             hintText: 'Search sites, areas, streets...',
                             hintStyle: TextStyle(
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                               fontSize: 15,
                             ),
-                            prefixIcon: const Icon(Icons.search, color: AppColors.deepNavy, size: 24),
+                            prefixIcon: const Icon(Icons.search, color: const Color(0xFF1A1A2E), size: 24),
                             suffixIcon: _searchQuery.isNotEmpty
                                 ? IconButton(
-                                    icon: const Icon(Icons.clear, color: AppColors.textSecondary),
+                                    icon: const Icon(Icons.clear, color: const Color(0xFF6B7280)),
                                     onPressed: () {
                                       _searchController.clear();
                                       setState(() => _searchQuery = '');
@@ -287,7 +287,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         if (filteredSites.length != allSites.length) ...[
@@ -295,7 +295,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                             ' of ${allSites.length}',
                             style: TextStyle(
                               fontSize: 14,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                         ],
@@ -315,13 +315,13 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: AppColors.lightSlate,
+                            color: const Color(0xFFF8F9FA),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
                             allSites.isEmpty ? Icons.location_city_outlined : Icons.search_off,
                             size: 50,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                         const SizedBox(height: 24),
@@ -330,7 +330,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -340,7 +340,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                               : 'Try adjusting your filters',
                           style: TextStyle(
                             fontSize: 14,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                         if (allSites.isNotEmpty) ...[
@@ -382,7 +382,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.lightSlate.withValues(alpha: 0.5),
+        color: const Color(0xFFF8F9FA).withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -390,14 +390,14 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
         children: [
           Row(
             children: [
-              const Icon(Icons.filter_list, size: 18, color: AppColors.deepNavy),
+              const Icon(Icons.filter_list, size: 18, color: const Color(0xFF1A1A2E)),
               const SizedBox(width: 8),
               const Text(
                 'Filters',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
               const Spacer(),
@@ -427,7 +427,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
           const SizedBox(height: 8),
@@ -459,7 +459,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
           const SizedBox(height: 8),
@@ -488,10 +488,10 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.purple.shade600 : AppColors.cleanWhite,
+          color: isSelected ? Colors.purple.shade600 : Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: isSelected ? Colors.purple.shade600 : AppColors.textSecondary.withValues(alpha: 0.3),
+            color: isSelected ? Colors.purple.shade600 : const Color(0xFF6B7280).withValues(alpha: 0.3),
             width: 1.5,
           ),
         ),
@@ -500,7 +500,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
           style: TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.w600,
-            color: isSelected ? AppColors.cleanWhite : AppColors.deepNavy,
+            color: isSelected ? Colors.white : const Color(0xFF1A1A2E),
           ),
         ),
       ),
@@ -588,11 +588,11 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
       child: Container(
         margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.08),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
               blurRadius: 20,
               offset: const Offset(0, 4),
             ),
@@ -627,21 +627,21 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                             letterSpacing: -0.3,
                           ),
                         ),
                         const SizedBox(height: 3),
                         Row(
                           children: [
-                            Icon(Icons.location_on, size: 14, color: AppColors.textSecondary),
+                            Icon(Icons.location_on, size: 14, color: const Color(0xFF6B7280)),
                             const SizedBox(width: 4),
                             Expanded(
                               child: Text(
                                 '${site['area']} • ${site['street']}',
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                   fontWeight: FontWeight.w500,
                                 ),
                                 overflow: TextOverflow.ellipsis,
@@ -685,7 +685,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
-                        color: AppColors.cleanWhite,
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -711,7 +711,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                         ],
@@ -850,7 +850,7 @@ class _EstimationSheetState extends State<_EstimationSheet> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
       ),
       padding: EdgeInsets.only(
@@ -886,14 +886,14 @@ class _EstimationSheetState extends State<_EstimationSheet> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     Text(
                       widget.site['display_name'] ?? 'Site',
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -910,7 +910,7 @@ class _EstimationSheetState extends State<_EstimationSheet> {
               prefixIcon: const Icon(Icons.currency_rupee),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
-              fillColor: AppColors.lightSlate,
+              fillColor: const Color(0xFFF8F9FA),
             ),
           ),
           const SizedBox(height: 16),
@@ -922,7 +922,7 @@ class _EstimationSheetState extends State<_EstimationSheet> {
               prefixIcon: const Icon(Icons.notes),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
-              fillColor: AppColors.lightSlate,
+              fillColor: const Color(0xFFF8F9FA),
             ),
           ),
           const SizedBox(height: 16),
@@ -933,7 +933,7 @@ class _EstimationSheetState extends State<_EstimationSheet> {
             subtitle: const Text('Will notify client & owner'),
             activeColor: Colors.blue.shade600,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            tileColor: AppColors.lightSlate,
+            tileColor: const Color(0xFFF8F9FA),
           ),
           const SizedBox(height: 24),
           ElevatedButton(
@@ -980,7 +980,7 @@ class _EstimationSheetState extends State<_EstimationSheet> {
                 ? '✅ Estimation uploaded! Client & owner notified.'
                 : '✅ Estimation uploaded successfully!',
           ),
-          backgroundColor: AppColors.statusCompleted,
+          backgroundColor: const Color(0xFF4CAF50),
         ),
       );
     }
@@ -1022,7 +1022,7 @@ class _PlansSheetState extends State<_PlansSheet> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
       ),
       padding: EdgeInsets.only(
@@ -1058,14 +1058,14 @@ class _PlansSheetState extends State<_PlansSheet> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     Text(
                       widget.site['display_name'] ?? 'Site',
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -1077,9 +1077,9 @@ class _PlansSheetState extends State<_PlansSheet> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              color: AppColors.lightSlate,
+              color: const Color(0xFFF8F9FA),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.textSecondary.withValues(alpha: 0.3)),
+              border: Border.all(color: const Color(0xFF6B7280).withValues(alpha: 0.3)),
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
@@ -1100,7 +1100,7 @@ class _PlansSheetState extends State<_PlansSheet> {
               prefixIcon: const Icon(Icons.title),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
-              fillColor: AppColors.lightSlate,
+              fillColor: const Color(0xFFF8F9FA),
             ),
           ),
           const SizedBox(height: 16),
@@ -1112,7 +1112,7 @@ class _PlansSheetState extends State<_PlansSheet> {
               prefixIcon: const Icon(Icons.description),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
-              fillColor: AppColors.lightSlate,
+              fillColor: const Color(0xFFF8F9FA),
             ),
           ),
           const SizedBox(height: 24),
@@ -1156,7 +1156,7 @@ class _PlansSheetState extends State<_PlansSheet> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('✅ Plan uploaded! Site engineers, owners & client notified.'),
-          backgroundColor: AppColors.statusCompleted,
+          backgroundColor: const Color(0xFF4CAF50),
         ),
       );
     }
@@ -1192,7 +1192,7 @@ class _ComplaintsSheetState extends State<_ComplaintsSheet> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
       ),
       padding: EdgeInsets.only(
@@ -1228,14 +1228,14 @@ class _ComplaintsSheetState extends State<_ComplaintsSheet> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     Text(
                       widget.site['display_name'] ?? 'Site',
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -1251,7 +1251,7 @@ class _ComplaintsSheetState extends State<_ComplaintsSheet> {
               prefixIcon: const Icon(Icons.title),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
-              fillColor: AppColors.lightSlate,
+              fillColor: const Color(0xFFF8F9FA),
             ),
           ),
           const SizedBox(height: 16),
@@ -1263,16 +1263,16 @@ class _ComplaintsSheetState extends State<_ComplaintsSheet> {
               prefixIcon: const Icon(Icons.description),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
-              fillColor: AppColors.lightSlate,
+              fillColor: const Color(0xFFF8F9FA),
             ),
           ),
           const SizedBox(height: 16),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              color: AppColors.lightSlate,
+              color: const Color(0xFFF8F9FA),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.textSecondary.withValues(alpha: 0.3)),
+              border: Border.all(color: const Color(0xFF6B7280).withValues(alpha: 0.3)),
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
@@ -1328,7 +1328,7 @@ class _ComplaintsSheetState extends State<_ComplaintsSheet> {
   Color _getPriorityColor(String priority) {
     switch (priority) {
       case 'LOW':
-        return AppColors.statusCompleted;
+        return const Color(0xFF4CAF50);
       case 'MEDIUM':
         return Colors.orange;
       case 'HIGH':
@@ -1357,7 +1357,7 @@ class _ComplaintsSheetState extends State<_ComplaintsSheet> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('✅ Complaint raised! Site engineer notified.'),
-          backgroundColor: AppColors.statusCompleted,
+          backgroundColor: const Color(0xFF4CAF50),
         ),
       );
     }

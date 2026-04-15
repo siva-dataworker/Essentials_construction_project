@@ -61,19 +61,19 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
         final isLoading = provider.isLoadingAccountantPhotos;
 
         return Scaffold(
-          backgroundColor: AppColors.lightSlate,
+          backgroundColor: const Color(0xFFF8F9FA),
           appBar: AppBar(
             title: const Text(
               'Site Photos',
               style: TextStyle(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            backgroundColor: AppColors.cleanWhite,
+            backgroundColor: Colors.white,
             elevation: 0,
-            iconTheme: const IconThemeData(color: AppColors.deepNavy),
+            iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
             actions: [
               IconButton(
                 icon: const Icon(Icons.refresh),
@@ -86,7 +86,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
             children: [
               // Filter Section
               Container(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +96,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -152,7 +152,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
               
               // Results Summary
               Container(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   children: [
@@ -161,7 +161,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const Spacer(),
@@ -176,7 +176,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                         icon: const Icon(Icons.clear, size: 16),
                         label: const Text('Clear Filters'),
                         style: TextButton.styleFrom(
-                          foregroundColor: AppColors.deepNavy,
+                          foregroundColor: const Color(0xFF1A1A2E),
                         ),
                       ),
                   ],
@@ -187,13 +187,13 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
               Expanded(
                 child: isLoading
                     ? const Center(
-                        child: CircularProgressIndicator(color: AppColors.deepNavy),
+                        child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                       )
                     : filteredPhotos.isEmpty
                         ? _buildEmptyState()
                         : RefreshIndicator(
                             onRefresh: _loadPhotos,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                             child: GridView.builder(
                               padding: const EdgeInsets.all(16),
                               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -222,10 +222,10 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: isSelected ? AppColors.deepNavy : AppColors.lightSlate,
+            color: isSelected ? const Color(0xFF1A1A2E) : const Color(0xFFF8F9FA),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: isSelected ? AppColors.deepNavy : AppColors.textSecondary.withValues(alpha: 0.3),
+              color: isSelected ? const Color(0xFF1A1A2E) : const Color(0xFF6B7280).withValues(alpha: 0.3),
             ),
           ),
           child: Text(
@@ -233,7 +233,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: isSelected ? AppColors.cleanWhite : AppColors.deepNavy,
+              color: isSelected ? Colors.white : const Color(0xFF1A1A2E),
             ),
           ),
         ),
@@ -252,11 +252,11 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
       onTap: () => _showPhotoDetail(photo),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.08),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -271,7 +271,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                 ),
                 child: ClipRRect(
@@ -281,21 +281,21 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
-                        color: AppColors.lightSlate,
+                        color: const Color(0xFFF8F9FA),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               Icons.image_not_supported,
                               size: 40,
-                              color: AppColors.textSecondary.withValues(alpha: 0.5),
+                              color: const Color(0xFF6B7280).withValues(alpha: 0.5),
                             ),
                             const SizedBox(height: 8),
                             Text(
                               'Image not available',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: AppColors.textSecondary.withValues(alpha: 0.7),
+                                color: const Color(0xFF6B7280).withValues(alpha: 0.7),
                               ),
                             ),
                           ],
@@ -305,10 +305,10 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                     loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) return child;
                       return Container(
-                        color: AppColors.lightSlate,
+                        color: const Color(0xFFF8F9FA),
                         child: Center(
                           child: CircularProgressIndicator(
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                             value: loadingProgress.expectedTotalBytes != null
                                 ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
                                 : null,
@@ -360,7 +360,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                       style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -372,7 +372,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                       'By ${photo['uploaded_by'] ?? 'Unknown'}',
                       style: TextStyle(
                         fontSize: 11,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -383,7 +383,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                       _formatDate(photo['update_date']),
                       style: TextStyle(
                         fontSize: 10,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -404,7 +404,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
           Icon(
             Icons.photo_library_outlined,
             size: 80,
-            color: AppColors.textSecondary.withValues(alpha: 0.5),
+            color: const Color(0xFF6B7280).withValues(alpha: 0.5),
           ),
           const SizedBox(height: 16),
           const Text(
@@ -412,7 +412,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 8),
@@ -423,7 +423,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
         ],
@@ -441,7 +441,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
             maxHeight: MediaQuery.of(context).size.height * 0.8,
           ),
           decoration: BoxDecoration(
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -451,7 +451,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: const BoxDecoration(
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 child: Row(
@@ -487,7 +487,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           height: 200,
-                          color: AppColors.lightSlate,
+                          color: const Color(0xFFF8F9FA),
                           child: const Center(
                             child: Text('Image not available'),
                           ),
@@ -533,7 +533,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
               '$label:',
               style: const TextStyle(
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -541,7 +541,7 @@ class _AccountantPhotosScreenState extends State<AccountantPhotosScreen> {
             child: Text(
               value,
               style: TextStyle(
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ),

@@ -111,9 +111,14 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        title: Text('Budget - ${widget.siteName}'),
-        backgroundColor: AppColors.primary,
+        title: Text(
+          'Budget - ${widget.siteName}',
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color(0xFF1A1A2E),
+        iconTheme: const IconThemeData(color: Colors.white),
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,
@@ -166,7 +171,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                 'Labour Budget',
                 _formatCurrency(_budgetAllocation!['labour_budget']),
                 Icons.people,
-                AppColors.safetyOrange,
+                const Color(0xFFFF9800),
               ),
             const SizedBox(height: 12),
             if (_budgetAllocation!['other_budget'] != null)
@@ -215,7 +220,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
             icon: const Icon(Icons.add),
             label: Text(_budgetAllocation == null ? 'Allocate Budget' : 'Update Budget'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primary,
+              backgroundColor: const Color(0xFF1A1A2E),
               foregroundColor: Colors.white,
               padding: const EdgeInsets.all(16),
             ),
@@ -240,7 +245,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
             child: Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.primary.withValues(alpha: 0.1),
+                color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                 borderRadius: _requirementsExpanded
                     ? const BorderRadius.vertical(top: Radius.circular(4))
                     : BorderRadius.circular(4),
@@ -250,10 +255,10 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: AppColors.primary.withValues(alpha: 0.2),
+                      color: const Color(0xFF1A1A2E).withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: const Icon(Icons.update, color: AppColors.primary, size: 20),
+                    child: const Icon(Icons.update, color: const Color(0xFF1A1A2E), size: 20),
                   ),
                   const SizedBox(width: 12),
                   const Expanded(
@@ -262,7 +267,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.primary,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                   ),
@@ -270,7 +275,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: AppColors.primary,
+                        color: const Color(0xFF1A1A2E),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
@@ -285,7 +290,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                   const SizedBox(width: 8),
                   Icon(
                     _requirementsExpanded ? Icons.expand_less : Icons.expand_more,
-                    color: AppColors.primary,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ],
               ),
@@ -332,15 +337,15 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                   return ListTile(
                     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     leading: CircleAvatar(
-                      backgroundColor: AppColors.safetyOrange.withValues(alpha: 0.2),
-                      child: const Icon(Icons.person, color: AppColors.safetyOrange, size: 20),
+                      backgroundColor: const Color(0xFFFF9800).withValues(alpha: 0.2),
+                      child: const Icon(Icons.person, color: const Color(0xFFFF9800), size: 20),
                     ),
                     title: Text(
                       req['description'] ?? 'No description',
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     subtitle: Column(
@@ -349,14 +354,14 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                         const SizedBox(height: 4),
                         Row(
                           children: [
-                            const Icon(Icons.location_on, size: 14, color: AppColors.deepNavy),
+                            const Icon(Icons.location_on, size: 14, color: const Color(0xFF1A1A2E)),
                             const SizedBox(width: 4),
                             Expanded(
                               child: Text(
                                 siteName,
                                 style: const TextStyle(
                                   fontSize: 13,
-                                  color: AppColors.deepNavy,
+                                  color: const Color(0xFF1A1A2E),
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -377,7 +382,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                     trailing: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
-                        color: AppColors.statusCompleted.withValues(alpha: 0.1),
+                        color: const Color(0xFF4CAF50).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
@@ -385,7 +390,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.statusCompleted,
+                          color: const Color(0xFF4CAF50),
                         ),
                       ),
                     ),
@@ -484,7 +489,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                 ),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: _buildSmallCard('Labour', _formatCurrency(summary['total_labour_cost']), AppColors.safetyOrange),
+                  child: _buildSmallCard('Labour', _formatCurrency(summary['total_labour_cost']), const Color(0xFFFF9800)),
                 ),
               ],
             ),
@@ -513,7 +518,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
               ...labourBreakdown.map((l) => Card(
                     margin: const EdgeInsets.only(bottom: 8),
                     child: ListTile(
-                      leading: const Icon(Icons.people, color: AppColors.safetyOrange),
+                      leading: const Icon(Icons.people, color: const Color(0xFFFF9800)),
                       title: Text(l['labour_type'] ?? 'Unknown'),
                       subtitle: Text('${l['total_count']} workers × ${_formatCurrency(l['avg_rate'])}/day'),
                       trailing: Text(_formatCurrency(l['total_cost']), style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -706,7 +711,7 @@ class _AdminBudgetManagementScreenState extends State<AdminBudgetManagementScree
                 }
               }
             },
-            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
+            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF1A1A2E)),
             child: const Text('Save'),
           ),
         ],

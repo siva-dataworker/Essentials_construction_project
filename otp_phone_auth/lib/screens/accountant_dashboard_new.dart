@@ -87,7 +87,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
           'Sign Out',
-          style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+          style: TextStyle(fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
         ),
         content: const Text('Are you sure you want to sign out?'),
         actions: [
@@ -95,13 +95,13 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             onPressed: () => Navigator.pop(context, false),
             child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: const Color(0xFF6B7280)),
             ),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.statusOverdue,
+              backgroundColor: const Color(0xFFF44336),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text(
@@ -152,43 +152,43 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
 
   Widget _buildDashboardScreen() {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Text(
           'Dashboard - ${widget.user.fullName}',
           style: const TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh, color: AppColors.deepNavy),
+            icon: const Icon(Icons.refresh, color: const Color(0xFF1A1A2E)),
             onPressed: _loadAccountantData,
           ),
           IconButton(
-            icon: const Icon(Icons.logout, color: AppColors.deepNavy),
+            icon: const Icon(Icons.logout, color: const Color(0xFF1A1A2E)),
             onPressed: _logout,
           ),
         ],
       ),
       body: RefreshIndicator(
         onRefresh: _loadAccountantData,
-        color: AppColors.deepNavy,
+        color: const Color(0xFF1A1A2E),
         child: _isLoading
             ? const Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircularProgressIndicator(color: AppColors.deepNavy),
+                    CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                     SizedBox(height: 16),
                     Text(
                       'Loading accountant data...',
                       style: TextStyle(
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         fontSize: 16,
                       ),
                     ),
@@ -203,7 +203,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                         Icon(
                           Icons.error_outline,
                           size: 64,
-                          color: AppColors.statusOverdue,
+                          color: const Color(0xFFF44336),
                         ),
                         const SizedBox(height: 16),
                         Text(
@@ -211,7 +211,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.statusOverdue,
+                            color: const Color(0xFFF44336),
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -219,14 +219,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                           _error!,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                         const SizedBox(height: 16),
                         ElevatedButton(
                           onPressed: _loadAccountantData,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.deepNavy,
+                            backgroundColor: const Color(0xFF1A1A2E),
                           ),
                           child: const Text(
                             'Retry',
@@ -240,7 +240,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _loadAccountantData,
-        backgroundColor: AppColors.safetyOrange,
+        backgroundColor: const Color(0xFFFF9800),
         child: const Icon(Icons.refresh, color: Colors.white),
       ),
     );
@@ -282,7 +282,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 16),
@@ -294,7 +294,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   'Labour Entries',
                   totalLabourEntries.toString(),
                   Icons.people,
-                  AppColors.statusCompleted,
+                  const Color(0xFF4CAF50),
                 ),
               ),
               const SizedBox(width: 12),
@@ -303,7 +303,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   'Material Entries',
                   totalMaterialEntries.toString(),
                   Icons.inventory_2,
-                  AppColors.deepNavy,
+                  const Color(0xFF1A1A2E),
                 ),
               ),
             ],
@@ -318,7 +318,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   'Total Workers',
                   totalWorkers.toString(),
                   Icons.engineering,
-                  AppColors.safetyOrange,
+                  const Color(0xFFFF9800),
                 ),
               ),
               const SizedBox(width: 12),
@@ -327,7 +327,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   'Active Sites',
                   uniqueSites.length.toString(),
                   Icons.location_city,
-                  AppColors.primaryPurple,
+                  const Color(0xFF9C27B0),
                 ),
               ),
             ],
@@ -341,7 +341,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 12),
@@ -359,7 +359,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 12),
@@ -377,7 +377,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 12),
@@ -392,7 +392,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 12),
@@ -413,7 +413,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -448,7 +448,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             title,
             style: const TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -468,7 +468,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.04),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -479,12 +479,12 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: AppColors.statusCompleted.withValues(alpha: 0.1),
+              color: const Color(0xFF4CAF50).withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Icon(
               Icons.people,
-              color: AppColors.statusCompleted,
+              color: const Color(0xFF4CAF50),
               size: 20,
             ),
           ),
@@ -498,7 +498,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -506,7 +506,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   fullSiteName,
                   style: const TextStyle(
                     fontSize: 14,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -514,7 +514,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   'Supervisor: ${entry['supervisor_name'] ?? 'Unknown'}',
                   style: const TextStyle(
                     fontSize: 12,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
               ],
@@ -528,14 +528,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.statusCompleted,
+                  color: const Color(0xFF4CAF50),
                 ),
               ),
               const Text(
                 'Workers',
                 style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
               ),
             ],
@@ -556,7 +556,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.04),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -567,12 +567,12 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: AppColors.deepNavy.withValues(alpha: 0.1),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Icon(
               Icons.inventory_2,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
               size: 20,
             ),
           ),
@@ -586,7 +586,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -594,7 +594,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   fullSiteName,
                   style: const TextStyle(
                     fontSize: 14,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -602,7 +602,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                   'Supervisor: ${entry['supervisor_name'] ?? 'Unknown'}',
                   style: const TextStyle(
                     fontSize: 12,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
               ],
@@ -616,14 +616,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
               Text(
                 entry['unit'] ?? '',
                 style: const TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
               ),
             ],
@@ -641,7 +641,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.04),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -652,14 +652,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         children: [
           Row(
             children: [
-              const Icon(Icons.location_city, color: AppColors.primaryPurple),
+              const Icon(Icons.location_city, color: const Color(0xFF9C27B0)),
               const SizedBox(width: 8),
               Text(
                 '${sites.length} Active Sites',
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ],
@@ -669,14 +669,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             padding: const EdgeInsets.only(bottom: 4),
             child: Row(
               children: [
-                const Icon(Icons.circle, size: 6, color: AppColors.textSecondary),
+                const Icon(Icons.circle, size: 6, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     site,
                     style: const TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ),
@@ -690,7 +690,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
                 'and ${sites.length - 5} more sites...',
                 style: const TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                   fontStyle: FontStyle.italic,
                 ),
               ),
@@ -708,7 +708,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.04),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -719,14 +719,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         children: [
           Row(
             children: [
-              const Icon(Icons.supervisor_account, color: AppColors.safetyOrange),
+              const Icon(Icons.supervisor_account, color: const Color(0xFFFF9800)),
               const SizedBox(width: 8),
               Text(
                 '${supervisors.length} Active Supervisors',
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ],
@@ -736,14 +736,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             padding: const EdgeInsets.only(bottom: 4),
             child: Row(
               children: [
-                const Icon(Icons.circle, size: 6, color: AppColors.textSecondary),
+                const Icon(Icons.circle, size: 6, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     supervisor,
                     style: const TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ),
@@ -763,7 +763,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.04),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -775,14 +775,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             Icon(
               icon,
               size: 48,
-              color: AppColors.textSecondary.withValues(alpha: 0.5),
+              color: const Color(0xFF6B7280).withValues(alpha: 0.5),
             ),
             const SizedBox(height: 12),
             Text(
               message,
               style: TextStyle(
                 fontSize: 16,
-                color: AppColors.textSecondary.withValues(alpha: 0.7),
+                color: const Color(0xFF6B7280).withValues(alpha: 0.7),
               ),
             ),
           ],
@@ -793,17 +793,17 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
 
   Widget _buildExportScreen() {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text(
           'Export Data',
           style: TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
       ),
       body: Center(
@@ -813,7 +813,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
             const Icon(
               Icons.file_download,
               size: 64,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
             const SizedBox(height: 16),
             const Text(
@@ -821,14 +821,14 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
             Text(
               'Export ${_labourEntries.length + _materialEntries.length} entries',
               style: const TextStyle(
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
             const SizedBox(height: 24),
@@ -837,7 +837,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
               icon: const Icon(Icons.download),
               label: const Text('Download Excel'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                 shape: RoundedRectangleBorder(
@@ -921,7 +921,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Excel file saved to: $filePath'),
-            backgroundColor: AppColors.statusCompleted,
+            backgroundColor: const Color(0xFF4CAF50),
             duration: const Duration(seconds: 3),
           ),
         );
@@ -931,7 +931,7 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error exporting: $e'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -951,10 +951,10 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
   Widget _buildBottomNavigationBar() {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.1),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
             blurRadius: 10,
             offset: const Offset(0, -2),
           ),
@@ -964,9 +964,9 @@ class _AccountantDashboardNewState extends State<AccountantDashboardNew> {
         currentIndex: _currentBottomIndex,
         onTap: (index) => setState(() => _currentBottomIndex = index),
         type: BottomNavigationBarType.fixed,
-        backgroundColor: AppColors.cleanWhite,
-        selectedItemColor: AppColors.deepNavy,
-        unselectedItemColor: AppColors.textSecondary,
+        backgroundColor: Colors.white,
+        selectedItemColor: const Color(0xFF1A1A2E),
+        unselectedItemColor: const Color(0xFF6B7280),
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
         unselectedLabelStyle: const TextStyle(fontSize: 11),
         items: const [

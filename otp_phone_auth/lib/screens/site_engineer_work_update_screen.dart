@@ -48,7 +48,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error picking image: $e'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -60,7 +60,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please select an image'),
-          backgroundColor: AppColors.statusOverdue,
+          backgroundColor: const Color(0xFFF44336),
         ),
       );
       return;
@@ -86,7 +86,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                   ? 'Morning update uploaded successfully'
                   : 'Evening update uploaded successfully',
             ),
-            backgroundColor: AppColors.statusCompleted,
+            backgroundColor: const Color(0xFF4CAF50),
           ),
         );
         Navigator.pop(context);
@@ -94,7 +94,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(result['error'] ?? 'Failed to upload'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -109,12 +109,12 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
     final icon = isMorning ? Icons.wb_sunny : Icons.nightlight;
 
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.deepNavy),
+          icon: const Icon(Icons.arrow_back, color: const Color(0xFF1A1A2E)),
           onPressed: () => Navigator.pop(context),
         ),
         title: Column(
@@ -125,14 +125,14 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             Text(
               subtitle,
               style: TextStyle(
                 fontSize: 12,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontWeight: FontWeight.normal,
               ),
             ),
@@ -149,13 +149,13 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: isMorning
-                    ? AppColors.statusPending.withValues(alpha: 0.1)
-                    : AppColors.statusCompleted.withValues(alpha: 0.1),
+                    ? const Color(0xFFFF9800).withValues(alpha: 0.1)
+                    : const Color(0xFF4CAF50).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
                   color: isMorning
-                      ? AppColors.statusPending.withValues(alpha: 0.3)
-                      : AppColors.statusCompleted.withValues(alpha: 0.3),
+                      ? const Color(0xFFFF9800).withValues(alpha: 0.3)
+                      : const Color(0xFF4CAF50).withValues(alpha: 0.3),
                   width: 1.5,
                 ),
               ),
@@ -165,7 +165,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                     width: 48,
                     height: 48,
                     decoration: BoxDecoration(
-                      color: isMorning ? AppColors.statusPending : AppColors.statusCompleted,
+                      color: isMorning ? const Color(0xFFFF9800) : const Color(0xFF4CAF50),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(icon, color: Colors.white, size: 26),
@@ -180,7 +180,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: isMorning ? AppColors.statusPending : AppColors.statusCompleted,
+                            color: isMorning ? const Color(0xFFFF9800) : const Color(0xFF4CAF50),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -190,7 +190,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                               : 'Upload work finished photo. This will be sent to the client.',
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                       ],
@@ -206,10 +206,10 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
               Container(
                 height: 300,
                 decoration: BoxDecoration(
-                  color: AppColors.cleanWhite,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: AppColors.deepNavy.withValues(alpha: 0.2),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.2),
                     width: 2,
                     style: BorderStyle.solid,
                   ),
@@ -220,7 +220,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                     Icon(
                       Icons.add_photo_alternate_outlined,
                       size: 80,
-                      color: AppColors.textSecondary.withValues(alpha: 0.5),
+                      color: const Color(0xFF6B7280).withValues(alpha: 0.5),
                     ),
                     const SizedBox(height: 16),
                     Text(
@@ -228,7 +228,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                     const SizedBox(height: 24),
@@ -240,7 +240,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                           icon: const Icon(Icons.camera_alt),
                           label: const Text('Camera'),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.deepNavy,
+                            backgroundColor: const Color(0xFF1A1A2E),
                             foregroundColor: Colors.white,
                             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                             shape: RoundedRectangleBorder(
@@ -254,9 +254,9 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                           icon: const Icon(Icons.photo_library),
                           label: const Text('Gallery'),
                           style: OutlinedButton.styleFrom(
-                            foregroundColor: AppColors.deepNavy,
+                            foregroundColor: const Color(0xFF1A1A2E),
                             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                            side: const BorderSide(color: AppColors.deepNavy, width: 2),
+                            side: const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -270,11 +270,11 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
             else
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.cleanWhite,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.deepNavy.withValues(alpha: 0.08),
+                      color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
                       blurRadius: 20,
                       offset: const Offset(0, 4),
                     ),
@@ -301,8 +301,8 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                               icon: const Icon(Icons.delete_outline),
                               label: const Text('Remove'),
                               style: OutlinedButton.styleFrom(
-                                foregroundColor: AppColors.statusOverdue,
-                                side: const BorderSide(color: AppColors.statusOverdue),
+                                foregroundColor: const Color(0xFFF44336),
+                                side: const BorderSide(color: const Color(0xFFF44336)),
                               ),
                             ),
                           ),
@@ -313,7 +313,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                               icon: const Icon(Icons.camera_alt),
                               label: const Text('Retake'),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.deepNavy,
+                                backgroundColor: const Color(0xFF1A1A2E),
                                 foregroundColor: Colors.white,
                               ),
                             ),
@@ -329,11 +329,11 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
             // Notes Field
             Container(
               decoration: BoxDecoration(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.deepNavy.withValues(alpha: 0.05),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                     blurRadius: 10,
                     offset: const Offset(0, 2),
                   ),
@@ -350,7 +350,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
                     borderSide: BorderSide.none,
                   ),
                   filled: true,
-                  fillColor: AppColors.cleanWhite,
+                  fillColor: Colors.white,
                   contentPadding: const EdgeInsets.all(16),
                 ),
               ),
@@ -361,7 +361,7 @@ class _SiteEngineerWorkUpdateScreenState extends State<SiteEngineerWorkUpdateScr
             ElevatedButton(
               onPressed: _isUploading ? null : _uploadWorkActivity,
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(

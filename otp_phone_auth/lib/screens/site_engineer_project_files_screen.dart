@@ -51,12 +51,12 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.deepNavy),
+          icon: const Icon(Icons.arrow_back, color: const Color(0xFF1A1A2E)),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Column(
@@ -67,14 +67,14 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             Text(
               'Uploaded by Architect',
               style: TextStyle(
                 fontSize: 12,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontWeight: FontWeight.normal,
               ),
             ),
@@ -88,7 +88,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
 
           if (isLoading) {
             return const Center(
-              child: CircularProgressIndicator(color: AppColors.deepNavy),
+              child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
             );
           }
 
@@ -101,13 +101,13 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                     width: 120,
                     height: 120,
                     decoration: BoxDecoration(
-                      color: AppColors.lightSlate,
+                      color: const Color(0xFFF8F9FA),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
                       Icons.folder_open,
                       size: 60,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -116,7 +116,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -124,7 +124,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                     'Files will appear here once uploaded',
                     style: TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -157,11 +157,11 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 20,
             offset: const Offset(0, 4),
           ),
@@ -182,7 +182,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                   width: 56,
                   height: 56,
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy.withValues(alpha: 0.1),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Center(
@@ -202,7 +202,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -213,28 +213,28 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                           Icon(
                             Icons.access_time,
                             size: 14,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                           const SizedBox(width: 4),
                           Text(
                             uploadedAt,
                             style: TextStyle(
                               fontSize: 12,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                           const SizedBox(width: 12),
                           Icon(
                             Icons.storage,
                             size: 14,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                           const SizedBox(width: 4),
                           Text(
                             _formatFileSize(fileSize),
                             style: TextStyle(
                               fontSize: 12,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                         ],
@@ -247,7 +247,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Icon(
@@ -270,7 +270,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
         decoration: const BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
         ),
         padding: const EdgeInsets.all(24),
@@ -281,7 +281,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
               width: 40,
               height: 4,
               decoration: BoxDecoration(
-                color: AppColors.textSecondary.withValues(alpha: 0.3),
+                color: const Color(0xFF6B7280).withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -291,7 +291,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
               textAlign: TextAlign.center,
             ),
@@ -301,16 +301,16 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: AppColors.deepNavy.withValues(alpha: 0.1),
+                  color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Icon(Icons.download, color: AppColors.deepNavy),
+                child: const Icon(Icons.download, color: const Color(0xFF1A1A2E)),
               ),
               title: const Text(
                 'Download File',
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
               subtitle: const Text('Save to device'),
@@ -325,16 +325,16 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: AppColors.deepNavy.withValues(alpha: 0.1),
+                  color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Icon(Icons.visibility, color: AppColors.deepNavy),
+                child: const Icon(Icons.visibility, color: const Color(0xFF1A1A2E)),
               ),
               title: const Text(
                 'View File',
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
               subtitle: const Text('Open in viewer'),
@@ -379,7 +379,7 @@ class _SiteEngineerProjectFilesScreenState extends State<SiteEngineerProjectFile
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('File downloaded to Downloads folder'),
-          backgroundColor: AppColors.statusCompleted,
+          backgroundColor: const Color(0xFF4CAF50),
         ),
       );
     }

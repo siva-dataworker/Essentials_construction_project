@@ -143,7 +143,7 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
   }
 
   Color _getBalanceColor() {
-    if (_currentBalance == null) return AppColors.textSecondary;
+    if (_currentBalance == null) return const Color(0xFF6B7280);
     if (_currentBalance! <= 0) return AppColors.error;
     if (_currentBalance! < 20) return AppColors.warning;
     return AppColors.success;
@@ -155,11 +155,11 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
       backgroundColor: AppColors.white,
       title: Row(
         children: [
-          Icon(Icons.remove_circle_outline, color: AppColors.primary),
+          Icon(Icons.remove_circle_outline, color: const Color(0xFF1A1A2E)),
           SizedBox(width: 8),
           Text(
             'Record Material Usage',
-            style: TextStyle(color: AppColors.textPrimary, fontSize: 18),
+            style: TextStyle(color: const Color(0xFF1A1A2E), fontSize: 18),
           ),
         ],
       ),
@@ -167,7 +167,7 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
           ? Container(
               height: 200,
               child: Center(
-                child: CircularProgressIndicator(color: AppColors.primary),
+                child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
               ),
             )
           : _availableMaterials.isEmpty
@@ -177,16 +177,16 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.inventory_2_outlined, size: 60, color: AppColors.textSecondary),
+                        Icon(Icons.inventory_2_outlined, size: 60, color: const Color(0xFF6B7280)),
                         SizedBox(height: 16),
                         Text(
                           'No materials available',
-                          style: TextStyle(color: AppColors.textSecondary),
+                          style: TextStyle(color: const Color(0xFF6B7280)),
                         ),
                         SizedBox(height: 8),
                         Text(
                           'Ask Site Engineer to add materials first',
-                          style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                          style: TextStyle(color: const Color(0xFF6B7280), fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -205,7 +205,7 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
                           decoration: InputDecoration(
                             labelText: 'Select Material',
                             border: OutlineInputBorder(),
-                            prefixIcon: Icon(Icons.inventory_2, color: AppColors.primary),
+                            prefixIcon: Icon(Icons.inventory_2, color: const Color(0xFF1A1A2E)),
                           ),
                           value: _selectedMaterialType,
                           items: _availableMaterials.map((material) {
@@ -266,7 +266,7 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
                                 Text(
                                   'Available: ',
                                   style: TextStyle(
-                                    color: AppColors.textSecondary,
+                                    color: const Color(0xFF6B7280),
                                     fontSize: 14,
                                   ),
                                 ),
@@ -293,7 +293,7 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
                                 ? 'Quantity Used ($_selectedUnit)'
                                 : 'Quantity Used',
                             border: OutlineInputBorder(),
-                            prefixIcon: Icon(Icons.remove, color: AppColors.primary),
+                            prefixIcon: Icon(Icons.remove, color: const Color(0xFF1A1A2E)),
                           ),
                           keyboardType: TextInputType.numberWithOptions(decimal: true),
                           enabled: _selectedMaterialType != null,
@@ -321,7 +321,7 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
                             labelText: 'Notes (Optional)',
                             hintText: 'e.g., Used for foundation work',
                             border: OutlineInputBorder(),
-                            prefixIcon: Icon(Icons.note, color: AppColors.primary),
+                            prefixIcon: Icon(Icons.note, color: const Color(0xFF1A1A2E)),
                           ),
                           maxLines: 3,
                           enabled: _selectedMaterialType != null,
@@ -332,14 +332,14 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
                         // Info text
                         Row(
                           children: [
-                            Icon(Icons.info_outline, size: 16, color: AppColors.textSecondary),
+                            Icon(Icons.info_outline, size: 16, color: const Color(0xFF6B7280)),
                             SizedBox(width: 4),
                             Expanded(
                               child: Text(
                                 'This will be recorded for today',
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                 ),
                               ),
                             ),
@@ -353,18 +353,18 @@ class _SupervisorMaterialUsageDialogState extends State<SupervisorMaterialUsageD
           ? [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('Close', style: TextStyle(color: AppColors.textSecondary)),
+                child: Text('Close', style: TextStyle(color: const Color(0xFF6B7280))),
               ),
             ]
           : [
               TextButton(
                 onPressed: _isSubmitting ? null : () => Navigator.pop(context),
-                child: Text('Cancel', style: TextStyle(color: AppColors.textSecondary)),
+                child: Text('Cancel', style: TextStyle(color: const Color(0xFF6B7280))),
               ),
               ElevatedButton(
                 onPressed: _isSubmitting ? null : _submit,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
+                  backgroundColor: const Color(0xFF1A1A2E),
                   foregroundColor: AppColors.white,
                 ),
                 child: _isSubmitting

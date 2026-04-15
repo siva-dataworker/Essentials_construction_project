@@ -50,7 +50,7 @@ class _SiteEngineerExtraWorkScreenState extends State<SiteEngineerExtraWorkScree
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(result['error'] ?? 'Failed to submit'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -85,12 +85,12 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
               width: 48,
               height: 48,
               decoration: BoxDecoration(
-                color: AppColors.statusCompleted.withValues(alpha: 0.2),
+                color: const Color(0xFF4CAF50).withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Icon(
                 Icons.check_circle,
-                color: AppColors.statusCompleted,
+                color: const Color(0xFF4CAF50),
                 size: 26,
               ),
             ),
@@ -101,7 +101,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ),
@@ -149,7 +149,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text('WhatsApp is not installed'),
-              backgroundColor: AppColors.statusOverdue,
+              backgroundColor: const Color(0xFFF44336),
             ),
           );
         }
@@ -159,7 +159,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error opening WhatsApp: $e'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -169,12 +169,12 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.deepNavy),
+          icon: const Icon(Icons.arrow_back, color: const Color(0xFF1A1A2E)),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Column(
@@ -185,14 +185,14 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             Text(
               'Record extra work & labour',
               style: TextStyle(
                 fontSize: 12,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontWeight: FontWeight.normal,
               ),
             ),
@@ -210,10 +210,10 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: AppColors.deepNavy.withValues(alpha: 0.05),
+                  color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: AppColors.deepNavy.withValues(alpha: 0.1),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                     width: 1.5,
                   ),
                 ),
@@ -223,7 +223,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
                       width: 48,
                       height: 48,
                       decoration: BoxDecoration(
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Icon(
@@ -238,7 +238,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
                         'This information will be sent to the accountant via WhatsApp',
                         style: TextStyle(
                           fontSize: 13,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ),
@@ -250,11 +250,11 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
               // Description Field
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.cleanWhite,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.deepNavy.withValues(alpha: 0.05),
+                      color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                       blurRadius: 10,
                       offset: const Offset(0, 2),
                     ),
@@ -271,7 +271,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
-                    fillColor: AppColors.cleanWhite,
+                    fillColor: Colors.white,
                     contentPadding: const EdgeInsets.all(16),
                   ),
                   validator: (value) {
@@ -287,11 +287,11 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
               // Amount Field
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.cleanWhite,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.deepNavy.withValues(alpha: 0.05),
+                      color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                       blurRadius: 10,
                       offset: const Offset(0, 2),
                     ),
@@ -309,7 +309,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
-                    fillColor: AppColors.cleanWhite,
+                    fillColor: Colors.white,
                     contentPadding: const EdgeInsets.all(16),
                   ),
                   validator: (value) {
@@ -328,11 +328,11 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
               // Labour Count Field
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.cleanWhite,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.deepNavy.withValues(alpha: 0.05),
+                      color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
                       blurRadius: 10,
                       offset: const Offset(0, 2),
                     ),
@@ -350,7 +350,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
-                    fillColor: AppColors.cleanWhite,
+                    fillColor: Colors.white,
                     contentPadding: const EdgeInsets.all(16),
                   ),
                   validator: (value) {
@@ -369,7 +369,7 @@ Submitted by: ${context.read<SiteEngineerProvider>().selectedSite?['engineer_nam
               ElevatedButton(
                 onPressed: _isSubmitting ? null : _submitExtraWork,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.deepNavy,
+                  backgroundColor: const Color(0xFF1A1A2E),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(

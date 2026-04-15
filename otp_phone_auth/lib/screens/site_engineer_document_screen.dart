@@ -75,14 +75,14 @@ class _SiteEngineerDocumentScreenState extends State<SiteEngineerDocumentScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Text('Documents - ${widget.siteName}'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
       ),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator(color: AppColors.deepNavy))
+          ? const Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)))
           : _documents.isEmpty
               ? _buildEmptyState()
               : _buildDocumentList(),
@@ -90,7 +90,7 @@ class _SiteEngineerDocumentScreenState extends State<SiteEngineerDocumentScreen>
         onPressed: _uploadDocument,
         icon: const Icon(Icons.upload_file),
         label: const Text('Upload PDF'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
       ),
     );
@@ -101,16 +101,16 @@ class _SiteEngineerDocumentScreenState extends State<SiteEngineerDocumentScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.description_outlined, size: 80, color: AppColors.textSecondary),
+          const Icon(Icons.description_outlined, size: 80, color: const Color(0xFF6B7280)),
           const SizedBox(height: 16),
           const Text(
             'No Documents Yet',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
           ),
           const SizedBox(height: 8),
           Text(
             'Upload site plans and floor designs',
-            style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+            style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
           ),
           const SizedBox(height: 24),
           ElevatedButton.icon(
@@ -118,7 +118,7 @@ class _SiteEngineerDocumentScreenState extends State<SiteEngineerDocumentScreen>
             icon: const Icon(Icons.upload_file),
             label: const Text('Upload First Document'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.deepNavy,
+              backgroundColor: const Color(0xFF1A1A2E),
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
@@ -131,7 +131,7 @@ class _SiteEngineerDocumentScreenState extends State<SiteEngineerDocumentScreen>
   Widget _buildDocumentList() {
     return RefreshIndicator(
       onRefresh: _loadDocuments,
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _documents.length,
@@ -151,9 +151,9 @@ class _SiteEngineerDocumentScreenState extends State<SiteEngineerDocumentScreen>
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Material(
         color: Colors.transparent,
@@ -183,14 +183,14 @@ class _SiteEngineerDocumentScreenState extends State<SiteEngineerDocumentScreen>
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 4),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
-                          color: AppColors.deepNavy.withValues(alpha: 0.1),
+                          color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
@@ -198,23 +198,23 @@ class _SiteEngineerDocumentScreenState extends State<SiteEngineerDocumentScreen>
                           style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         doc['upload_date'] ?? '',
-                        style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                        style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                       ),
                       Text(
                         fileSize,
-                        style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                        style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                       ),
                     ],
                   ),
                 ),
-                const Icon(Icons.arrow_forward_ios, size: 16, color: AppColors.textSecondary),
+                const Icon(Icons.arrow_forward_ios, size: 16, color: const Color(0xFF6B7280)),
               ],
             ),
           ),
@@ -326,14 +326,14 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('✅ Document uploaded successfully!'),
-            backgroundColor: AppColors.statusCompleted,
+            backgroundColor: const Color(0xFF4CAF50),
           ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('❌ ${result['error']}'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -356,7 +356,7 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
               const SizedBox(height: 8),
@@ -364,7 +364,7 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
                 widget.siteName,
                 style: TextStyle(
                   fontSize: 14,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
               ),
               const SizedBox(height: 24),
@@ -449,7 +449,7 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
                     child: ElevatedButton(
                       onPressed: _isUploading ? null : _upload,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.deepNavy,
+                        backgroundColor: const Color(0xFF1A1A2E),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),

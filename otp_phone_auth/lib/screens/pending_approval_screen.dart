@@ -83,7 +83,7 @@ class _PendingApprovalScreenState extends State<PendingApprovalScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: const Color(0xFFF8F9FA),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -99,7 +99,7 @@ class _PendingApprovalScreenState extends State<PendingApprovalScreen> {
                         ? Colors.green.withOpacity(0.1)
                         : _status == 'REJECTED'
                             ? Colors.red.withOpacity(0.1)
-                            : AppColors.primary.withOpacity(0.1),
+                            : const Color(0xFF1A1A2E).withOpacity(0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
@@ -113,7 +113,7 @@ class _PendingApprovalScreenState extends State<PendingApprovalScreen> {
                         ? Colors.green
                         : _status == 'REJECTED'
                             ? Colors.red
-                            : AppColors.primary,
+                            : const Color(0xFF1A1A2E),
                   ),
                 ),
                 
@@ -129,7 +129,7 @@ class _PendingApprovalScreenState extends State<PendingApprovalScreen> {
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary,
+                    color: const Color(0xFF1A1A2E),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -141,7 +141,7 @@ class _PendingApprovalScreenState extends State<PendingApprovalScreen> {
                   _message,
                   style: TextStyle(
                     fontSize: 16,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -172,7 +172,7 @@ class _PendingApprovalScreenState extends State<PendingApprovalScreen> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
+                      backgroundColor: const Color(0xFF1A1A2E),
                       padding: const EdgeInsets.symmetric(
                         horizontal: 32,
                         vertical: 16,
@@ -191,7 +191,7 @@ class _PendingApprovalScreenState extends State<PendingApprovalScreen> {
                     'Auto-checking every 30 seconds...',
                     style: TextStyle(
                       fontSize: 12,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                       fontStyle: FontStyle.italic,
                     ),
                   ),
@@ -211,7 +211,7 @@ class _PendingApprovalScreenState extends State<PendingApprovalScreen> {
                   child: const Text(
                     'Back to Login',
                     style: TextStyle(
-                      color: AppColors.primary,
+                      color: const Color(0xFF1A1A2E),
                       fontWeight: FontWeight.bold,
                     ),
                   ),

@@ -68,7 +68,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +76,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
             const Text(
               'Material Purchases',
               style: TextStyle(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -84,15 +84,15 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
             Text(
               widget.siteName,
               style: TextStyle(
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontSize: 12,
               ),
             ),
           ],
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
       ),
       body: Column(
         children: [
@@ -101,11 +101,11 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              gradient: AppColors.orangeGradient,
+              gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.safetyOrange.withOpacity(0.3),
+                  color: const Color(0xFFFF9800).withOpacity(0.3),
                   blurRadius: 12,
                   offset: const Offset(0, 6),
                 ),
@@ -155,7 +155,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
           Expanded(
             child: _isLoading
                 ? const Center(
-                    child: CircularProgressIndicator(color: AppColors.safetyOrange),
+                    child: CircularProgressIndicator(color: const Color(0xFFFF9800)),
                   )
                 : _purchases.isEmpty
                     ? Center(
@@ -165,14 +165,14 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
                             Icon(
                               Icons.inventory_2_outlined,
                               size: 80,
-                              color: AppColors.textSecondary.withOpacity(0.5),
+                              color: const Color(0xFF6B7280).withOpacity(0.5),
                             ),
                             const SizedBox(height: 16),
                             Text(
                               'No material purchases found',
                               style: TextStyle(
                                 fontSize: 16,
-                                color: AppColors.textSecondary,
+                                color: const Color(0xFF6B7280),
                               ),
                             ),
                           ],
@@ -180,7 +180,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
                       )
                     : RefreshIndicator(
                         onRefresh: _loadPurchases,
-                        color: AppColors.safetyOrange,
+                        color: const Color(0xFFFF9800),
                         child: ListView.builder(
                           padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                           itemCount: _purchases.length,
@@ -204,7 +204,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -222,12 +222,12 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: AppColors.safetyOrange.withOpacity(0.1),
+                  color: const Color(0xFFFF9800).withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Icon(
                   Icons.inventory_2,
-                  color: AppColors.safetyOrange,
+                  color: const Color(0xFFFF9800),
                   size: 24,
                 ),
               ),
@@ -241,7 +241,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -249,7 +249,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
                       '${purchase['purchase_count'] ?? 0} purchases',
                       style: TextStyle(
                         fontSize: 12,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -263,7 +263,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -271,7 +271,7 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
                     '${percentage.toStringAsFixed(1)}%',
                     style: TextStyle(
                       fontSize: 12,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -284,8 +284,8 @@ class _AdminMaterialPurchasesScreenState extends State<AdminMaterialPurchasesScr
             borderRadius: BorderRadius.circular(4),
             child: LinearProgressIndicator(
               value: percentage / 100,
-              backgroundColor: AppColors.lightSlate,
-              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.safetyOrange),
+              backgroundColor: const Color(0xFFF8F9FA),
+              valueColor: const AlwaysStoppedAnimation<Color>(const Color(0xFFFF9800)),
               minHeight: 6,
             ),
           ),

@@ -163,10 +163,10 @@ class _MaterialBillUploadDialogState extends State<MaterialBillUploadDialog> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text('Upload Material Bill'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -174,7 +174,7 @@ class _MaterialBillUploadDialogState extends State<MaterialBillUploadDialog> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(widget.siteName, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.deepNavy)),
+            Text(widget.siteName, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E))),
             const SizedBox(height: 24),
             
             // Bill Number
@@ -417,7 +417,7 @@ class _MaterialBillUploadDialogState extends State<MaterialBillUploadDialog> {
             ElevatedButton(
               onPressed: _isUploading ? null : _upload,
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
               ),

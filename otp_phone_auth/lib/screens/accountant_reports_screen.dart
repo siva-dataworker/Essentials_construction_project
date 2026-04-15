@@ -47,9 +47,9 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
       builder: (context, child) => Theme(
         data: Theme.of(context).copyWith(
           colorScheme: const ColorScheme.light(
-            primary: AppColors.deepNavy,
+            primary: const Color(0xFF1A1A2E),
             onPrimary: Colors.white,
-            onSurface: AppColors.deepNavy,
+            onSurface: const Color(0xFF1A1A2E),
           ),
         ),
         child: child!,
@@ -118,7 +118,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
           title: const Text(
             'Client Extra Requirement',
             style: TextStyle(
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
@@ -130,7 +130,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
               children: [
                 const Text(
                   'Select site and add extra requirement details',
-                  style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 13, color: const Color(0xFF6B7280)),
                 ),
                 const SizedBox(height: 16),
                 
@@ -140,7 +140,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                   decoration: const InputDecoration(
                     labelText: 'Select Site *',
                     border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.location_on, color: AppColors.deepNavy),
+                    prefixIcon: Icon(Icons.location_on, color: const Color(0xFF1A1A2E)),
                   ),
                   items: sites.map((site) {
                     return DropdownMenuItem<String>(
@@ -164,7 +164,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                     labelText: 'Description *',
                     hintText: 'Enter requirement description',
                     border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.description, color: AppColors.deepNavy),
+                    prefixIcon: Icon(Icons.description, color: const Color(0xFF1A1A2E)),
                   ),
                   maxLines: 3,
                 ),
@@ -177,7 +177,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                     labelText: 'Amount *',
                     hintText: 'Enter amount',
                     border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.currency_rupee, color: AppColors.deepNavy),
+                    prefixIcon: Icon(Icons.currency_rupee, color: const Color(0xFF1A1A2E)),
                     prefixText: '₹ ',
                   ),
                   keyboardType: TextInputType.number,
@@ -188,7 +188,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondary)),
+              child: const Text('Cancel', style: TextStyle(color: const Color(0xFF6B7280))),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -225,7 +225,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Client requirement added successfully'),
-                        backgroundColor: AppColors.statusCompleted,
+                        backgroundColor: const Color(0xFF4CAF50),
                       ),
                     );
                   } else {
@@ -239,7 +239,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
               ),
               child: const Text('Submit'),
@@ -263,22 +263,22 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
         );
 
         return Scaffold(
-          backgroundColor: AppColors.lightSlate,
+          backgroundColor: const Color(0xFFF8F9FA),
           appBar: AppBar(
             title: const Text(
               'Reports',
               style: TextStyle(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            backgroundColor: AppColors.cleanWhite,
+            backgroundColor: Colors.white,
             elevation: 0,
-            iconTheme: const IconThemeData(color: AppColors.deepNavy),
+            iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
             actions: [
               IconButton(
-                icon: const Icon(Icons.refresh, color: AppColors.deepNavy),
+                icon: const Icon(Icons.refresh, color: const Color(0xFF1A1A2E)),
                 onPressed: () async {
                   provider.clearAccountantCache();
                   await provider.loadAccountantData(forceRefresh: true);
@@ -290,7 +290,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
             children: [
               // ── Date picker bar ──────────────────────────────
               Container(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -300,7 +300,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -320,7 +320,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                             child: Container(
                               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                               decoration: BoxDecoration(
-                                color: AppColors.deepNavy,
+                                color: const Color(0xFF1A1A2E),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Row(
@@ -360,19 +360,19 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
 
               // ── Role filter chips ─────────────────────────────
               Container(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Divider(height: 1, color: AppColors.lightSlate),
+                    const Divider(height: 1, color: const Color(0xFFF8F9FA)),
                     const SizedBox(height: 10),
                     const Text(
                       'Filter by Role',
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -437,28 +437,28 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                   }
                   
                   return Container(
-                    color: AppColors.cleanWhite,
+                    color: Colors.white,
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Divider(height: 1, color: AppColors.lightSlate),
+                        const Divider(height: 1, color: const Color(0xFFF8F9FA)),
                         const SizedBox(height: 10),
                         const Text(
                           'Filter by Site',
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                         const SizedBox(height: 8),
                         DropdownButtonFormField<String?>(
                           value: _selectedSiteId,
                           decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.location_on, color: AppColors.deepNavy, size: 20),
+                            prefixIcon: const Icon(Icons.location_on, color: const Color(0xFF1A1A2E), size: 20),
                             filled: true,
-                            fillColor: AppColors.lightSlate,
+                            fillColor: const Color(0xFFF8F9FA),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,
@@ -466,13 +466,13 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide(
-                                color: AppColors.deepNavy.withValues(alpha: 0.1),
+                                color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                               ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: AppColors.deepNavy,
+                                color: const Color(0xFF1A1A2E),
                                 width: 2,
                               ),
                             ),
@@ -487,7 +487,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                                 'All Sites',
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: AppColors.deepNavy,
+                                  color: const Color(0xFF1A1A2E),
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -500,7 +500,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                                   site['site_name'] as String,
                                   style: const TextStyle(
                                     fontSize: 14,
-                                    color: AppColors.deepNavy,
+                                    color: const Color(0xFF1A1A2E),
                                   ),
                                 ),
                               );
@@ -509,8 +509,8 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                           onChanged: (value) {
                             setState(() => _selectedSiteId = value);
                           },
-                          icon: const Icon(Icons.arrow_drop_down, color: AppColors.deepNavy),
-                          dropdownColor: AppColors.cleanWhite,
+                          icon: const Icon(Icons.arrow_drop_down, color: const Color(0xFF1A1A2E)),
+                          dropdownColor: Colors.white,
                         ),
                       ],
                     ),
@@ -527,14 +527,14 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                       icon: Icons.people,
                       label: 'Labour',
                       count: labourEntries.length,
-                      color: AppColors.statusCompleted,
+                      color: const Color(0xFF4CAF50),
                     ),
                     const SizedBox(width: 8),
                     _SummaryChip(
                       icon: Icons.inventory_2,
                       label: 'Material',
                       count: materialEntries.length,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                     const SizedBox(width: 8),
                     _SalarySummaryChip(totalSalary: totalSalary),
@@ -551,7 +551,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                   icon: const Icon(Icons.person_add, size: 18),
                   label: const Text('Client Extra Requirement'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.deepNavy,
+                    backgroundColor: const Color(0xFF1A1A2E),
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                     minimumSize: const Size(double.infinity, 44),
@@ -574,7 +574,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -622,13 +622,13 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
               Expanded(
                 child: isLoading
                     ? const Center(
-                        child: CircularProgressIndicator(color: AppColors.deepNavy))
+                        child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)))
                     : RefreshIndicator(
                         onRefresh: () async {
                           provider.clearAccountantCache();
                           await provider.loadAccountantData(forceRefresh: true);
                         },
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         child: _buildList(labourEntries, materialEntries),
                       ),
               ),
@@ -652,14 +652,14 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
           children: [
             Icon(Icons.event_busy,
                 size: 72,
-                color: AppColors.textSecondary.withValues(alpha: 0.4)),
+                color: const Color(0xFF6B7280).withValues(alpha: 0.4)),
             const SizedBox(height: 16),
             Text(
               'No entries on ${_friendlyDate(_selectedDate)}',
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
             const SizedBox(height: 8),
@@ -667,7 +667,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
               _selectedRole != null
                   ? 'No $_selectedRole entries on this date'
                   : 'Try a different date or role filter',
-              style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
+              style: const TextStyle(fontSize: 13, color: const Color(0xFF6B7280)),
             ),
           ],
         ),
@@ -710,11 +710,11 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.08),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
               blurRadius: 16,
               offset: const Offset(0, 4),
             ),
@@ -727,7 +727,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               decoration: BoxDecoration(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
               ),
               child: Row(
@@ -773,11 +773,11 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                     Container(
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
-                        color: AppColors.statusCompleted.withValues(alpha: 0.12),
+                        color: const Color(0xFF4CAF50).withValues(alpha: 0.12),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(Icons.engineering,
-                          color: AppColors.statusCompleted, size: 16),
+                          color: const Color(0xFF4CAF50), size: 16),
                     ),
                     const SizedBox(width: 8),
                     const Text(
@@ -785,14 +785,14 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const Spacer(),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: AppColors.statusCompleted,
+                        color: const Color(0xFF4CAF50),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Text(
@@ -815,7 +815,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
             if (labourGroups.isNotEmpty && materialGroups.isNotEmpty)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Divider(color: AppColors.lightSlate, thickness: 1.5),
+                child: Divider(color: const Color(0xFFF8F9FA), thickness: 1.5),
               ),
 
             // ── Material section ─────────────────────────────
@@ -827,11 +827,11 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                     Container(
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
-                        color: AppColors.deepNavy.withValues(alpha: 0.1),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: const Icon(Icons.inventory_2,
-                          color: AppColors.deepNavy, size: 16),
+                          color: const Color(0xFF1A1A2E), size: 16),
                     ),
                     const SizedBox(width: 8),
                     const Text(
@@ -839,14 +839,14 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const Spacer(),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Text(
@@ -884,7 +884,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
               type,
               style: const TextStyle(
                   fontSize: 14,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   fontWeight: FontWeight.w500),
             ),
           ),
@@ -892,15 +892,15 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
             '$count workers',
             style: TextStyle(
                 fontSize: 13,
-                color: AppColors.textSecondary),
+                color: const Color(0xFF6B7280)),
           ),
           const SizedBox(width: 12),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               color: cost > 0
-                  ? AppColors.statusCompleted.withValues(alpha: 0.1)
-                  : AppColors.lightSlate,
+                  ? const Color(0xFF4CAF50).withValues(alpha: 0.1)
+                  : const Color(0xFFF8F9FA),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -908,7 +908,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.bold,
-                color: cost > 0 ? AppColors.statusCompleted : AppColors.textSecondary,
+                color: cost > 0 ? const Color(0xFF4CAF50) : const Color(0xFF6B7280),
               ),
             ),
           ),
@@ -927,14 +927,14 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
               type,
               style: const TextStyle(
                   fontSize: 14,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   fontWeight: FontWeight.w500),
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: AppColors.deepNavy.withValues(alpha: 0.08),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -942,7 +942,7 @@ class _AccountantReportsScreenState extends State<AccountantReportsScreen> {
               style: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -970,18 +970,18 @@ class _ArrowBtn extends StatelessWidget {
         height: 44,
         decoration: BoxDecoration(
           color: disabled
-              ? AppColors.lightSlate
-              : AppColors.deepNavy.withValues(alpha: 0.08),
+              ? const Color(0xFFF8F9FA)
+              : const Color(0xFF1A1A2E).withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: AppColors.deepNavy.withValues(alpha: disabled ? 0.1 : 0.2),
+            color: const Color(0xFF1A1A2E).withValues(alpha: disabled ? 0.1 : 0.2),
           ),
         ),
         child: Icon(
           icon,
           color: disabled
-              ? AppColors.textSecondary.withValues(alpha: 0.4)
-              : AppColors.deepNavy,
+              ? const Color(0xFF6B7280).withValues(alpha: 0.4)
+              : const Color(0xFF1A1A2E),
           size: 22,
         ),
       ),
@@ -1004,12 +1004,12 @@ class _RoleChip extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: selected ? AppColors.deepNavy : AppColors.lightSlate,
+          color: selected ? const Color(0xFF1A1A2E) : const Color(0xFFF8F9FA),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: selected
-                ? AppColors.deepNavy
-                : AppColors.deepNavy.withValues(alpha: 0.2),
+                ? const Color(0xFF1A1A2E)
+                : const Color(0xFF1A1A2E).withValues(alpha: 0.2),
           ),
         ),
         child: Text(
@@ -1017,7 +1017,7 @@ class _RoleChip extends StatelessWidget {
           style: TextStyle(
             fontSize: 13,
             fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-            color: selected ? Colors.white : AppColors.deepNavy,
+            color: selected ? Colors.white : const Color(0xFF1A1A2E),
           ),
         ),
       ),
@@ -1043,12 +1043,12 @@ class _SummaryChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: color.withValues(alpha: 0.25)),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.05),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
               blurRadius: 6,
               offset: const Offset(0, 2),
             ),
@@ -1072,7 +1072,7 @@ class _SummaryChip extends StatelessWidget {
                 Text(
                   label,
                   style: const TextStyle(
-                      fontSize: 11, color: AppColors.textSecondary),
+                      fontSize: 11, color: const Color(0xFF6B7280)),
                 ),
               ],
             ),
@@ -1094,12 +1094,12 @@ class _SalarySummaryChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: color.withValues(alpha: 0.25)),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.05),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
               blurRadius: 6,
               offset: const Offset(0, 2),
             ),
@@ -1126,7 +1126,7 @@ class _SalarySummaryChip extends StatelessWidget {
                   ),
                   const Text(
                     'Salary',
-                    style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                    style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                   ),
                 ],
               ),
@@ -1159,18 +1159,18 @@ class _EntryTypeChip extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: selected ? AppColors.deepNavy : AppColors.cleanWhite,
+          color: selected ? const Color(0xFF1A1A2E) : Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: selected
-                ? AppColors.deepNavy
-                : AppColors.deepNavy.withValues(alpha: 0.2),
+                ? const Color(0xFF1A1A2E)
+                : const Color(0xFF1A1A2E).withValues(alpha: 0.2),
             width: selected ? 2 : 1,
           ),
           boxShadow: selected
               ? [
                   BoxShadow(
-                    color: AppColors.deepNavy.withValues(alpha: 0.2),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.2),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -1182,7 +1182,7 @@ class _EntryTypeChip extends StatelessWidget {
           children: [
             Icon(
               icon,
-              color: selected ? Colors.white : AppColors.deepNavy,
+              color: selected ? Colors.white : const Color(0xFF1A1A2E),
               size: 18,
             ),
             const SizedBox(width: 6),
@@ -1191,7 +1191,7 @@ class _EntryTypeChip extends StatelessWidget {
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: selected ? FontWeight.bold : FontWeight.w600,
-                color: selected ? Colors.white : AppColors.deepNavy,
+                color: selected ? Colors.white : const Color(0xFF1A1A2E),
               ),
             ),
           ],

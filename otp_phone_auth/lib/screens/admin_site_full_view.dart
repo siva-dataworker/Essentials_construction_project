@@ -291,7 +291,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.siteName),
-        backgroundColor: AppColors.primary,
+        backgroundColor: const Color(0xFF1A1A2E),
         actions: [
           // Export Menu
           PopupMenuButton<String>(
@@ -743,7 +743,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
             'Total Workers',
             '${_dashboardData?['total_workers'] ?? 0}',
             Icons.people,
-            AppColors.safetyOrange,
+            const Color(0xFFFF9800),
           ),
           const SizedBox(height: 12),
           
@@ -908,7 +908,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -938,13 +938,13 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: isLabour 
-                            ? AppColors.safetyOrange.withValues(alpha: 0.1)
+                            ? const Color(0xFFFF9800).withValues(alpha: 0.1)
                             : Colors.brown.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(
                         isLabour ? Icons.people : Icons.inventory_2,
-                        color: isLabour ? AppColors.safetyOrange : Colors.brown,
+                        color: isLabour ? const Color(0xFFFF9800) : Colors.brown,
                         size: 20,
                       ),
                     ),
@@ -958,7 +958,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -1022,7 +1022,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: isModified ? Colors.orange : AppColors.safetyOrange,
+                  backgroundColor: isModified ? Colors.orange : const Color(0xFFFF9800),
                   child: Text(
                     '${entry['labour_count'] ?? 0}',
                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -1128,9 +1128,9 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
           Container(
             color: Colors.white,
             child: const TabBar(
-              labelColor: AppColors.deepNavy,
+              labelColor: const Color(0xFF1A1A2E),
               unselectedLabelColor: Colors.grey,
-              indicatorColor: AppColors.deepNavy,
+              indicatorColor: const Color(0xFF1A1A2E),
               tabs: [
                 Tab(text: 'Entries'),
                 Tab(text: 'Manage'),
@@ -1550,7 +1550,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -1598,7 +1598,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -1870,7 +1870,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -1918,7 +1918,7 @@ class _AdminSiteFullViewState extends State<AdminSiteFullView> with SingleTicker
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),

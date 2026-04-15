@@ -82,13 +82,13 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
   Color _getStatusColor(String status) {
     switch (status) {
       case 'IN_STOCK':
-        return AppColors.success;
+        return const Color(0xFF4CAF50);
       case 'LOW_STOCK':
-        return AppColors.textSecondary;
+        return const Color(0xFF6B7280);
       case 'OUT_OF_STOCK':
-        return AppColors.primary;
+        return const Color(0xFF1A1A2E);
       default:
-        return AppColors.textSecondary;
+        return const Color(0xFF6B7280);
     }
   }
 
@@ -108,9 +108,9 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: AppColors.white,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,13 +130,13 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
         ],
       ),
       body: _isLoading
-          ? Center(child: CircularProgressIndicator(color: AppColors.primary))
+          ? Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)))
           : _materialBalance.isEmpty
               ? _buildEmptyState()
               : _buildMaterialList(),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _showAddMaterialDialog,
-        backgroundColor: AppColors.primary,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: AppColors.white,
         icon: Icon(Icons.add),
         label: Text('Add Material'),
@@ -149,16 +149,16 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.inventory_2_outlined, size: 80, color: AppColors.textSecondary),
+          Icon(Icons.inventory_2_outlined, size: 80, color: const Color(0xFF6B7280)),
           SizedBox(height: 16),
           Text(
             'No materials added yet',
-            style: TextStyle(fontSize: 18, color: AppColors.textPrimary),
+            style: TextStyle(fontSize: 18, color: const Color(0xFF1A1A2E)),
           ),
           SizedBox(height: 8),
           Text(
             'Tap the button below to add materials',
-            style: TextStyle(color: AppColors.textSecondary),
+            style: TextStyle(color: const Color(0xFF6B7280)),
           ),
         ],
       ),
@@ -168,7 +168,7 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
   Widget _buildMaterialList() {
     return RefreshIndicator(
       onRefresh: _loadMaterialData,
-      color: AppColors.primary,
+      color: const Color(0xFF1A1A2E),
       child: ListView.builder(
         padding: EdgeInsets.all(16),
         itemCount: _materialBalance.length,
@@ -202,7 +202,7 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
             // Header with material name and status
             Row(
               children: [
-                Icon(Icons.inventory_2, color: AppColors.primary, size: 24),
+                Icon(Icons.inventory_2, color: const Color(0xFF1A1A2E), size: 24),
                 SizedBox(width: 12),
                 Expanded(
                   child: Text(
@@ -210,7 +210,7 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.textPrimary,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                 ),
@@ -238,7 +238,7 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.cardBackground,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
@@ -249,7 +249,7 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
                       Text(
                         'Current Balance',
                         style: TextStyle(
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                           fontSize: 12,
                         ),
                       ),
@@ -300,25 +300,25 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
               Container(
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.05),
+                  color: const Color(0xFF1A1A2E).withOpacity(0.05),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: AppColors.primary.withOpacity(0.2)),
+                  border: Border.all(color: const Color(0xFF1A1A2E).withOpacity(0.2)),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.today, color: AppColors.primary, size: 20),
+                    Icon(Icons.today, color: const Color(0xFF1A1A2E), size: 20),
                     SizedBox(width: 8),
                     Text(
                       'Used Today: ',
                       style: TextStyle(
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         fontSize: 14,
                       ),
                     ),
                     Text(
                       '${todayUsed.toStringAsFixed(1)} $unit',
                       style: TextStyle(
-                        color: AppColors.primary,
+                        color: const Color(0xFF1A1A2E),
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -338,8 +338,8 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
                     icon: Icon(Icons.add, size: 18),
                     label: Text('Add Stock'),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: AppColors.primary,
-                      side: BorderSide(color: AppColors.primary),
+                      foregroundColor: const Color(0xFF1A1A2E),
+                      side: BorderSide(color: const Color(0xFF1A1A2E)),
                     ),
                   ),
                 ),
@@ -350,8 +350,8 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
                     icon: Icon(Icons.history, size: 18),
                     label: Text('History'),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: AppColors.textSecondary,
-                      side: BorderSide(color: AppColors.textSecondary),
+                      foregroundColor: const Color(0xFF6B7280),
+                      side: BorderSide(color: const Color(0xFF6B7280)),
                     ),
                   ),
                 ),
@@ -366,12 +366,12 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
   Widget _buildInfoColumn(String label, String value, IconData icon) {
     return Column(
       children: [
-        Icon(icon, color: AppColors.textSecondary, size: 20),
+        Icon(icon, color: const Color(0xFF6B7280), size: 20),
         SizedBox(height: 4),
         Text(
           label,
           style: TextStyle(
-            color: AppColors.textSecondary,
+            color: const Color(0xFF6B7280),
             fontSize: 12,
           ),
         ),
@@ -379,7 +379,7 @@ class _SiteEngineerMaterialScreenState extends State<SiteEngineerMaterialScreen>
         Text(
           value,
           style: TextStyle(
-            color: AppColors.textPrimary,
+            color: const Color(0xFF1A1A2E),
             fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
@@ -496,14 +496,14 @@ class _AddMaterialDialogState extends State<_AddMaterialDialog> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Material added successfully'),
-            backgroundColor: AppColors.success,
+            backgroundColor: const Color(0xFF4CAF50),
           ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(result['error'] ?? 'Failed to add material'),
-            backgroundColor: AppColors.error,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -511,7 +511,7 @@ class _AddMaterialDialogState extends State<_AddMaterialDialog> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error: $e'),
-          backgroundColor: AppColors.error,
+          backgroundColor: const Color(0xFFF44336),
         ),
       );
     } finally {
@@ -523,7 +523,7 @@ class _AddMaterialDialogState extends State<_AddMaterialDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: AppColors.white,
-      title: Text('Add Material Stock', style: TextStyle(color: AppColors.textPrimary)),
+      title: Text('Add Material Stock', style: TextStyle(color: const Color(0xFF1A1A2E))),
       content: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -636,12 +636,12 @@ class _AddMaterialDialogState extends State<_AddMaterialDialog> {
       actions: [
         TextButton(
           onPressed: _isSubmitting ? null : () => Navigator.pop(context),
-          child: Text('Cancel', style: TextStyle(color: AppColors.textSecondary)),
+          child: Text('Cancel', style: TextStyle(color: const Color(0xFF6B7280))),
         ),
         ElevatedButton(
           onPressed: _isSubmitting ? null : _submit,
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
+            backgroundColor: const Color(0xFF1A1A2E),
             foregroundColor: AppColors.white,
           ),
           child: _isSubmitting
@@ -715,14 +715,14 @@ class _AddStockDialogState extends State<_AddStockDialog> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Stock added successfully'),
-            backgroundColor: AppColors.success,
+            backgroundColor: const Color(0xFF4CAF50),
           ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(result['error'] ?? 'Failed to add stock'),
-            backgroundColor: AppColors.error,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -730,7 +730,7 @@ class _AddStockDialogState extends State<_AddStockDialog> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error: $e'),
-          backgroundColor: AppColors.error,
+          backgroundColor: const Color(0xFFF44336),
         ),
       );
     } finally {
@@ -742,7 +742,7 @@ class _AddStockDialogState extends State<_AddStockDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: AppColors.white,
-      title: Text('Add Stock', style: TextStyle(color: AppColors.textPrimary)),
+      title: Text('Add Stock', style: TextStyle(color: const Color(0xFF1A1A2E))),
       content: Form(
         key: _formKey,
         child: Column(
@@ -750,7 +750,7 @@ class _AddStockDialogState extends State<_AddStockDialog> {
           children: [
             Text(
               'Adding stock to: ${widget.materialType}',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: const Color(0xFF6B7280)),
             ),
             SizedBox(height: 16),
             TextFormField(
@@ -788,12 +788,12 @@ class _AddStockDialogState extends State<_AddStockDialog> {
       actions: [
         TextButton(
           onPressed: _isSubmitting ? null : () => Navigator.pop(context),
-          child: Text('Cancel', style: TextStyle(color: AppColors.textSecondary)),
+          child: Text('Cancel', style: TextStyle(color: const Color(0xFF6B7280))),
         ),
         ElevatedButton(
           onPressed: _isSubmitting ? null : _submit,
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
+            backgroundColor: const Color(0xFF1A1A2E),
             foregroundColor: AppColors.white,
           ),
           child: _isSubmitting
@@ -868,9 +868,9 @@ class _MaterialUsageHistoryScreenState extends State<_MaterialUsageHistoryScreen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: AppColors.white,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -884,17 +884,17 @@ class _MaterialUsageHistoryScreenState extends State<_MaterialUsageHistoryScreen
         ),
       ),
       body: _isLoading
-          ? Center(child: CircularProgressIndicator(color: AppColors.primary))
+          ? Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)))
           : _usageHistory.isEmpty
               ? Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.history, size: 80, color: AppColors.textSecondary),
+                      Icon(Icons.history, size: 80, color: const Color(0xFF6B7280)),
                       SizedBox(height: 16),
                       Text(
                         'No usage history',
-                        style: TextStyle(fontSize: 18, color: AppColors.textPrimary),
+                        style: TextStyle(fontSize: 18, color: const Color(0xFF1A1A2E)),
                       ),
                     ],
                   ),
@@ -948,7 +948,7 @@ class _MaterialUsageHistoryScreenState extends State<_MaterialUsageHistoryScreen
           children: [
             Row(
               children: [
-                Icon(Icons.person, color: AppColors.primary, size: 20),
+                Icon(Icons.person, color: const Color(0xFF1A1A2E), size: 20),
                 SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -956,7 +956,7 @@ class _MaterialUsageHistoryScreenState extends State<_MaterialUsageHistoryScreen
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.textPrimary,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                 ),
@@ -965,7 +965,7 @@ class _MaterialUsageHistoryScreenState extends State<_MaterialUsageHistoryScreen
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.primary,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
               ],
@@ -973,18 +973,18 @@ class _MaterialUsageHistoryScreenState extends State<_MaterialUsageHistoryScreen
             SizedBox(height: 8),
             Row(
               children: [
-                Icon(Icons.calendar_today, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.calendar_today, size: 14, color: const Color(0xFF6B7280)),
                 SizedBox(width: 4),
                 Text(
                   formattedDate,
-                  style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                  style: TextStyle(color: const Color(0xFF6B7280), fontSize: 12),
                 ),
                 SizedBox(width: 16),
-                Icon(Icons.access_time, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.access_time, size: 14, color: const Color(0xFF6B7280)),
                 SizedBox(width: 4),
                 Text(
                   formattedTime,
-                  style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                  style: TextStyle(color: const Color(0xFF6B7280), fontSize: 12),
                 ),
               ],
             ),
@@ -992,7 +992,7 @@ class _MaterialUsageHistoryScreenState extends State<_MaterialUsageHistoryScreen
               SizedBox(height: 8),
               Text(
                 notes,
-                style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                style: TextStyle(color: const Color(0xFF6B7280), fontSize: 14),
               ),
             ],
           ],

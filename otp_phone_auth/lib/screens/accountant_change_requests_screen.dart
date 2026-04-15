@@ -33,7 +33,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
           'Handle Change Request',
-          style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+          style: TextStyle(fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
         ),
         content: SingleChildScrollView(
           child: Column(
@@ -44,7 +44,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -52,14 +52,14 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.person, size: 16, color: AppColors.deepNavy),
+                        const Icon(Icons.person, size: 16, color: const Color(0xFF1A1A2E)),
                         const SizedBox(width: 6),
                         Text(
                           request['requested_by_name'] ?? 'Unknown',
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ],
@@ -69,7 +69,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                       request['request_message'] ?? '',
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -81,7 +81,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                 'Current Value:',
                 style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -93,7 +93,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
               const SizedBox(height: 16),
@@ -109,7 +109,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(color: AppColors.deepNavy, width: 2),
+                    borderSide: const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
                   ),
                 ),
               ),
@@ -126,7 +126,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(color: AppColors.deepNavy, width: 2),
+                    borderSide: const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
                   ),
                 ),
               ),
@@ -138,7 +138,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
             onPressed: () => Navigator.pop(context, false),
             child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: const Color(0xFF6B7280)),
             ),
           ),
           ElevatedButton(
@@ -152,7 +152,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
               Navigator.pop(context, true);
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.statusCompleted,
+              backgroundColor: const Color(0xFF4CAF50),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text(
@@ -180,7 +180,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Change applied successfully'),
-            backgroundColor: AppColors.statusCompleted,
+            backgroundColor: const Color(0xFF4CAF50),
           ),
         );
         // Requests are automatically reloaded by provider
@@ -188,7 +188,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(response['error'] ?? 'Failed to apply change'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -203,27 +203,27 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
         final isLoading = provider.isLoadingRequests;
 
         return Scaffold(
-          backgroundColor: AppColors.lightSlate,
+          backgroundColor: const Color(0xFFF8F9FA),
           appBar: AppBar(
             title: const Text(
               'Change Requests',
               style: TextStyle(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            backgroundColor: AppColors.cleanWhite,
+            backgroundColor: Colors.white,
             elevation: 0,
-            iconTheme: const IconThemeData(color: AppColors.deepNavy),
+            iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
           ),
           body: isLoading
               ? const Center(
-                  child: CircularProgressIndicator(color: AppColors.deepNavy),
+                  child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                 )
               : RefreshIndicator(
                   onRefresh: () => provider.loadPendingChangeRequests(forceRefresh: true),
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   child: changeRequests.isEmpty
                       ? _buildEmptyState()
                       : _buildRequestsList(changeRequests),
@@ -241,7 +241,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
           Icon(
             Icons.check_circle_outline,
             size: 80,
-            color: AppColors.textSecondary.withValues(alpha: 0.5),
+            color: const Color(0xFF6B7280).withValues(alpha: 0.5),
           ),
           const SizedBox(height: 16),
           const Text(
@@ -249,7 +249,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 8),
@@ -257,7 +257,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
             'Change requests will appear here',
             style: TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
         ],
@@ -283,15 +283,15 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.statusOverdue.withValues(alpha: 0.3),
+          color: const Color(0xFFF44336).withValues(alpha: 0.3),
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -306,20 +306,20 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: AppColors.statusOverdue.withValues(alpha: 0.15),
+                color: const Color(0xFFF44336).withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.pending_actions, size: 14, color: AppColors.statusOverdue),
+                  Icon(Icons.pending_actions, size: 14, color: const Color(0xFFF44336)),
                   SizedBox(width: 4),
                   Text(
                     'PENDING REQUEST',
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.statusOverdue,
+                      color: const Color(0xFFF44336),
                       letterSpacing: 0.5,
                     ),
                   ),
@@ -333,10 +333,10 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy.withValues(alpha: 0.1),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Icon(Icons.person, size: 18, color: AppColors.deepNavy),
+                  child: const Icon(Icons.person, size: 18, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -347,7 +347,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                         'Requested by',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                       Text(
@@ -355,7 +355,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                     ],
@@ -368,7 +368,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.lightSlate,
+                color: const Color(0xFFF8F9FA),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -379,7 +379,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                     style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -390,7 +390,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -398,7 +398,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                     '${entryDetails?['customer_name'] ?? ''} ${entryDetails?['site_name'] ?? 'Unknown Site'}'.trim(),
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -409,7 +409,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.statusOverdue.withValues(alpha: 0.1),
+                color: const Color(0xFFF44336).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -417,14 +417,14 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                 children: [
                   const Row(
                     children: [
-                      Icon(Icons.message, size: 16, color: AppColors.statusOverdue),
+                      Icon(Icons.message, size: 16, color: const Color(0xFFF44336)),
                       SizedBox(width: 6),
                       Text(
                         'Request Message',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.statusOverdue,
+                          color: const Color(0xFFF44336),
                         ),
                       ),
                     ],
@@ -434,7 +434,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                     request['request_message'] ?? '',
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -449,7 +449,7 @@ class _AccountantChangeRequestsScreenState extends State<AccountantChangeRequest
                 icon: const Icon(Icons.edit, size: 18),
                 label: const Text('Handle Request'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.statusCompleted,
+                  backgroundColor: const Color(0xFF4CAF50),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   padding: const EdgeInsets.symmetric(vertical: 12),

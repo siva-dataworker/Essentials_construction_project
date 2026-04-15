@@ -51,7 +51,7 @@ class _AdminSpecializedLoginScreenState
       title: 'Complete Accounts',
       description: 'Full P/L and accounts access',
       icon: Icons.account_balance_outlined,
-      color: Color(0xFF0D1B2A),
+      color: const Color(0xFF1A1A2E),
     ),
   ];
 
@@ -79,6 +79,10 @@ class _AdminSpecializedLoginScreenState
     if (!_formKey.currentState!.validate()) return;
     setState(() => _isLoading = true);
     try {
+      print('🔍 Attempting login to: ${AuthService.baseUrl}/admin/specialized-login/');
+      print('🔍 Username: ${_usernameController.text.trim()}');
+      print('🔍 Access Type: $_selectedAccessType');
+      
       final response = await http.post(
         Uri.parse('${AuthService.baseUrl}/admin/specialized-login/'),
         headers: {'Content-Type': 'application/json'},
@@ -87,7 +91,20 @@ class _AdminSpecializedLoginScreenState
           'password': _passwordController.text,
           'access_type': _selectedAccessType,
         }),
-      );
+      ).timeout(const Duration(seconds: 30));
+      
+      print('🔍 Response status: ${response.statusCode}');
+      print('🔍 Response body length: ${response.body.length}');
+      print('🔍 Response body: ${response.body}');
+      
+      // Check if response body is empty
+      if (response.body.isEmpty) {
+        if (mounted) {
+          _showError('Server returned empty response. Status: ${response.statusCode}');
+        }
+        return;
+      }
+      
       final data = json.decode(response.body);
       if (response.statusCode == 200 && data['success'] == true) {
         await _authService.clearAuthData();
@@ -115,7 +132,8 @@ class _AdminSpecializedLoginScreenState
         }
       }
     } catch (e) {
-      if (mounted) _showError('Error: $e');
+      print('❌ Login error: $e');
+      if (mounted) _showError('Network error: $e');
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
@@ -139,7 +157,7 @@ class _AdminSpecializedLoginScreenState
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF0D1B2A), Color(0xFF1B3A5C)],
+                colors: [const Color(0xFF1A1A2E), const Color(0xFF16213E)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -246,7 +264,7 @@ class _AdminSpecializedLoginScreenState
                                       width: 4,
                                       height: 18,
                                       decoration: BoxDecoration(
-                                        gradient: AppColors.orangeGradient,
+                                        gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                                         borderRadius:
                                             BorderRadius.circular(2),
                                       ),
@@ -257,7 +275,7 @@ class _AdminSpecializedLoginScreenState
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
-                                        color: AppColors.deepNavy,
+                                        color: const Color(0xFF1A1A2E),
                                       ),
                                     ),
                                   ],
@@ -281,7 +299,7 @@ class _AdminSpecializedLoginScreenState
                                         horizontal: 12),
                                     child: Text('Credentials',
                                         style: TextStyle(
-                                            color: AppColors.textSecondary,
+                                            color: const Color(0xFF6B7280),
                                             fontSize: 12)),
                                   ),
                                   Expanded(
@@ -314,7 +332,7 @@ class _AdminSpecializedLoginScreenState
                                       _obscurePassword
                                           ? Icons.visibility_outlined
                                           : Icons.visibility_off_outlined,
-                                      color: AppColors.textSecondary,
+                                      color: const Color(0xFF6B7280),
                                       size: 20,
                                     ),
                                     onPressed: () => setState(
@@ -394,14 +412,14 @@ class _AdminSpecializedLoginScreenState
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: selected ? opt.color : AppColors.deepNavy,
+                      color: selected ? opt.color : const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     opt.description,
                     style: TextStyle(
-                        fontSize: 12, color: AppColors.textSecondary),
+                        fontSize: 12, color: const Color(0xFF6B7280)),
                   ),
                 ],
               ),
@@ -435,14 +453,14 @@ class _AdminSpecializedLoginScreenState
       obscureText: obscure,
       style: const TextStyle(
           fontSize: 15,
-          color: AppColors.deepNavy,
+          color: const Color(0xFF1A1A2E),
           fontWeight: FontWeight.w500),
       decoration: InputDecoration(
         labelText: label,
         labelStyle:
-            TextStyle(color: AppColors.textSecondary, fontSize: 14),
+            TextStyle(color: const Color(0xFF6B7280), fontSize: 14),
         prefixIcon: Icon(icon,
-            color: AppColors.deepNavy.withValues(alpha: 0.6), size: 20),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.6), size: 20),
         suffixIcon: suffix,
         filled: true,
         fillColor: const Color(0xFFF4F6FA),
@@ -459,17 +477,17 @@ class _AdminSpecializedLoginScreenState
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide:
-              const BorderSide(color: AppColors.deepNavy, width: 2),
+              const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide:
-              const BorderSide(color: AppColors.statusOverdue, width: 1.5),
+              const BorderSide(color: const Color(0xFFF44336), width: 1.5),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide:
-              const BorderSide(color: AppColors.statusOverdue, width: 2),
+              const BorderSide(color: const Color(0xFFF44336), width: 2),
         ),
       ),
       validator: validator,
@@ -480,7 +498,7 @@ class _AdminSpecializedLoginScreenState
     return Container(
       height: 56,
       decoration: BoxDecoration(
-        color: const Color(0xFF0D1B2A),
+        color: const Color(0xFF1A1A2E),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(

@@ -98,9 +98,9 @@ class _ClientDashboardState extends State<ClientDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator(color: AppColors.deepNavy))
+          ? const Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)))
           : _buildContent(),
       bottomNavigationBar: _buildBottomNav(),
     );
@@ -172,7 +172,7 @@ class _ClientDashboardState extends State<ClientDashboard> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.deepNavy.withOpacity(0.1) : Colors.transparent,
+          color: isSelected ? const Color(0xFF1A1A2E).withOpacity(0.1) : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -180,7 +180,7 @@ class _ClientDashboardState extends State<ClientDashboard> {
           children: [
             Icon(
               icon,
-              color: isSelected ? AppColors.deepNavy : Colors.grey,
+              color: isSelected ? const Color(0xFF1A1A2E) : Colors.grey,
               size: 24,
             ),
             const SizedBox(height: 4),
@@ -188,7 +188,7 @@ class _ClientDashboardState extends State<ClientDashboard> {
               label,
               style: TextStyle(
                 fontSize: 11,
-                color: isSelected ? AppColors.deepNavy : Colors.grey,
+                color: isSelected ? const Color(0xFF1A1A2E) : Colors.grey,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               ),
             ),
@@ -220,12 +220,12 @@ class ClientProgressTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async => onRefresh(),
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             floating: true,
-            backgroundColor: AppColors.deepNavy,
+            backgroundColor: const Color(0xFF1A1A2E),
             title: const Text('Project Progress', style: TextStyle(color: Colors.white)),
             actions: [
               IconButton(
@@ -250,7 +250,7 @@ class ClientProgressTab extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       _buildDateFilter(context),
@@ -313,7 +313,7 @@ class ClientProgressTab extends StatelessWidget {
                 const Icon(
                   Icons.calendar_today,
                   size: 16,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
                 const SizedBox(width: 6),
                 Text(
@@ -321,7 +321,7 @@ class ClientProgressTab extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
               ],
@@ -344,9 +344,9 @@ class ClientProgressTab extends StatelessWidget {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.light(
-              primary: AppColors.deepNavy,
+              primary: const Color(0xFF1A1A2E),
               onPrimary: Colors.white,
-              onSurface: AppColors.deepNavy,
+              onSurface: const Color(0xFF1A1A2E),
             ),
           ),
           child: child!,
@@ -381,12 +381,12 @@ class ClientProgressTab extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [AppColors.deepNavy, AppColors.deepNavy.withOpacity(0.8)],
+          colors: [const Color(0xFF1A1A2E), const Color(0xFF1A1A2E).withOpacity(0.8)],
         ),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withOpacity(0.3),
+            color: const Color(0xFF1A1A2E).withOpacity(0.3),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -497,26 +497,26 @@ class ClientProgressTab extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: AppColors.deepNavy.withOpacity(0.05),
+                  color: const Color(0xFF1A1A2E).withOpacity(0.05),
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.calendar_today, size: 18, color: AppColors.deepNavy),
+                    const Icon(Icons.calendar_today, size: 18, color: const Color(0xFF1A1A2E)),
                     const SizedBox(width: 8),
                     Text(
                       _formatDate(date),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const Spacer(),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: AppColors.statusCompleted,
+                        color: const Color(0xFF4CAF50),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
@@ -576,9 +576,9 @@ class ClientProgressTab extends StatelessWidget {
       child: Container(
         height: 180,
         decoration: BoxDecoration(
-          color: AppColors.lightSlate,
+          color: const Color(0xFFF8F9FA),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.deepNavy.withOpacity(0.1)),
+          border: Border.all(color: const Color(0xFF1A1A2E).withOpacity(0.1)),
         ),
         child: photo != null
             ? ClipRRect(
@@ -760,12 +760,12 @@ class ClientMaterialsTab extends StatelessWidget {
 
     return RefreshIndicator(
       onRefresh: () async => onRefresh(),
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             floating: true,
-            backgroundColor: AppColors.deepNavy,
+            backgroundColor: const Color(0xFF1A1A2E),
             title: const Text('Materials', style: TextStyle(color: Colors.white)),
           ),
           materials.isEmpty
@@ -838,10 +838,10 @@ class ClientMaterialsTab extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: AppColors.deepNavy.withOpacity(0.1),
+              color: const Color(0xFF1A1A2E).withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(icon, color: AppColors.deepNavy, size: 28),
+            child: Icon(icon, color: const Color(0xFF1A1A2E), size: 28),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -853,7 +853,7 @@ class ClientMaterialsTab extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -864,7 +864,7 @@ class ClientMaterialsTab extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.statusCompleted,
+                        color: const Color(0xFF4CAF50),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -887,7 +887,7 @@ class ClientMaterialsTab extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: AppColors.deepNavy.withOpacity(0.1),
+              color: const Color(0xFF1A1A2E).withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -895,7 +895,7 @@ class ClientMaterialsTab extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -925,12 +925,12 @@ class ClientDesignsTab extends StatelessWidget {
 
     return RefreshIndicator(
       onRefresh: () async => onRefresh(),
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             floating: true,
-            backgroundColor: AppColors.deepNavy,
+            backgroundColor: const Color(0xFF1A1A2E),
             title: const Text('Designs & Plans', style: TextStyle(color: Colors.white)),
           ),
           allDocuments.isEmpty
@@ -995,7 +995,7 @@ class ClientDesignsTab extends StatelessWidget {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 child: Center(
@@ -1013,7 +1013,7 @@ class ClientDesignsTab extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -1264,7 +1264,7 @@ class _ClientIssuesTabState extends State<ClientIssuesTab> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
               ),
               child: const Text('Submit'),
             ),
@@ -1311,12 +1311,12 @@ class _ClientIssuesTabState extends State<ClientIssuesTab> {
         await _loadComplaints();
         widget.onRefresh();
       },
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             floating: true,
-            backgroundColor: AppColors.deepNavy,
+            backgroundColor: const Color(0xFF1A1A2E),
             title: const Text('Issues & Updates', style: TextStyle(color: Colors.white)),
             actions: [
               IconButton(
@@ -1395,7 +1395,7 @@ class _ClientIssuesTabState extends State<ClientIssuesTab> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.deepNavy.withOpacity(0.05),
+                color: const Color(0xFF1A1A2E).withOpacity(0.05),
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
               ),
               child: Row(
@@ -1406,7 +1406,7 @@ class _ClientIssuesTabState extends State<ClientIssuesTab> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                   ),
@@ -1584,7 +1584,7 @@ class _ClientProfileTabState extends State<ClientProfileTab> {
       slivers: [
         SliverAppBar(
           floating: true,
-          backgroundColor: AppColors.deepNavy,
+          backgroundColor: const Color(0xFF1A1A2E),
           title: const Text('Profile', style: TextStyle(color: Colors.white)),
         ),
         SliverToBoxAdapter(
@@ -1605,10 +1605,10 @@ class _ClientProfileTabState extends State<ClientProfileTab> {
                         width: 80,
                         height: 80,
                         decoration: BoxDecoration(
-                          color: AppColors.deepNavy.withOpacity(0.1),
+                          color: const Color(0xFF1A1A2E).withOpacity(0.1),
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.person, size: 40, color: AppColors.deepNavy),
+                        child: const Icon(Icons.person, size: 40, color: const Color(0xFF1A1A2E)),
                       ),
                       const SizedBox(height: 16),
                       Text(
@@ -1616,7 +1616,7 @@ class _ClientProfileTabState extends State<ClientProfileTab> {
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -1645,12 +1645,12 @@ class _ClientProfileTabState extends State<ClientProfileTab> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: AppColors.deepNavy.withOpacity(0.1),
+                                color: const Color(0xFF1A1A2E).withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: const Icon(
                                 Icons.account_balance_wallet,
-                                color: AppColors.deepNavy,
+                                color: const Color(0xFF1A1A2E),
                                 size: 24,
                               ),
                             ),
@@ -1660,7 +1660,7 @@ class _ClientProfileTabState extends State<ClientProfileTab> {
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.deepNavy,
+                                color: const Color(0xFF1A1A2E),
                               ),
                             ),
                           ],
@@ -1712,7 +1712,7 @@ class _ClientProfileTabState extends State<ClientProfileTab> {
                               'Labour Budget',
                               _formatCurrency(_budgetAllocation!['labour_budget']),
                               Icons.people,
-                              AppColors.safetyOrange,
+                              const Color(0xFFFF9800),
                             ),
                           const SizedBox(height: 12),
                           if (_budgetAllocation!['other_budget'] != null)
@@ -1814,7 +1814,7 @@ class _ClientProfileTabState extends State<ClientProfileTab> {
               style: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),

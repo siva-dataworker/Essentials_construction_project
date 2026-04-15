@@ -150,12 +150,12 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       body: _selectedIndex == 0 ? _buildSitesTab() : _buildProfileTab(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) => setState(() => _selectedIndex = index),
-        selectedItemColor: AppColors.deepNavy,
+        selectedItemColor: const Color(0xFF1A1A2E),
         unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(
@@ -183,13 +183,13 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
 
   Widget _buildSiteSelectionScreen() {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: CommonWidgets.buildAppBar(
         context,
         title: '${widget.user.name ?? 'Architect'} - Select Site',
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout_rounded, color: AppColors.deepNavy),
+            icon: const Icon(Icons.logout_rounded, color: const Color(0xFF1A1A2E)),
             onPressed: _logout,
           ),
         ],
@@ -203,11 +203,11 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.deepNavy.withValues(alpha: 0.08),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
                     blurRadius: 20,
                     offset: const Offset(0, 4),
                   ),
@@ -245,7 +245,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -253,7 +253,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           'Select site to manage documents & complaints',
                           style: TextStyle(
                             fontSize: 14,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                       ],
@@ -269,11 +269,11 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
             Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.deepNavy.withValues(alpha: 0.08),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
                     blurRadius: 20,
                     offset: const Offset(0, 4),
                   ),
@@ -287,7 +287,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -295,7 +295,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                     'Choose area, street, and site to manage',
                     style: TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -378,7 +378,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
     final siteName = site['display_name'] ?? site['site_name'] ?? 'Site';
     
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: CommonWidgets.buildAppBar(
         context,
         title: '$siteName - Architect Tools',
@@ -409,11 +409,11 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.deepNavy.withValues(alpha: 0.08),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
                     blurRadius: 20,
                     offset: const Offset(0, 4),
                   ),
@@ -442,7 +442,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -450,7 +450,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                           '${site['area']} • ${site['street']}',
                           style: const TextStyle(
                             fontSize: 14,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                       ],
@@ -545,10 +545,10 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
-            color: enabled ? AppColors.lightBackground : AppColors.lightBackground.withValues(alpha: 0.5),
+            color: enabled ? const Color(0xFFF8F9FA) : const Color(0xFFF8F9FA).withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: enabled ? Colors.purple.shade300 : AppColors.textSecondary.withValues(alpha: 0.2),
+              color: enabled ? Colors.purple.shade300 : const Color(0xFF6B7280).withValues(alpha: 0.2),
               width: 1,
             ),
           ),
@@ -570,7 +570,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                         'Loading...',
                         style: TextStyle(
                           fontSize: 14,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -583,13 +583,13 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                       enabled ? hint : 'Select ${title.toLowerCase()} first',
                       style: const TextStyle(
                         fontSize: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                     isExpanded: true,
                     icon: Icon(
                       Icons.keyboard_arrow_down,
-                      color: enabled ? Colors.purple.shade600 : AppColors.textSecondary,
+                      color: enabled ? Colors.purple.shade600 : const Color(0xFF6B7280),
                     ),
                     style: TextStyle(
                       fontSize: 14,
@@ -635,10 +635,10 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
-            color: _selectedStreet != null ? AppColors.lightBackground : AppColors.lightBackground.withValues(alpha: 0.5),
+            color: _selectedStreet != null ? const Color(0xFFF8F9FA) : const Color(0xFFF8F9FA).withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: _selectedStreet != null ? Colors.purple.shade300 : AppColors.textSecondary.withValues(alpha: 0.2),
+              color: _selectedStreet != null ? Colors.purple.shade300 : const Color(0xFF6B7280).withValues(alpha: 0.2),
               width: 1,
             ),
           ),
@@ -660,7 +660,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                         'Loading sites...',
                         style: TextStyle(
                           fontSize: 14,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -673,13 +673,13 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
                       _selectedStreet != null ? 'Select a site' : 'Select street first',
                       style: const TextStyle(
                         fontSize: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                     isExpanded: true,
                     icon: Icon(
                       Icons.keyboard_arrow_down,
-                      color: _selectedStreet != null ? Colors.purple.shade600 : AppColors.textSecondary,
+                      color: _selectedStreet != null ? Colors.purple.shade600 : const Color(0xFF6B7280),
                     ),
                     style: TextStyle(
                       fontSize: 14,
@@ -714,11 +714,11 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.08),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
               blurRadius: 20,
               offset: const Offset(0, 4),
             ),
@@ -742,7 +742,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
               textAlign: TextAlign.center,
             ),
@@ -751,7 +751,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
               subtitle,
               style: const TextStyle(
                 fontSize: 12,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
               textAlign: TextAlign.center,
             ),
@@ -825,7 +825,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
 
   Widget _buildProfileTab() {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: CommonWidgets.buildAppBar(
         context,
         title: 'Profile',
@@ -853,7 +853,7 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
               style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 4),
@@ -942,14 +942,14 @@ class _ArchitectDashboardState extends State<ArchitectDashboard> {
       child: ListTile(
         leading: Icon(
           icon,
-          color: isDestructive ? Colors.red : AppColors.deepNavy,
+          color: isDestructive ? Colors.red : const Color(0xFF1A1A2E),
         ),
         title: Text(
           title,
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
-            color: isDestructive ? Colors.red : AppColors.deepNavy,
+            color: isDestructive ? Colors.red : const Color(0xFF1A1A2E),
           ),
         ),
         trailing: Icon(
@@ -1087,7 +1087,7 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 20),
@@ -1098,7 +1098,7 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1130,7 +1130,7 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1201,7 +1201,7 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1227,7 +1227,7 @@ class _DocumentUploadDialogState extends State<_DocumentUploadDialog> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1372,7 +1372,7 @@ class _ComplaintFormDialogState extends State<_ComplaintFormDialog> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 20),
@@ -1383,7 +1383,7 @@ class _ComplaintFormDialogState extends State<_ComplaintFormDialog> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1415,7 +1415,7 @@ class _ComplaintFormDialogState extends State<_ComplaintFormDialog> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1441,7 +1441,7 @@ class _ComplaintFormDialogState extends State<_ComplaintFormDialog> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1508,8 +1508,8 @@ class ArchitectHistoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Architect History'),
-        backgroundColor: AppColors.cleanWhite,
-        foregroundColor: AppColors.deepNavy,
+        backgroundColor: Colors.white,
+        foregroundColor: const Color(0xFF1A1A2E),
       ),
       body: const Center(
         child: Text(
@@ -1517,7 +1517,7 @@ class ArchitectHistoryScreen extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 16,
-            color: AppColors.textSecondary,
+            color: const Color(0xFF6B7280),
           ),
         ),
       ),

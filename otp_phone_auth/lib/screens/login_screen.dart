@@ -154,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen>
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(authProvider.error ?? 'Login failed'),
-          backgroundColor: AppColors.statusOverdue,
+          backgroundColor: const Color(0xFFF44336),
           behavior: SnackBarBehavior.floating,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -174,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen>
               Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Color(0xFF0D1B2A), Color(0xFF1B3A5C)],
+                    colors: [const Color(0xFF1A1A2E), const Color(0xFF16213E)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -290,7 +290,7 @@ class _LoginScreenState extends State<LoginScreen>
                                       _obscurePassword
                                           ? Icons.visibility_outlined
                                           : Icons.visibility_off_outlined,
-                                      color: AppColors.textSecondary,
+                                      color: const Color(0xFF6B7280),
                                       size: 20,
                                     ),
                                     onPressed: () => setState(
@@ -316,7 +316,7 @@ class _LoginScreenState extends State<LoginScreen>
                                     Text(
                                       "Don't have an account? ",
                                       style: TextStyle(
-                                          color: AppColors.textSecondary,
+                                          color: const Color(0xFF6B7280),
                                           fontSize: 13),
                                     ),
                                     GestureDetector(
@@ -329,7 +329,7 @@ class _LoginScreenState extends State<LoginScreen>
                                       child: const Text(
                                         'Register',
                                         style: TextStyle(
-                                          color: AppColors.deepNavy,
+                                          color: const Color(0xFF1A1A2E),
                                           fontWeight: FontWeight.bold,
                                           fontSize: 13,
                                         ),
@@ -366,13 +366,13 @@ class _LoginScreenState extends State<LoginScreen>
       controller: controller,
       obscureText: obscure,
       style: const TextStyle(
-          fontSize: 15, color: AppColors.deepNavy, fontWeight: FontWeight.w500),
+          fontSize: 15, color: const Color(0xFF1A1A2E), fontWeight: FontWeight.w500),
       decoration: InputDecoration(
         labelText: label,
         labelStyle:
-            TextStyle(color: AppColors.textSecondary, fontSize: 14),
+            TextStyle(color: const Color(0xFF6B7280), fontSize: 14),
         prefixIcon:
-            Icon(icon, color: AppColors.deepNavy.withValues(alpha: 0.6), size: 20),
+            Icon(icon, color: const Color(0xFF1A1A2E).withValues(alpha: 0.6), size: 20),
         suffixIcon: suffix,
         filled: true,
         fillColor: const Color(0xFFF4F6FA),
@@ -390,17 +390,17 @@ class _LoginScreenState extends State<LoginScreen>
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide:
-              const BorderSide(color: AppColors.deepNavy, width: 2),
+              const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide:
-              const BorderSide(color: AppColors.statusOverdue, width: 1.5),
+              const BorderSide(color: const Color(0xFFF44336), width: 1.5),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide:
-              const BorderSide(color: AppColors.statusOverdue, width: 2),
+              const BorderSide(color: const Color(0xFFF44336), width: 2),
         ),
       ),
       validator: validator,
@@ -411,7 +411,7 @@ class _LoginScreenState extends State<LoginScreen>
     return Container(
       height: 56,
       decoration: BoxDecoration(
-        color: const Color(0xFF0D1B2A),
+        color: const Color(0xFF1A1A2E),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(

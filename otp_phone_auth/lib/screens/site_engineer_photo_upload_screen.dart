@@ -58,7 +58,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error picking image: $e'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -71,7 +71,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
         decoration: const BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
         ),
         padding: const EdgeInsets.all(24),
@@ -82,14 +82,14 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
               width: 40,
               height: 4,
               decoration: BoxDecoration(
-                color: AppColors.textSecondary.withValues(alpha: 0.3),
+                color: const Color(0xFF6B7280).withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
             const SizedBox(height: 24),
             const Text(
               'Choose Photo Source',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 24),
             _buildSourceOption(
@@ -125,7 +125,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
     required VoidCallback onTap,
   }) {
     return Material(
-      color: AppColors.lightSlate,
+      color: const Color(0xFFF8F9FA),
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         onTap: onTap,
@@ -138,23 +138,23 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: AppColors.deepNavy.withValues(alpha: 0.1),
+                  color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(icon, color: AppColors.deepNavy, size: 24),
+                child: Icon(icon, color: const Color(0xFF1A1A2E), size: 24),
               ),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.deepNavy)),
+                    Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E))),
                     const SizedBox(height: 4),
-                    Text(subtitle, style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                    Text(subtitle, style: TextStyle(fontSize: 13, color: const Color(0xFF6B7280))),
                   ],
                 ),
               ),
-              Icon(Icons.arrow_forward_ios, size: 16, color: AppColors.deepNavy),
+              Icon(Icons.arrow_forward_ios, size: 16, color: const Color(0xFF1A1A2E)),
             ],
           ),
         ),
@@ -167,7 +167,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please select a photo first'),
-          backgroundColor: AppColors.statusOverdue,
+          backgroundColor: const Color(0xFFF44336),
         ),
       );
       return;
@@ -178,7 +178,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Morning photos must be uploaded before 1 PM'),
-          backgroundColor: AppColors.statusOverdue,
+          backgroundColor: const Color(0xFFF44336),
         ),
       );
       return;
@@ -188,7 +188,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Evening photos can only be uploaded after 1 PM'),
-          backgroundColor: AppColors.statusOverdue,
+          backgroundColor: const Color(0xFFF44336),
         ),
       );
       return;
@@ -225,7 +225,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('${_updateType == "STARTED" ? "Morning" : "Evening"} photo uploaded successfully!'),
-              backgroundColor: AppColors.statusCompleted,
+              backgroundColor: const Color(0xFF4CAF50),
             ),
           );
         }
@@ -234,7 +234,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('Upload failed: ${response.body}'),
-              backgroundColor: AppColors.statusOverdue,
+              backgroundColor: const Color(0xFFF44336),
             ),
           );
         }
@@ -245,7 +245,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error uploading photo: $e'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -255,15 +255,15 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text(
           'Upload Photo',
-          style: TextStyle(color: AppColors.deepNavy, fontSize: 18, fontWeight: FontWeight.bold),
+          style: TextStyle(color: const Color(0xFF1A1A2E), fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -274,26 +274,26 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [AppColors.cardShadow],
+                boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     'Site',
-                    style: TextStyle(fontSize: 12, color: AppColors.textSecondary, fontWeight: FontWeight.w600),
+                    style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280), fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     widget.site['display_name'] ?? widget.site['site_name'] ?? 'Unknown Site',
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     '${widget.site['area'] ?? ''}, ${widget.site['street'] ?? ''}',
-                    style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+                    style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
                   ),
                 ],
               ),
@@ -303,7 +303,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
             // Upload Type Selection
             const Text(
               'Upload Type',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 12),
             Row(
@@ -334,7 +334,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
             // Photo Preview
             const Text(
               'Photo',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 12),
             GestureDetector(
@@ -342,10 +342,10 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
               child: Container(
                 height: 300,
                 decoration: BoxDecoration(
-                  color: AppColors.cleanWhite,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppColors.deepNavy.withValues(alpha: 0.2), width: 2),
-                  boxShadow: [AppColors.cardShadow],
+                  border: Border.all(color: const Color(0xFF1A1A2E).withValues(alpha: 0.2), width: 2),
+                  boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
                 ),
                 child: _selectedImage != null
                     ? ClipRRect(
@@ -355,16 +355,16 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.add_photo_alternate, size: 64, color: AppColors.textSecondary.withValues(alpha: 0.5)),
+                          Icon(Icons.add_photo_alternate, size: 64, color: const Color(0xFF6B7280).withValues(alpha: 0.5)),
                           const SizedBox(height: 16),
                           const Text(
                             'Tap to add photo',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: AppColors.textSecondary),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: const Color(0xFF6B7280)),
                           ),
                           const SizedBox(height: 8),
                           Text(
                             'Camera or Gallery',
-                            style: TextStyle(fontSize: 14, color: AppColors.textSecondary.withValues(alpha: 0.7)),
+                            style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280).withValues(alpha: 0.7)),
                           ),
                         ],
                       ),
@@ -380,8 +380,8 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
                       icon: const Icon(Icons.refresh, size: 18),
                       label: const Text('Change Photo'),
                       style: OutlinedButton.styleFrom(
-                        foregroundColor: AppColors.deepNavy,
-                        side: const BorderSide(color: AppColors.deepNavy),
+                        foregroundColor: const Color(0xFF1A1A2E),
+                        side: const BorderSide(color: const Color(0xFF1A1A2E)),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
@@ -391,8 +391,8 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
                   OutlinedButton(
                     onPressed: () => setState(() => _selectedImage = null),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: AppColors.statusOverdue,
-                      side: const BorderSide(color: AppColors.statusOverdue),
+                      foregroundColor: const Color(0xFFF44336),
+                      side: const BorderSide(color: const Color(0xFFF44336)),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                     ),
@@ -406,7 +406,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
             // Description
             const Text(
               'Description (Optional)',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -415,18 +415,18 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
               decoration: InputDecoration(
                 hintText: 'Add notes about the work...',
                 filled: true,
-                fillColor: AppColors.cleanWhite,
+                fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: AppColors.deepNavy.withValues(alpha: 0.2)),
+                  borderSide: BorderSide(color: const Color(0xFF1A1A2E).withValues(alpha: 0.2)),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: AppColors.deepNavy.withValues(alpha: 0.2)),
+                  borderSide: BorderSide(color: const Color(0xFF1A1A2E).withValues(alpha: 0.2)),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: AppColors.deepNavy, width: 2),
+                  borderSide: const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
                 ),
               ),
             ),
@@ -436,7 +436,7 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
             ElevatedButton(
               onPressed: _isUploading ? null : _uploadPhoto,
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 padding: const EdgeInsets.symmetric(vertical: 16),
@@ -474,16 +474,16 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: enabled
-              ? (isSelected ? AppColors.deepNavy : AppColors.cleanWhite)
-              : AppColors.lightSlate,
+              ? (isSelected ? const Color(0xFF1A1A2E) : Colors.white)
+              : const Color(0xFFF8F9FA),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: enabled
-                ? (isSelected ? AppColors.deepNavy : AppColors.deepNavy.withValues(alpha: 0.2))
-                : AppColors.textSecondary.withValues(alpha: 0.2),
+                ? (isSelected ? const Color(0xFF1A1A2E) : const Color(0xFF1A1A2E).withValues(alpha: 0.2))
+                : const Color(0xFF6B7280).withValues(alpha: 0.2),
             width: isSelected ? 2 : 1,
           ),
-          boxShadow: enabled && isSelected ? [AppColors.cardShadow] : [],
+          boxShadow: enabled && isSelected ? [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))] : [],
         ),
         child: Column(
           children: [
@@ -495,8 +495,8 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
                 color: enabled
-                    ? (isSelected ? Colors.white : AppColors.deepNavy)
-                    : AppColors.textSecondary,
+                    ? (isSelected ? Colors.white : const Color(0xFF1A1A2E))
+                    : const Color(0xFF6B7280),
               ),
             ),
             const SizedBox(height: 4),
@@ -505,14 +505,14 @@ class _SiteEngineerPhotoUploadScreenState extends State<SiteEngineerPhotoUploadS
               style: TextStyle(
                 fontSize: 11,
                 color: enabled
-                    ? (isSelected ? Colors.white.withValues(alpha: 0.8) : AppColors.textSecondary)
-                    : AppColors.textSecondary.withValues(alpha: 0.5),
+                    ? (isSelected ? Colors.white.withValues(alpha: 0.8) : const Color(0xFF6B7280))
+                    : const Color(0xFF6B7280).withValues(alpha: 0.5),
               ),
               textAlign: TextAlign.center,
             ),
             if (!enabled) ...[
               const SizedBox(height: 4),
-              Icon(Icons.lock, size: 16, color: AppColors.textSecondary.withValues(alpha: 0.5)),
+              Icon(Icons.lock, size: 16, color: const Color(0xFF6B7280).withValues(alpha: 0.5)),
             ],
           ],
         ),

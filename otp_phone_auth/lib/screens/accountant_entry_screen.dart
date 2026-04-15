@@ -223,17 +223,17 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
     final isMorning = updateType == 'STARTED';
     final photoTypeLabel = isMorning ? 'Morning' : 'Evening';
     final photoIcon = isMorning ? '🌅' : '🌆';
-    final photoColor = isMorning ? AppColors.textSecondary : AppColors.deepNavy;
+    final photoColor = isMorning ? const Color(0xFF6B7280) : const Color(0xFF1A1A2E);
 
     return GestureDetector(
       onTap: () => _showPhotoDetail(photo),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepNavy.withValues(alpha: 0.08),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -248,7 +248,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                 ),
                 child: ClipRRect(
@@ -258,21 +258,21 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
-                        color: AppColors.lightSlate,
+                        color: const Color(0xFFF8F9FA),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               Icons.image_not_supported,
                               size: 40,
-                              color: AppColors.textSecondary.withValues(alpha: 0.5),
+                              color: const Color(0xFF6B7280).withValues(alpha: 0.5),
                             ),
                             const SizedBox(height: 8),
                             Text(
                               'Image not available',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: AppColors.textSecondary.withValues(alpha: 0.7),
+                                color: const Color(0xFF6B7280).withValues(alpha: 0.7),
                               ),
                             ),
                           ],
@@ -282,10 +282,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) return child;
                       return Container(
-                        color: AppColors.lightSlate,
+                        color: const Color(0xFFF8F9FA),
                         child: Center(
                           child: CircularProgressIndicator(
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                             value: loadingProgress.expectedTotalBytes != null
                                 ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
                                 : null,
@@ -337,7 +337,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -349,7 +349,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       _formatPhotoDate(photo['update_date']),
                       style: TextStyle(
                         fontSize: 10,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -372,7 +372,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             maxHeight: MediaQuery.of(context).size.height * 0.8,
           ),
           decoration: BoxDecoration(
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -382,7 +382,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: const BoxDecoration(
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 child: Row(
@@ -418,7 +418,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           height: 200,
-                          color: AppColors.lightSlate,
+                          color: const Color(0xFFF8F9FA),
                           child: const Center(
                             child: Text('Image not available'),
                           ),
@@ -463,7 +463,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               '$label:',
               style: const TextStyle(
                 fontWeight: FontWeight.w600,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -471,7 +471,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             child: Text(
               value,
               style: TextStyle(
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ),
@@ -503,20 +503,20 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
 
   Widget _buildSiteSelectionScreen() {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text(
           'Select Site',
           style: TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
         actions: [
           IconButton(
-            icon: const Icon(Icons.add_circle_outline, color: AppColors.deepNavy),
+            icon: const Icon(Icons.add_circle_outline, color: const Color(0xFF1A1A2E)),
             onPressed: () {
               Navigator.push(
                 context,
@@ -528,7 +528,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             tooltip: 'Assign Working Sites',
           ),
           IconButton(
-            icon: const Icon(Icons.logout_rounded, color: AppColors.deepNavy),
+            icon: const Icon(Icons.logout_rounded, color: const Color(0xFF1A1A2E)),
             onPressed: _logout,
           ),
         ],
@@ -542,11 +542,11 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.deepNavy.withValues(alpha: 0.08),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
                     blurRadius: 20,
                     offset: const Offset(0, 4),
                   ),
@@ -558,7 +558,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     width: 50,
                     height: 50,
                     decoration: BoxDecoration(
-                      gradient: AppColors.navyGradient,
+                      gradient: LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                       shape: BoxShape.circle,
                     ),
                     child: Center(
@@ -582,7 +582,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -591,7 +591,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight:FontWeight.bold,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                       ],
@@ -607,11 +607,11 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: AppColors.cleanWhite,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.deepNavy.withValues(alpha: 0.08),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
                     blurRadius: 20,
                     offset: const Offset(0, 4),
                   ),
@@ -625,7 +625,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -633,7 +633,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     'Choose area, street, and site to view entries',
                     style: TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -677,10 +677,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.lightBackground,
+                color: const Color(0xFFF8F9FA),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: AppColors.deepNavy.withValues(alpha: 0.2),
+                  color: const Color(0xFF1A1A2E).withValues(alpha: 0.2),
                   width: 1,
                 ),
               ),
@@ -688,7 +688,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                 children: [
                   Icon(
                     Icons.info_outline,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                     size: 20,
                   ),
                   const SizedBox(width: 12),
@@ -697,7 +697,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       'Select all three dropdowns to automatically enter the site and view role-based entries.',
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         height: 1.4,
                       ),
                     ),
@@ -716,7 +716,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
     final siteName = site['display_name'] ?? site['site_name'] ?? 'Site';
     
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -724,7 +724,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Text(
               siteName,
               style: const TextStyle(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
@@ -732,15 +732,15 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Text(
               'Accountant View',
               style: TextStyle(
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
                 fontSize: 12,
               ),
             ),
           ],
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -812,7 +812,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(52),
           child: Container(
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -830,10 +830,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                         duration: const Duration(milliseconds: 150),
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         decoration: BoxDecoration(
-                          color: selected ? AppColors.deepNavy : AppColors.lightSlate,
+                          color: selected ? const Color(0xFF1A1A2E) : const Color(0xFFF8F9FA),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                            color: selected ? AppColors.deepNavy : AppColors.deepNavy.withValues(alpha: 0.2),
+                            color: selected ? const Color(0xFF1A1A2E) : const Color(0xFF1A1A2E).withValues(alpha: 0.2),
                           ),
                         ),
                         child: Text(
@@ -841,7 +841,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-                            color: selected ? Colors.white : AppColors.deepNavy,
+                            color: selected ? Colors.white : const Color(0xFF1A1A2E),
                           ),
                         ),
                       ),
@@ -868,7 +868,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
           children: [
             // Sub-filter chips: Labour | Materials | Requests | Photos
             Container(
-              color: AppColors.cleanWhite,
+              color: Colors.white,
               padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -883,10 +883,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           duration: const Duration(milliseconds: 150),
                           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
                           decoration: BoxDecoration(
-                            color: selected ? AppColors.statusCompleted : AppColors.lightSlate,
+                            color: selected ? const Color(0xFF4CAF50) : const Color(0xFFF8F9FA),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                              color: selected ? AppColors.statusCompleted : AppColors.deepNavy.withValues(alpha: 0.2),
+                              color: selected ? const Color(0xFF4CAF50) : const Color(0xFF1A1A2E).withValues(alpha: 0.2),
                             ),
                           ),
                           child: Text(
@@ -894,7 +894,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             style: TextStyle(
                               fontSize: 13,
                               fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-                              color: selected ? Colors.white : AppColors.deepNavy,
+                              color: selected ? Colors.white : const Color(0xFF1A1A2E),
                             ),
                           ),
                         ),
@@ -929,13 +929,13 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularProgressIndicator(color: AppColors.statusCompleted),
+                CircularProgressIndicator(color: const Color(0xFF4CAF50)),
                 SizedBox(height: 16),
                 Text(
                   'Loading supervisor photos...',
                   style: TextStyle(
                     fontSize: 16,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
               ],
@@ -972,7 +972,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                 const Icon(
                   Icons.photo_library_outlined,
                   size: 80,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
                 const SizedBox(height: 16),
                 const Text(
@@ -980,7 +980,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -988,7 +988,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   'Supervisor photos will appear here',
                   style: TextStyle(
                     fontSize: 14,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -997,7 +997,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   icon: const Icon(Icons.refresh),
                   label: const Text('Refresh Photos'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.statusCompleted,
+                    backgroundColor: const Color(0xFF4CAF50),
                     foregroundColor: Colors.white,
                   ),
                 ),
@@ -1030,7 +1030,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
           children: [
             // Morning / Evening tabs
             Container(
-              color: AppColors.lightSlate,
+              color: const Color(0xFFF8F9FA),
               padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
               child: Row(
                 children: ['Morning', 'Evening'].map((time) {
@@ -1044,10 +1044,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           duration: const Duration(milliseconds: 150),
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           decoration: BoxDecoration(
-                            color: selected ? AppColors.statusCompleted : Colors.white,
+                            color: selected ? const Color(0xFF4CAF50) : Colors.white,
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
-                              color: selected ? AppColors.statusCompleted : AppColors.deepNavy.withValues(alpha: 0.2),
+                              color: selected ? const Color(0xFF4CAF50) : const Color(0xFF1A1A2E).withValues(alpha: 0.2),
                               width: 1.5,
                             ),
                           ),
@@ -1057,7 +1057,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                               Icon(
                                 time == 'Morning' ? Icons.wb_sunny : Icons.nightlight_round,
                                 size: 18,
-                                color: selected ? Colors.white : AppColors.deepNavy,
+                                color: selected ? Colors.white : const Color(0xFF1A1A2E),
                               ),
                               const SizedBox(width: 8),
                               Text(
@@ -1065,7 +1065,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-                                  color: selected ? Colors.white : AppColors.deepNavy,
+                                  color: selected ? Colors.white : const Color(0xFF1A1A2E),
                                 ),
                               ),
                             ],
@@ -1087,7 +1087,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           Icon(
                             _selectedPhotoTimeOfDay == 'Morning' ? Icons.wb_sunny : Icons.nightlight_round,
                             size: 64,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                           const SizedBox(height: 16),
                           Text(
@@ -1095,7 +1095,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 8),
@@ -1103,7 +1103,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             'No photos uploaded for $_selectedPhotoTimeOfDay',
                             style: const TextStyle(
                               fontSize: 14,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                         ],
@@ -1165,12 +1165,12 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: AppColors.statusCompleted.withValues(alpha: 0.1),
+                      color: const Color(0xFF4CAF50).withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Icon(
                       Icons.photo_library,
-                      color: AppColors.statusCompleted,
+                      color: const Color(0xFF4CAF50),
                       size: 20,
                     ),
                   ),
@@ -1184,7 +1184,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -1192,7 +1192,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           '${photos.length} ${photos.length == 1 ? 'photo' : 'photos'}',
                           style: const TextStyle(
                             fontSize: 14,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                       ],
@@ -1200,7 +1200,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   ),
                   Icon(
                     isExpanded ? Icons.expand_less : Icons.expand_more,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ],
               ),
@@ -1306,7 +1306,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.person, size: 14, color: AppColors.textSecondary),
+                      const Icon(Icons.person, size: 14, color: const Color(0xFF6B7280)),
                       const SizedBox(width: 4),
                       Expanded(
                         child: Text(
@@ -1314,7 +1314,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -1325,13 +1325,13 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   const SizedBox(height: 4),
                   Row(
                     children: [
-                      const Icon(Icons.calendar_today, size: 12, color: AppColors.textSecondary),
+                      const Icon(Icons.calendar_today, size: 12, color: const Color(0xFF6B7280)),
                       const SizedBox(width: 4),
                       Text(
                         uploadDate,
                         style: const TextStyle(
                           fontSize: 11,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -1342,7 +1342,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       description,
                       style: const TextStyle(
                         fontSize: 11,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -1372,7 +1372,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
           children: [
             AppBar(
               title: Text('$timeOfDay Photo'),
-              backgroundColor: AppColors.statusCompleted,
+              backgroundColor: const Color(0xFF4CAF50),
               foregroundColor: Colors.white,
               leading: IconButton(
                 icon: const Icon(Icons.close),
@@ -1403,14 +1403,14 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.person, size: 16, color: AppColors.deepNavy),
+                      const Icon(Icons.person, size: 16, color: const Color(0xFF1A1A2E)),
                       const SizedBox(width: 8),
                       Text(
                         supervisorName,
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                     ],
@@ -1418,13 +1418,13 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   const SizedBox(height: 8),
                   Row(
                     children: [
-                      const Icon(Icons.calendar_today, size: 14, color: AppColors.textSecondary),
+                      const Icon(Icons.calendar_today, size: 14, color: const Color(0xFF6B7280)),
                       const SizedBox(width: 8),
                       Text(
                         uploadDate,
                         style: const TextStyle(
                           fontSize: 13,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -1434,14 +1434,14 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Icon(Icons.description, size: 14, color: AppColors.textSecondary),
+                        const Icon(Icons.description, size: 14, color: const Color(0xFF6B7280)),
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
                             description,
                             style: const TextStyle(
                               fontSize: 13,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                         ),
@@ -1464,7 +1464,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
           children: [
             // Sub-filter chips: Photos | Labor | Materials | Documents
             Container(
-              color: AppColors.cleanWhite,
+              color: Colors.white,
               padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -1479,10 +1479,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                           duration: const Duration(milliseconds: 150),
                           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
                           decoration: BoxDecoration(
-                            color: selected ? AppColors.deepNavy : AppColors.lightSlate,
+                            color: selected ? const Color(0xFF1A1A2E) : const Color(0xFFF8F9FA),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                              color: selected ? AppColors.deepNavy : AppColors.deepNavy.withValues(alpha: 0.2),
+                              color: selected ? const Color(0xFF1A1A2E) : const Color(0xFF1A1A2E).withValues(alpha: 0.2),
                             ),
                           ),
                           child: Text(
@@ -1490,7 +1490,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             style: TextStyle(
                               fontSize: 13,
                               fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-                              color: selected ? Colors.white : AppColors.deepNavy,
+                              color: selected ? Colors.white : const Color(0xFF1A1A2E),
                             ),
                           ),
                         ),
@@ -1529,13 +1529,13 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(color: AppColors.deepNavy),
+            CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
             SizedBox(height: 16),
             Text(
               'Loading site photos...',
               style: TextStyle(
                 fontSize: 16,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -1551,7 +1551,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             const Icon(
               Icons.photo_library_outlined,
               size: 80,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
             const SizedBox(height: 16),
             const Text(
@@ -1559,7 +1559,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1567,7 +1567,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               'Site Engineer photos will appear here',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
             const SizedBox(height: 20),
@@ -1581,7 +1581,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               icon: const Icon(Icons.refresh),
               label: const Text('Refresh Photos'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
               ),
             ),
@@ -1616,7 +1616,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Icon(
               Icons.people_outline,
               size: 72,
-              color: AppColors.textSecondary.withValues(alpha: 0.4),
+              color: const Color(0xFF6B7280).withValues(alpha: 0.4),
             ),
             const SizedBox(height: 16),
             const Text(
@@ -1624,7 +1624,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1632,7 +1632,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               'No labour entries added by Site Engineer',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -1666,7 +1666,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Icon(
               Icons.inventory_2_outlined,
               size: 72,
-              color: AppColors.textSecondary.withValues(alpha: 0.4),
+              color: const Color(0xFF6B7280).withValues(alpha: 0.4),
             ),
             const SizedBox(height: 16),
             const Text(
@@ -1674,7 +1674,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 8),
@@ -1682,7 +1682,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               'No material entries added by Site Engineer',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
             const SizedBox(height: 20),
@@ -1696,7 +1696,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               icon: const Icon(Icons.refresh),
               label: const Text('Refresh Materials'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
               ),
             ),
@@ -1734,13 +1734,13 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularProgressIndicator(color: AppColors.deepNavy),
+                CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                 SizedBox(height: 16),
                 Text(
                   'Loading architect data...',
                   style: TextStyle(
                     fontSize: 16,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
               ],
@@ -1756,7 +1756,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                 const Icon(
                   Icons.architecture,
                   size: 80,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
                 const SizedBox(height: 16),
                 const Text(
@@ -1764,7 +1764,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -1772,7 +1772,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   'Architect documents and complaints will appear here',
                   style: TextStyle(
                     fontSize: 14,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -1786,7 +1786,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   icon: const Icon(Icons.refresh),
                   label: const Text('Refresh Data'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.deepNavy,
+                    backgroundColor: const Color(0xFF1A1A2E),
                     foregroundColor: Colors.white,
                   ),
                 ),
@@ -1821,34 +1821,34 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
     switch (documentType) {
       case 'Floor Plan':
         documentIcon = Icons.architecture;
-        documentColor = AppColors.deepNavy;
+        documentColor = const Color(0xFF1A1A2E);
         break;
       case 'Elevation':
         documentIcon = Icons.apartment;
-        documentColor = AppColors.textSecondary;
+        documentColor = const Color(0xFF6B7280);
         break;
       case 'Structure Drawing':
         documentIcon = Icons.foundation;
-        documentColor = AppColors.textPrimary;
+        documentColor = const Color(0xFF1A1A2E);
         break;
       case 'Design':
         documentIcon = Icons.design_services;
-        documentColor = AppColors.deepNavy;
+        documentColor = const Color(0xFF1A1A2E);
         break;
       default:
         documentIcon = Icons.description;
-        documentColor = AppColors.textSecondary;
+        documentColor = const Color(0xFF6B7280);
     }
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -1877,7 +1877,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -1907,30 +1907,30 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               description,
               style: const TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
           const SizedBox(height: 12),
           Row(
             children: [
-              Icon(Icons.person, size: 16, color: AppColors.textSecondary),
+              Icon(Icons.person, size: 16, color: const Color(0xFF6B7280)),
               const SizedBox(width: 4),
               Text(
                 'By ${architectName ?? 'Unknown'}',
                 style: const TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
               ),
               const Spacer(),
-              Icon(Icons.calendar_today, size: 16, color: AppColors.textSecondary),
+              Icon(Icons.calendar_today, size: 16, color: const Color(0xFF6B7280)),
               const SizedBox(width: 4),
               Text(
                 _formatDate(uploadDate),
                 style: const TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
               ),
             ],
@@ -1951,38 +1951,38 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
     Color priorityColor;
     switch (priority) {
       case 'URGENT':
-        priorityColor = AppColors.deepNavy;
+        priorityColor = const Color(0xFF1A1A2E);
         break;
       case 'HIGH':
-        priorityColor = AppColors.textPrimary;
+        priorityColor = const Color(0xFF1A1A2E);
         break;
       case 'MEDIUM':
-        priorityColor = AppColors.textSecondary;
+        priorityColor = const Color(0xFF6B7280);
         break;
       default:
-        priorityColor = AppColors.textTertiary;
+        priorityColor = const Color(0xFF9CA3AF);
     }
 
     Color statusColor;
     switch (status) {
       case 'RESOLVED':
-        statusColor = AppColors.textSecondary;
+        statusColor = const Color(0xFF6B7280);
         break;
       case 'IN_PROGRESS':
-        statusColor = AppColors.deepNavy;
+        statusColor = const Color(0xFF1A1A2E);
         break;
       case 'CLOSED':
-        statusColor = AppColors.textTertiary;
+        statusColor = const Color(0xFF9CA3AF);
         break;
       default:
-        statusColor = AppColors.textPrimary;
+        statusColor = const Color(0xFF1A1A2E);
     }
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: priorityColor.withValues(alpha: 0.3),
@@ -1990,7 +1990,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.08),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.08),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -2019,7 +2019,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -2068,29 +2068,29 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             description,
             style: const TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
           const SizedBox(height: 12),
           Row(
             children: [
-              Icon(Icons.person, size: 16, color: AppColors.textSecondary),
+              Icon(Icons.person, size: 16, color: const Color(0xFF6B7280)),
               const SizedBox(width: 4),
               Text(
                 'By ${architectName ?? 'Unknown'}',
                 style: const TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
               ),
               const Spacer(),
-              Icon(Icons.calendar_today, size: 16, color: AppColors.textSecondary),
+              Icon(Icons.calendar_today, size: 16, color: const Color(0xFF6B7280)),
               const SizedBox(width: 4),
               Text(
                 _formatDate(uploadDate),
                 style: const TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
               ),
             ],
@@ -2121,7 +2121,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Icon(
               Icons.request_page_outlined,
               size: 80,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
             SizedBox(height: 16),
             Text(
@@ -2129,7 +2129,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             SizedBox(height: 8),
@@ -2137,7 +2137,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               'Change requests will appear here',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -2165,15 +2165,15 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
     
     switch (status) {
       case 'APPROVED':
-        statusColor = AppColors.statusCompleted;
+        statusColor = const Color(0xFF4CAF50);
         statusIcon = Icons.check_circle;
         break;
       case 'REJECTED':
-        statusColor = AppColors.statusOverdue;
+        statusColor = const Color(0xFFF44336);
         statusIcon = Icons.cancel;
         break;
       default:
-        statusColor = AppColors.safetyOrange;
+        statusColor = const Color(0xFFFF9800);
         statusIcon = Icons.pending;
     }
 
@@ -2189,7 +2189,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -2214,7 +2214,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppColors.deepNavy.withValues(alpha: 0.1),
+                  color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -2222,7 +2222,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                   style: const TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
               ),
@@ -2233,7 +2233,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             requestMessage,
             style: const TextStyle(
               fontSize: 14,
-              color: AppColors.textPrimary,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           if (request['created_at'] != null) ...[
@@ -2242,7 +2242,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               'Requested: ${_formatDateTime(request['created_at'])}',
               style: TextStyle(
                 fontSize: 12,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -2327,14 +2327,14 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
       children: [
         Row(
           children: [
-            Icon(icon, size: 18, color: AppColors.deepNavy),
+            Icon(icon, size: 18, color: const Color(0xFF1A1A2E)),
             const SizedBox(width: 8),
             Text(
               title,
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ],
@@ -2344,10 +2344,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
-            color: enabled ? AppColors.lightBackground : AppColors.lightBackground.withValues(alpha: 0.5),
+            color: enabled ? const Color(0xFFF8F9FA) : const Color(0xFFF8F9FA).withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: enabled ? AppColors.deepNavy.withValues(alpha: 0.3) : AppColors.textSecondary.withValues(alpha: 0.2),
+              color: enabled ? const Color(0xFF1A1A2E).withValues(alpha: 0.3) : const Color(0xFF6B7280).withValues(alpha: 0.2),
               width: 1,
             ),
           ),
@@ -2361,7 +2361,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                         height: 16,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       SizedBox(width: 12),
@@ -2369,7 +2369,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                         'Loading...',
                         style: TextStyle(
                           fontSize: 14,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -2382,17 +2382,17 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       enabled ? hint : 'Select ${title.toLowerCase()} first',
                       style: TextStyle(
                         fontSize: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                     isExpanded: true,
                     icon: Icon(
                       Icons.keyboard_arrow_down,
-                      color: enabled ? AppColors.deepNavy : AppColors.textSecondary,
+                      color: enabled ? const Color(0xFF1A1A2E) : const Color(0xFF6B7280),
                     ),
                     style: const TextStyle(
                       fontSize: 14,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                       fontWeight: FontWeight.w600,
                     ),
                     items: enabled
@@ -2417,14 +2417,14 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
       children: [
         Row(
           children: [
-            const Icon(Icons.business, size: 18, color: AppColors.deepNavy),
+            const Icon(Icons.business, size: 18, color: const Color(0xFF1A1A2E)),
             const SizedBox(width: 8),
             const Text(
               'Site',
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ],
@@ -2434,10 +2434,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
-            color: _selectedStreet != null ? AppColors.lightBackground : AppColors.lightBackground.withValues(alpha: 0.5),
+            color: _selectedStreet != null ? const Color(0xFFF8F9FA) : const Color(0xFFF8F9FA).withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: _selectedStreet != null ? AppColors.deepNavy.withValues(alpha: 0.3) : AppColors.textSecondary.withValues(alpha: 0.2),
+              color: _selectedStreet != null ? const Color(0xFF1A1A2E).withValues(alpha: 0.3) : const Color(0xFF6B7280).withValues(alpha: 0.2),
               width: 1,
             ),
           ),
@@ -2451,7 +2451,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                         height: 16,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       SizedBox(width: 12),
@@ -2459,7 +2459,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                         'Loading sites...',
                         style: TextStyle(
                           fontSize: 14,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -2472,17 +2472,17 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       _selectedStreet != null ? 'Select a site' : 'Select street first',
                       style: TextStyle(
                         fontSize: 14,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                     isExpanded: true,
                     icon: Icon(
                       Icons.keyboard_arrow_down,
-                      color: _selectedStreet != null ? AppColors.deepNavy : AppColors.textSecondary,
+                      color: _selectedStreet != null ? const Color(0xFF1A1A2E) : const Color(0xFF6B7280),
                     ),
                     style: const TextStyle(
                       fontSize: 14,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                       fontWeight: FontWeight.w600,
                     ),
                     items: _selectedStreet != null
@@ -2509,14 +2509,14 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
           Icon(
             icon,
             size: 80,
-            color: AppColors.textSecondary.withValues(alpha: 0.3),
+            color: const Color(0xFF6B7280).withValues(alpha: 0.3),
           ),
           const SizedBox(height: 16),
           Text(
             message,
             style: TextStyle(
               fontSize: 16,
-              color: AppColors.textSecondary.withValues(alpha: 0.7),
+              color: const Color(0xFF6B7280).withValues(alpha: 0.7),
             ),
           ),
         ],
@@ -2535,7 +2535,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -2564,12 +2564,12 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: AppColors.deepNavy.withValues(alpha: 0.1),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Icon(
                         Icons.calendar_today,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         size: 24,
                       ),
                     ),
@@ -2583,7 +2583,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -2591,7 +2591,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             '$totalEntries ${isLabour ? 'labour' : 'material'} ${totalEntries == 1 ? 'entry' : 'entries'}',
                             style: const TextStyle(
                               fontSize: 13,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                         ],
@@ -2599,7 +2599,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     ),
                     Icon(
                       isExpanded ? Icons.expand_less : Icons.expand_more,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                       size: 28,
                     ),
                   ],
@@ -2633,10 +2633,10 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.lightSlate,
+        color: const Color(0xFFF8F9FA),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: hasPendingRequest ? AppColors.safetyOrange.withValues(alpha: 0.3) : AppColors.borderColor,
+          color: hasPendingRequest ? const Color(0xFFFF9800).withValues(alpha: 0.3) : const Color(0xFFE5E7EB),
           width: 2,
         ),
       ),
@@ -2660,7 +2660,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -2668,7 +2668,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: AppColors.safetyOrange.withValues(alpha: 0.1),
+                color: const Color(0xFFFF9800).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Text(
@@ -2676,7 +2676,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                 style: TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.safetyOrange,
+                  color: const Color(0xFFFF9800),
                 ),
               ),
             ),
@@ -2704,23 +2704,23 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: AppColors.statusCompleted.withValues(alpha: 0.08),
+        color: const Color(0xFF4CAF50).withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: AppColors.statusCompleted.withValues(alpha: 0.25),
+          color: const Color(0xFF4CAF50).withValues(alpha: 0.25),
         ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.currency_rupee, size: 14, color: AppColors.statusCompleted),
+          const Icon(Icons.currency_rupee, size: 14, color: const Color(0xFF4CAF50)),
           const SizedBox(width: 4),
           Text(
             '₹${dailyRate.toStringAsFixed(0)}/day × $count = ₹${total.toStringAsFixed(0)}',
             style: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: AppColors.statusCompleted,
+              color: const Color(0xFF4CAF50),
             ),
           ),
         ],
@@ -2738,7 +2738,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -2746,7 +2746,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: AppColors.safetyOrange.withValues(alpha: 0.1),
+                color: const Color(0xFFFF9800).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Text(
@@ -2754,7 +2754,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                 style: TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.safetyOrange,
+                  color: const Color(0xFFFF9800),
                 ),
               ),
             ),
@@ -2773,13 +2773,13 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
       padding: const EdgeInsets.only(bottom: 6),
       child: Row(
         children: [
-          Icon(icon, size: 16, color: AppColors.textSecondary),
+          Icon(icon, size: 16, color: const Color(0xFF6B7280)),
           const SizedBox(width: 8),
           Text(
             '$label: ',
             style: const TextStyle(
               fontSize: 13,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -2788,7 +2788,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               value ?? 'N/A',
               style: const TextStyle(
                 fontSize: 13,
-                color: AppColors.textPrimary,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
           ),
@@ -2868,7 +2868,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -2897,12 +2897,12 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: AppColors.textSecondary.withValues(alpha: 0.1),
+                        color: const Color(0xFF6B7280).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Icon(
                         Icons.photo_camera,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         size: 24,
                       ),
                     ),
@@ -2916,7 +2916,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -2924,7 +2924,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             '$totalPhotos ${totalPhotos == 1 ? 'photo' : 'photos'}',
                             style: const TextStyle(
                               fontSize: 13,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                         ],
@@ -2932,7 +2932,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     ),
                     Icon(
                       isExpanded ? Icons.expand_less : Icons.expand_more,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                       size: 28,
                     ),
                   ],
@@ -3018,7 +3018,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -3047,12 +3047,12 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: AppColors.deepNavy.withValues(alpha: 0.1),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Icon(
                         Icons.architecture,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         size: 24,
                       ),
                     ),
@@ -3066,7 +3066,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -3074,7 +3074,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                             '$documentsCount ${documentsCount == 1 ? 'document' : 'documents'}, $complaintsCount ${complaintsCount == 1 ? 'complaint' : 'complaints'}',
                             style: const TextStyle(
                               fontSize: 13,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                         ],
@@ -3082,7 +3082,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                     ),
                     Icon(
                       isExpanded ? Icons.expand_less : Icons.expand_more,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                       size: 28,
                     ),
                   ],
@@ -3146,7 +3146,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                   ),
@@ -3159,7 +3159,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               const SizedBox(height: 8),
               Text(
                 'Found $_totalMismatches mismatches between Supervisor and Site Engineer entries',
-                style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+                style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
               ),
               const SizedBox(height: 24),
               Expanded(
@@ -3176,7 +3176,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
               ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.deepNavy,
+                  backgroundColor: const Color(0xFF1A1A2E),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
@@ -3227,7 +3227,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: mismatchColor.withValues(alpha: 0.3), width: 2),
         boxShadow: [
@@ -3270,7 +3270,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                   ],
@@ -3306,7 +3306,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       'Supervisor',
                       style: TextStyle(
                         fontSize: 12,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -3316,7 +3316,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     if (mismatch['supervisor_name'] != null) ...[
@@ -3325,7 +3325,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                         mismatch['supervisor_name'],
                         style: TextStyle(
                           fontSize: 11,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -3341,7 +3341,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       'Site Engineer',
                       style: TextStyle(
                         fontSize: 12,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -3351,7 +3351,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     if (mismatch['engineer_name'] != null) ...[
@@ -3360,7 +3360,7 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
                         mismatch['engineer_name'],
                         style: TextStyle(
                           fontSize: 11,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                     ],
@@ -3372,13 +3372,13 @@ class _AccountantEntryScreenState extends State<AccountantEntryScreen> {
           const SizedBox(height: 12),
           Row(
             children: [
-              Icon(Icons.calendar_today, size: 14, color: AppColors.textSecondary),
+              Icon(Icons.calendar_today, size: 14, color: const Color(0xFF6B7280)),
               const SizedBox(width: 4),
               Text(
                 entryDate,
                 style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                 ),
               ),
             ],
@@ -3470,14 +3470,14 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.description_outlined, size: 80, color: AppColors.textSecondary),
+            Icon(Icons.description_outlined, size: 80, color: const Color(0xFF6B7280)),
             SizedBox(height: 16),
             Text(
               'Select a Site',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             SizedBox(height: 8),
@@ -3485,7 +3485,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
               'Choose a site to view documents',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
           ],
@@ -3496,12 +3496,12 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
     return Column(
       children: [
         Container(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           child: TabBar(
             controller: _docTabController,
-            labelColor: AppColors.deepNavy,
-            unselectedLabelColor: AppColors.textSecondary,
-            indicatorColor: AppColors.deepNavy,
+            labelColor: const Color(0xFF1A1A2E),
+            unselectedLabelColor: const Color(0xFF6B7280),
+            indicatorColor: const Color(0xFF1A1A2E),
             tabs: [
               Tab(text: 'Site Engineer (${_siteEngineerDocs.length})'),
               Tab(text: 'Architect (${_architectDocs.length})'),
@@ -3510,7 +3510,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
         ),
         Expanded(
           child: _isLoading
-              ? Center(child: CircularProgressIndicator(color: AppColors.deepNavy))
+              ? Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)))
               : TabBarView(
                   controller: _docTabController,
                   children: [
@@ -3529,14 +3529,14 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.description_outlined, size: 80, color: AppColors.textSecondary),
+            Icon(Icons.description_outlined, size: 80, color: const Color(0xFF6B7280)),
             SizedBox(height: 16),
             Text(
               'No Documents',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             SizedBox(height: 8),
@@ -3544,7 +3544,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
               '$role has not uploaded any documents yet',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: const Color(0xFF6B7280),
               ),
             ),
             SizedBox(height: 20),
@@ -3553,7 +3553,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
               icon: Icon(Icons.refresh),
               label: Text('Refresh'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
               ),
             ),
@@ -3564,7 +3564,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
 
     return RefreshIndicator(
       onRefresh: _loadDocuments,
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: ListView.builder(
         padding: EdgeInsets.all(16),
         itemCount: documents.length,
@@ -3584,9 +3584,9 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
     return Container(
       margin: EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Material(
         color: Colors.transparent,
@@ -3616,7 +3616,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       SizedBox(height: 4),
@@ -3625,7 +3625,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                             decoration: BoxDecoration(
-                              color: AppColors.deepNavy.withValues(alpha: 0.1),
+                              color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(
@@ -3633,7 +3633,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: AppColors.deepNavy,
+                                color: const Color(0xFF1A1A2E),
                               ),
                             ),
                           ),
@@ -3641,7 +3641,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                             decoration: BoxDecoration(
-                              color: AppColors.safetyOrange.withValues(alpha: 0.1),
+                              color: const Color(0xFFFF9800).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(
@@ -3649,7 +3649,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
                               style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.w600,
-                                color: AppColors.safetyOrange,
+                                color: const Color(0xFFFF9800),
                               ),
                             ),
                           ),
@@ -3658,16 +3658,16 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
                       SizedBox(height: 4),
                       Text(
                         'Uploaded: ${doc['upload_date'] ?? ''}',
-                        style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                        style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                       ),
                       Text(
                         'By: ${doc['uploaded_by'] ?? 'Unknown'} • $fileSize',
-                        style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                        style: TextStyle(fontSize: 11, color: const Color(0xFF6B7280)),
                       ),
                     ],
                   ),
                 ),
-                Icon(Icons.arrow_forward_ios, size: 16, color: AppColors.textSecondary),
+                Icon(Icons.arrow_forward_ios, size: 16, color: const Color(0xFF6B7280)),
               ],
             ),
           ),

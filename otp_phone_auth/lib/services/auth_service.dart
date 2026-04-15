@@ -64,6 +64,8 @@ class AuthService {
     required String role,
   }) async {
     try {
+      print('🔍 [AUTH] Attempting registration to: $baseUrl/auth/register/');
+      
       final response = await http.post(
         Uri.parse('$baseUrl/auth/register/'),
         headers: {'Content-Type': 'application/json'},
@@ -75,7 +77,18 @@ class AuthService {
           'full_name': fullName,
           'role': role,
         }),
-      );
+      ).timeout(const Duration(seconds: 30));
+      
+      print('🔍 [AUTH] Response status: ${response.statusCode}');
+      print('🔍 [AUTH] Response body: ${response.body}');
+      
+      // Check if response body is empty
+      if (response.body.isEmpty) {
+        return {
+          'success': false,
+          'error': 'Server returned empty response. Status: ${response.statusCode}',
+        };
+      }
       
       final data = json.decode(response.body);
       
@@ -93,6 +106,7 @@ class AuthService {
         };
       }
     } catch (e) {
+      print('❌ [AUTH] Registration error: $e');
       return {
         'success': false,
         'error': 'Network error: $e',
@@ -106,6 +120,10 @@ class AuthService {
     required String password,
   }) async {
     try {
+      print('🔍 [AUTH] Attempting login to: $baseUrl/auth/login/');
+      print('🔍 [AUTH] Username: $username');
+      print('⏳ [AUTH] Note: Render free tier may take 30-60 seconds to wake up...');
+      
       final response = await http.post(
         Uri.parse('$baseUrl/auth/login/'),
         headers: {'Content-Type': 'application/json'},
@@ -113,7 +131,19 @@ class AuthService {
           'username': username,
           'password': password,
         }),
-      );
+      ).timeout(const Duration(seconds: 90)); // Increased timeout for Render cold start
+      
+      print('🔍 [AUTH] Response status: ${response.statusCode}');
+      print('🔍 [AUTH] Response body length: ${response.body.length}');
+      print('🔍 [AUTH] Response body: ${response.body}');
+      
+      // Check if response body is empty
+      if (response.body.isEmpty) {
+        return {
+          'success': false,
+          'error': 'Server returned empty response. Status: ${response.statusCode}',
+        };
+      }
       
       final data = json.decode(response.body);
       
@@ -139,6 +169,16 @@ class AuthService {
         };
       }
     } catch (e) {
+      print('❌ [AUTH] Login error: $e');
+      
+      // Provide more helpful error message for timeout
+      if (e.toString().contains('TimeoutException')) {
+        return {
+          'success': false,
+          'error': 'Backend server is not responding. It may be sleeping (Render free tier). Please wait a minute and try again, or check if the backend is deployed.',
+        };
+      }
+      
       return {
         'success': false,
         'error': 'Network error: $e',
@@ -152,7 +192,15 @@ class AuthService {
       final response = await http.get(
         Uri.parse('$baseUrl/auth/status/?username=$username'),
         headers: {'Content-Type': 'application/json'},
-      );
+      ).timeout(const Duration(seconds: 30));
+      
+      // Check if response body is empty
+      if (response.body.isEmpty) {
+        return {
+          'success': false,
+          'error': 'Server returned empty response. Status: ${response.statusCode}',
+        };
+      }
       
       final data = json.decode(response.body);
       

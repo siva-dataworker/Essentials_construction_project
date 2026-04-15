@@ -99,24 +99,24 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
         final isLoading = provider.isLoadingAccountantData;
 
         return Scaffold(
-          backgroundColor: AppColors.lightSlate,
+          backgroundColor: const Color(0xFFF8F9FA),
           appBar: AppBar(
             title: Text(
               widget.site['display_name'] ?? widget.site['site_name'] ?? 'Site Details',
               style: const TextStyle(
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            backgroundColor: AppColors.cleanWhite,
+            backgroundColor: Colors.white,
             elevation: 0,
-            iconTheme: const IconThemeData(color: AppColors.deepNavy),
+            iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
             bottom: TabBar(
               controller: _tabController,
-              labelColor: AppColors.deepNavy,
-              unselectedLabelColor: AppColors.textSecondary,
-              indicatorColor: AppColors.deepNavy,
+              labelColor: const Color(0xFF1A1A2E),
+              unselectedLabelColor: const Color(0xFF6B7280),
+              indicatorColor: const Color(0xFF1A1A2E),
               indicatorWeight: 3,
               labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               tabs: [
@@ -132,7 +132,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                         Container(
                           padding: const EdgeInsets.all(6),
                           decoration: const BoxDecoration(
-                            color: AppColors.statusOverdue,
+                            color: const Color(0xFFF44336),
                             shape: BoxShape.circle,
                           ),
                           child: Text(
@@ -154,7 +154,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
           ),
           body: isLoading
               ? const Center(
-                  child: CircularProgressIndicator(color: AppColors.deepNavy),
+                  child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                 )
               : Column(
                   children: [
@@ -165,7 +165,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                           await provider.loadAccountantData(forceRefresh: true);
                           await changeRequestProvider.loadPendingChangeRequests(forceRefresh: true);
                         },
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         child: TabBarView(
                           controller: _tabController,
                           children: [
@@ -188,10 +188,10 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -204,7 +204,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w600,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(width: 12),
@@ -237,18 +237,18 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
           _selectedRole = role;
         });
       },
-      selectedColor: AppColors.deepNavy,
+      selectedColor: const Color(0xFF1A1A2E),
       checkmarkColor: Colors.white,
       labelStyle: TextStyle(
-        color: isSelected ? Colors.white : AppColors.deepNavy,
+        color: isSelected ? Colors.white : const Color(0xFF1A1A2E),
         fontWeight: FontWeight.w600,
         fontSize: 13,
       ),
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
         side: BorderSide(
-          color: isSelected ? AppColors.deepNavy : AppColors.deepNavy.withValues(alpha: 0.3),
+          color: isSelected ? const Color(0xFF1A1A2E) : const Color(0xFF1A1A2E).withValues(alpha: 0.3),
         ),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -287,7 +287,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ),
@@ -330,7 +330,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ),
@@ -345,12 +345,12 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
     final extraCost = entry['extra_cost'] != null ? double.tryParse(entry['extra_cost'].toString()) ?? 0 : 0;
     final hasExtraCost = extraCost > 0;
     final submittedByRole = entry['submitted_by_role'] ?? entry['user_role'] ?? 'Supervisor';
-    final roleColor = submittedByRole == 'Site Engineer' ? Colors.purple : AppColors.deepNavy;
+    final roleColor = submittedByRole == 'Site Engineer' ? Colors.purple : const Color(0xFF1A1A2E);
     
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: roleColor.withValues(alpha: 0.3),
@@ -358,7 +358,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -389,7 +389,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 2),
@@ -420,13 +420,13 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.access_time, size: 12, color: AppColors.textSecondary),
+                        Icon(Icons.access_time, size: 12, color: const Color(0xFF6B7280)),
                         const SizedBox(width: 4),
                         Text(
                           _formatTime(entry['entry_time'] ?? entry['entry_date']),
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -443,7 +443,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   child: _buildInfoChip(
                     Icons.engineering,
                     entry['labour_type'] ?? 'General',
-                    AppColors.deepNavy,
+                    const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -451,7 +451,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   child: _buildInfoChip(
                     Icons.groups,
                     '${entry['labour_count'] ?? 0} Workers',
-                    AppColors.statusCompleted,
+                    const Color(0xFF4CAF50),
                   ),
                 ),
               ],
@@ -506,12 +506,12 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
     final extraCost = entry['extra_cost'] != null ? double.tryParse(entry['extra_cost'].toString()) ?? 0 : 0;
     final hasExtraCost = extraCost > 0;
     final submittedByRole = entry['submitted_by_role'] ?? entry['user_role'] ?? 'Supervisor';
-    final roleColor = submittedByRole == 'Site Engineer' ? Colors.purple : AppColors.deepNavy;
+    final roleColor = submittedByRole == 'Site Engineer' ? Colors.purple : const Color(0xFF1A1A2E);
     
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: roleColor.withValues(alpha: 0.3),
@@ -519,7 +519,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -550,7 +550,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 2),
@@ -581,13 +581,13 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.access_time, size: 12, color: AppColors.textSecondary),
+                        Icon(Icons.access_time, size: 12, color: const Color(0xFF6B7280)),
                         const SizedBox(width: 4),
                         Text(
                           _formatTime(entry['updated_at'] ?? entry['entry_date']),
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -604,7 +604,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   child: _buildInfoChip(
                     Icons.inventory_2,
                     entry['material_type'] ?? 'Unknown',
-                    AppColors.deepNavy,
+                    const Color(0xFF1A1A2E),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -612,7 +612,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   child: _buildInfoChip(
                     Icons.straighten,
                     '${entry['quantity'] ?? 0} ${entry['unit'] ?? ''}',
-                    AppColors.statusCompleted,
+                    const Color(0xFF4CAF50),
                   ),
                 ),
               ],
@@ -717,15 +717,15 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.statusOverdue.withValues(alpha: 0.3),
+          color: const Color(0xFFF44336).withValues(alpha: 0.3),
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.06),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.06),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -740,20 +740,20 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: AppColors.statusOverdue.withValues(alpha: 0.15),
+                color: const Color(0xFFF44336).withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.pending_actions, size: 14, color: AppColors.statusOverdue),
+                  Icon(Icons.pending_actions, size: 14, color: const Color(0xFFF44336)),
                   SizedBox(width: 4),
                   Text(
                     'PENDING REQUEST',
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.statusOverdue,
+                      color: const Color(0xFFF44336),
                       letterSpacing: 0.5,
                     ),
                   ),
@@ -767,10 +767,10 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy.withValues(alpha: 0.1),
+                    color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Icon(Icons.person, size: 18, color: AppColors.deepNavy),
+                  child: const Icon(Icons.person, size: 18, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -781,7 +781,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                         'Requested by',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary,
+                          color: const Color(0xFF6B7280),
                         ),
                       ),
                       Text(
@@ -789,7 +789,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                     ],
@@ -802,7 +802,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.lightSlate,
+                color: const Color(0xFFF8F9FA),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -813,7 +813,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                     style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -824,7 +824,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                 ],
@@ -835,7 +835,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.statusOverdue.withValues(alpha: 0.1),
+                color: const Color(0xFFF44336).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -843,14 +843,14 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                 children: [
                   const Row(
                     children: [
-                      Icon(Icons.message, size: 16, color: AppColors.statusOverdue),
+                      Icon(Icons.message, size: 16, color: const Color(0xFFF44336)),
                       SizedBox(width: 6),
                       Text(
                         'Request Message',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.statusOverdue,
+                          color: const Color(0xFFF44336),
                         ),
                       ),
                     ],
@@ -860,7 +860,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                     request['request_message'] ?? '',
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -875,7 +875,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                 icon: const Icon(Icons.edit, size: 18),
                 label: const Text('Handle Request'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.statusCompleted,
+                  backgroundColor: const Color(0xFF4CAF50),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   padding: const EdgeInsets.symmetric(vertical: 12),
@@ -901,7 +901,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
           'Handle Change Request',
-          style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+          style: TextStyle(fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
         ),
         content: SingleChildScrollView(
           child: Column(
@@ -912,7 +912,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppColors.lightSlate,
+                  color: const Color(0xFFF8F9FA),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -920,14 +920,14 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.person, size: 16, color: AppColors.deepNavy),
+                        const Icon(Icons.person, size: 16, color: const Color(0xFF1A1A2E)),
                         const SizedBox(width: 6),
                         Text(
                           request['requested_by_name'] ?? 'Unknown',
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ],
@@ -937,7 +937,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                       request['request_message'] ?? '',
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                       ),
                     ),
                   ],
@@ -949,7 +949,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                 'Current Value:',
                 style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: const Color(0xFF6B7280),
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -961,7 +961,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
               const SizedBox(height: 16),
@@ -977,7 +977,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(color: AppColors.deepNavy, width: 2),
+                    borderSide: const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
                   ),
                 ),
               ),
@@ -994,7 +994,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(color: AppColors.deepNavy, width: 2),
+                    borderSide: const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
                   ),
                 ),
               ),
@@ -1006,7 +1006,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
             onPressed: () => Navigator.pop(context, false),
             child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: const Color(0xFF6B7280)),
             ),
           ),
           ElevatedButton(
@@ -1020,7 +1020,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
               Navigator.pop(context, true);
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.statusCompleted,
+              backgroundColor: const Color(0xFF4CAF50),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text(
@@ -1045,14 +1045,14 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Change applied successfully'),
-            backgroundColor: AppColors.statusCompleted,
+            backgroundColor: const Color(0xFF4CAF50),
           ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(response['error'] ?? 'Failed to apply change'),
-            backgroundColor: AppColors.statusOverdue,
+            backgroundColor: const Color(0xFFF44336),
           ),
         );
       }
@@ -1071,7 +1071,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
           Icon(
             icon,
             size: 80,
-            color: AppColors.textSecondary.withValues(alpha: 0.5),
+            color: const Color(0xFF6B7280).withValues(alpha: 0.5),
           ),
           const SizedBox(height: 16),
           Text(
@@ -1079,7 +1079,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.deepNavy,
+              color: const Color(0xFF1A1A2E),
             ),
           ),
           const SizedBox(height: 8),
@@ -1087,7 +1087,7 @@ class _AccountantSiteDetailScreenState extends State<AccountantSiteDetailScreen>
             subtitle,
             style: TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
         ],

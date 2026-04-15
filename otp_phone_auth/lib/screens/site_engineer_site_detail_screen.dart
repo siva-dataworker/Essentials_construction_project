@@ -151,19 +151,19 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Text(
           widget.site['display_name'] ?? widget.site['site_name'] ?? 'Site Details',
           style: const TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
       ),
       body: IndexedStack(
         index: _currentIndex,
@@ -178,9 +178,9 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
         type: BottomNavigationBarType.fixed,
-        backgroundColor: AppColors.cleanWhite,
-        selectedItemColor: AppColors.deepNavy,
-        unselectedItemColor: AppColors.textSecondary,
+        backgroundColor: Colors.white,
+        selectedItemColor: const Color(0xFF1A1A2E),
+        unselectedItemColor: const Color(0xFF6B7280),
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
         unselectedLabelStyle: const TextStyle(fontSize: 12),
         items: const [
@@ -204,7 +204,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showQuickActions,
-        backgroundColor: AppColors.safetyOrange,
+        backgroundColor: const Color(0xFFFF9800),
         child: const Icon(Icons.add, size: 32),
       ),
     );
@@ -216,7 +216,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
         decoration: const BoxDecoration(
-          color: AppColors.cleanWhite,
+          color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
         ),
         padding: const EdgeInsets.all(24),
@@ -228,7 +228,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
             const SizedBox(height: 24),
@@ -238,7 +238,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                 _buildQuickActionButton(
                   icon: Icons.people,
                   label: 'Labour',
-                  color: AppColors.safetyOrange,
+                  color: const Color(0xFFFF9800),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.push(
@@ -255,7 +255,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                 _buildQuickActionButton(
                   icon: Icons.history,
                   label: 'History',
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.push(
@@ -329,9 +329,9 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppColors.cleanWhite,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              boxShadow: [AppColors.cardShadow],
+              boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -343,7 +343,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                       height: 48,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [AppColors.deepNavy.withValues(alpha: 0.8), AppColors.deepNavy],
+                          colors: [const Color(0xFF1A1A2E).withValues(alpha: 0.8), const Color(0xFF1A1A2E)],
                         ),
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -359,13 +359,13 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.deepNavy,
+                              color: const Color(0xFF1A1A2E),
                             ),
                           ),
                           const SizedBox(height: 4),
                           Text(
                             '${widget.site['area'] ?? ''}, ${widget.site['street'] ?? ''}',
-                            style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
+                            style: TextStyle(fontSize: 13, color: const Color(0xFF6B7280)),
                           ),
                         ],
                       ),
@@ -383,7 +383,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
             icon: const Icon(Icons.camera_alt, size: 20),
             label: const Text('Upload Photo', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.deepNavy,
+              backgroundColor: const Color(0xFF1A1A2E),
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(vertical: 16),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -398,8 +398,8 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
             icon: const Icon(Icons.photo_library, size: 20),
             label: const Text('View Gallery', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             style: OutlinedButton.styleFrom(
-              foregroundColor: AppColors.deepNavy,
-              side: const BorderSide(color: AppColors.deepNavy, width: 2),
+              foregroundColor: const Color(0xFF1A1A2E),
+              side: const BorderSide(color: const Color(0xFF1A1A2E), width: 2),
               padding: const EdgeInsets.symmetric(vertical: 16),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             ),
@@ -410,20 +410,20 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppColors.statusCompleted.withValues(alpha: 0.1),
+              color: const Color(0xFF4CAF50).withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.statusCompleted.withValues(alpha: 0.3)),
+              border: Border.all(color: const Color(0xFF4CAF50).withValues(alpha: 0.3)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    Icon(Icons.info_outline, color: AppColors.statusCompleted, size: 20),
+                    Icon(Icons.info_outline, color: const Color(0xFF4CAF50), size: 20),
                     const SizedBox(width: 8),
                     const Text(
                       'Photo Upload Guidelines',
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
                     ),
                   ],
                 ),
@@ -453,11 +453,11 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
             children: [
               Text(
                 title,
-                style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
               ),
               Text(
                 description,
-                style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
               ),
             ],
           ),
@@ -473,28 +473,28 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.report_problem_outlined, size: 80, color: AppColors.textSecondary.withValues(alpha: 0.5)),
+            Icon(Icons.report_problem_outlined, size: 80, color: const Color(0xFF6B7280).withValues(alpha: 0.5)),
             const SizedBox(height: 16),
             const Text(
               'Complaints',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 8),
             Text(
               'View and resolve complaints raised by clients',
-              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.statusOverdue.withValues(alpha: 0.1),
+                color: const Color(0xFFF44336).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Text(
                 'Coming Soon',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.statusOverdue),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: const Color(0xFFF44336)),
               ),
             ),
           ],
@@ -510,28 +510,28 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.folder_outlined, size: 80, color: AppColors.textSecondary.withValues(alpha: 0.5)),
+            Icon(Icons.folder_outlined, size: 80, color: const Color(0xFF6B7280).withValues(alpha: 0.5)),
             const SizedBox(height: 16),
             const Text(
               'Project Files',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 8),
             Text(
               'View and upload project documents and files',
-              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.statusOverdue.withValues(alpha: 0.1),
+                color: const Color(0xFFF44336).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Text(
                 'Coming Soon',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.statusOverdue),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: const Color(0xFFF44336)),
               ),
             ),
           ],
@@ -548,13 +548,13 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
           // Add Extra Cost Button
           Container(
             padding: const EdgeInsets.all(16),
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             child: ElevatedButton.icon(
               onPressed: () => _showAddExtraCostDialog(),
               icon: const Icon(Icons.add, size: 20),
               label: const Text('Add Extra Cost', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 minimumSize: const Size(double.infinity, 0),
@@ -565,11 +565,11 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
           
           // Tab Bar
           Container(
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             child: TabBar(
-              labelColor: AppColors.deepNavy,
-              unselectedLabelColor: AppColors.textSecondary,
-              indicatorColor: AppColors.deepNavy,
+              labelColor: const Color(0xFF1A1A2E),
+              unselectedLabelColor: const Color(0xFF6B7280),
+              indicatorColor: const Color(0xFF1A1A2E),
               indicatorWeight: 3,
               labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               tabs: const [
@@ -585,12 +585,12 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
               children: [
                 // Extra Costs List
                 _isLoadingExtraCosts
-                    ? const Center(child: CircularProgressIndicator(color: AppColors.deepNavy))
+                    ? const Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)))
                     : _extraCosts.isEmpty
                         ? _buildEmptyExtraCostState()
                         : RefreshIndicator(
                             onRefresh: _loadExtraCosts,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                             child: ListView.builder(
                               padding: const EdgeInsets.all(16),
                               itemCount: _extraCosts.length,
@@ -610,7 +610,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
 
   Widget _buildHistoryView() {
     if (_isLoadingHistory) {
-      return const Center(child: CircularProgressIndicator(color: AppColors.deepNavy));
+      return const Center(child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)));
     }
     
     if (_historyEntries.isEmpty) {
@@ -620,16 +620,16 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.history, size: 80, color: AppColors.textSecondary.withValues(alpha: 0.5)),
+              Icon(Icons.history, size: 80, color: const Color(0xFF6B7280).withValues(alpha: 0.5)),
               const SizedBox(height: 16),
               const Text(
                 'No History',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
               ),
               const SizedBox(height: 8),
               Text(
                 'Labour and material entries will appear here',
-                style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+                style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -640,7 +640,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
     
     return RefreshIndicator(
       onRefresh: _loadHistory,
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _historyEntries.length,
@@ -652,14 +652,14 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
   Widget _buildHistoryCard(Map<String, dynamic> entry) {
     final isLabour = entry['type'] == 'LABOUR';
     final icon = isLabour ? Icons.people : Icons.inventory_2;
-    final color = isLabour ? AppColors.statusCompleted : AppColors.deepNavy;
+    final color = isLabour ? const Color(0xFF4CAF50) : const Color(0xFF1A1A2E);
     
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -686,7 +686,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -694,7 +694,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                         isLabour 
                             ? '${entry['labour_count']} workers'
                             : '${entry['quantity']} ${entry['unit'] ?? 'units'}',
-                        style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+                        style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
                       ),
                     ],
                   ),
@@ -724,20 +724,20 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppColors.statusOverdue.withValues(alpha: 0.05),
+                  color: const Color(0xFFF44336).withValues(alpha: 0.05),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: AppColors.statusOverdue.withValues(alpha: 0.2)),
+                  border: Border.all(color: const Color(0xFFF44336).withValues(alpha: 0.2)),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.attach_money, size: 16, color: AppColors.statusOverdue),
+                    Icon(Icons.attach_money, size: 16, color: const Color(0xFFF44336)),
                     const SizedBox(width: 6),
                     Text(
                       'Extra Cost: ₹${entry['extra_cost']}',
                       style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.statusOverdue,
+                        color: const Color(0xFFF44336),
                       ),
                     ),
                     if (entry['extra_cost_notes'] != null && entry['extra_cost_notes'].toString().isNotEmpty) ...[
@@ -745,7 +745,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                       Expanded(
                         child: Text(
                           entry['extra_cost_notes'],
-                          style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                          style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -759,18 +759,18 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
             const SizedBox(height: 12),
             Row(
               children: [
-                Icon(Icons.person, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.person, size: 14, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 4),
                 Text(
                   entry['supervisor_name'] ?? 'Unknown',
-                  style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                 ),
                 const Spacer(),
-                Icon(Icons.calendar_today, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.calendar_today, size: 14, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 4),
                 Text(
                   _formatDate(entry['entry_time'] ?? entry['updated_at']),
-                  style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                 ),
               ],
             ),
@@ -787,16 +787,16 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.attach_money, size: 80, color: AppColors.textSecondary.withValues(alpha: 0.5)),
+            Icon(Icons.attach_money, size: 80, color: const Color(0xFF6B7280).withValues(alpha: 0.5)),
             const SizedBox(height: 16),
             const Text(
               'No Extra Costs',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
             ),
             const SizedBox(height: 8),
             Text(
               'Tap "Add Extra Cost" to submit additional expenses',
-              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280)),
               textAlign: TextAlign.center,
             ),
           ],
@@ -808,14 +808,14 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
   Widget _buildExtraCostCard(Map<String, dynamic> cost) {
     final amount = cost['amount'] ?? 0;
     final status = cost['payment_status'] ?? 'PENDING';
-    final statusColor = status == 'PAID' ? AppColors.statusCompleted : AppColors.statusOverdue;
+    final statusColor = status == 'PAID' ? const Color(0xFF4CAF50) : const Color(0xFFF44336);
     
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -830,7 +830,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 Container(
@@ -858,7 +858,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                 style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ],
@@ -866,24 +866,24 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
               const SizedBox(height: 8),
               Text(
                 cost['notes'],
-                style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
+                style: TextStyle(fontSize: 13, color: const Color(0xFF6B7280)),
               ),
             ],
             const SizedBox(height: 12),
             Row(
               children: [
-                Icon(Icons.person, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.person, size: 14, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 4),
                 Text(
                   cost['submitted_by'] ?? 'Unknown',
-                  style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                 ),
                 const Spacer(),
-                Icon(Icons.calendar_today, size: 14, color: AppColors.textSecondary),
+                Icon(Icons.calendar_today, size: 14, color: const Color(0xFF6B7280)),
                 const SizedBox(width: 4),
                 Text(
                   _formatDate(cost['uploaded_at']),
-                  style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                  style: TextStyle(fontSize: 12, color: const Color(0xFF6B7280)),
                 ),
               ],
             ),
@@ -906,7 +906,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           title: const Text(
             'Add Extra Cost',
-            style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+            style: TextStyle(fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
           ),
           content: SingleChildScrollView(
             child: Column(
@@ -915,7 +915,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
               children: [
                 const Text(
                   'Amount *',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(height: 8),
                 TextField(
@@ -925,7 +925,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                     hintText: 'Enter amount',
                     prefixText: '₹ ',
                     filled: true,
-                    fillColor: AppColors.lightSlate,
+                    fillColor: const Color(0xFFF8F9FA),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
@@ -935,7 +935,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                 const SizedBox(height: 16),
                 const Text(
                   'Description *',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(height: 8),
                 TextField(
@@ -943,7 +943,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                   decoration: InputDecoration(
                     hintText: 'e.g., Extra materials, Labor overtime',
                     filled: true,
-                    fillColor: AppColors.lightSlate,
+                    fillColor: const Color(0xFFF8F9FA),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
@@ -953,7 +953,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                 const SizedBox(height: 16),
                 const Text(
                   'Notes (Optional)',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(height: 8),
                 TextField(
@@ -962,7 +962,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                   decoration: InputDecoration(
                     hintText: 'Additional details...',
                     filled: true,
-                    fillColor: AppColors.lightSlate,
+                    fillColor: const Color(0xFFF8F9FA),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
@@ -975,7 +975,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
           actions: [
             TextButton(
               onPressed: isSubmitting ? null : () => Navigator.pop(context),
-              child: Text('Cancel', style: TextStyle(color: AppColors.textSecondary)),
+              child: Text('Cancel', style: TextStyle(color: const Color(0xFF6B7280))),
             ),
             ElevatedButton(
               onPressed: isSubmitting
@@ -985,7 +985,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Please fill in amount and description'),
-                            backgroundColor: AppColors.statusOverdue,
+                            backgroundColor: const Color(0xFFF44336),
                           ),
                         );
                         return;
@@ -1017,7 +1017,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Extra cost submitted successfully!'),
-                              backgroundColor: AppColors.statusCompleted,
+                              backgroundColor: const Color(0xFF4CAF50),
                             ),
                           );
                           _loadExtraCosts();
@@ -1025,7 +1025,7 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text('Failed: ${response.body}'),
-                              backgroundColor: AppColors.statusOverdue,
+                              backgroundColor: const Color(0xFFF44336),
                             ),
                           );
                         }
@@ -1034,13 +1034,13 @@ class _SiteEngineerSiteDetailScreenState extends State<SiteEngineerSiteDetailScr
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Error: $e'),
-                            backgroundColor: AppColors.statusOverdue,
+                            backgroundColor: const Color(0xFFF44336),
                           ),
                         );
                       }
                     },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.deepNavy,
+                backgroundColor: const Color(0xFF1A1A2E),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
               child: isSubmitting

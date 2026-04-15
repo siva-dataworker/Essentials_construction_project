@@ -125,7 +125,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.textPrimary,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -133,7 +133,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                     'No materials have been added to this site yet.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -150,7 +150,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
               padding: const EdgeInsets.all(16),
               child: Row(
                 children: [
-                  Icon(Icons.inventory_2, color: AppColors.textPrimary),
+                  Icon(Icons.inventory_2, color: const Color(0xFF1A1A2E)),
                   const SizedBox(width: 8),
                   const Expanded(
                     child: Text(
@@ -167,7 +167,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                       icon: const Icon(Icons.remove_circle_outline, size: 18),
                       label: const Text('Use Material'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
+                        backgroundColor: const Color(0xFF1A1A2E),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
@@ -256,7 +256,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                                 unit,
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                 ),
                               ),
                               const Spacer(),
@@ -264,7 +264,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                                 'remaining',
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                 ),
                               ),
                             ],
@@ -288,7 +288,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                                         'Initial Stock',
                                         style: TextStyle(
                                           fontSize: 12,
-                                          color: AppColors.textSecondary,
+                                          color: const Color(0xFF6B7280),
                                         ),
                                       ),
                                       const SizedBox(height: 4),
@@ -315,7 +315,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                                         'Total Used',
                                         style: TextStyle(
                                           fontSize: 12,
-                                          color: AppColors.textSecondary,
+                                          color: const Color(0xFF6B7280),
                                         ),
                                       ),
                                       const SizedBox(height: 4),
@@ -343,7 +343,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                                 Text(
                                   'View Usage History',
                                   style: TextStyle(
-                                    color: AppColors.primary,
+                                    color: const Color(0xFF1A1A2E),
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -351,7 +351,7 @@ class _MaterialBalanceWidgetState extends State<MaterialBalanceWidget> {
                                 Icon(
                                   Icons.arrow_forward,
                                   size: 16,
-                                  color: AppColors.primary,
+                                  color: const Color(0xFF1A1A2E),
                                 ),
                               ],
                             ),

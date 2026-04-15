@@ -124,7 +124,7 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
           content: Text(result['success'] 
               ? '✅ ${result['message']}' 
               : '❌ ${result['error']}'),
-          backgroundColor: result['success'] ? AppColors.statusCompleted : Colors.red,
+          backgroundColor: result['success'] ? const Color(0xFF4CAF50) : Colors.red,
         ),
       );
 
@@ -137,10 +137,10 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text('Assign Working Sites'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
@@ -151,8 +151,8 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
             width: double.infinity,
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              gradient: AppColors.navyGradient,
-              boxShadow: [AppColors.cardShadow],
+              gradient: LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)], begin: Alignment.topLeft, end: Alignment.bottomRight),
+              boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,17 +218,17 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: 'Search sites...',
-                  prefixIcon: const Icon(Icons.search, color: AppColors.deepNavy),
+                  prefixIcon: const Icon(Icons.search, color: const Color(0xFF1A1A2E)),
                   suffixIcon: _searchController.text.isNotEmpty
                       ? IconButton(
-                          icon: const Icon(Icons.clear, color: AppColors.deepNavy),
+                          icon: const Icon(Icons.clear, color: const Color(0xFF1A1A2E)),
                           onPressed: () {
                             _searchController.clear();
                           },
                         )
                       : null,
                   filled: true,
-                  fillColor: AppColors.lightSlate,
+                  fillColor: const Color(0xFFF8F9FA),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,
@@ -245,13 +245,13 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CircularProgressIndicator(color: AppColors.deepNavy),
+                        CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
                         SizedBox(height: 16),
                         Text(
                           'Loading sites...',
                           style: TextStyle(
                             fontSize: 16,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                       ],
@@ -267,7 +267,7 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
                                   ? Icons.search_off 
                                   : Icons.construction,
                               size: 64,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                             const SizedBox(height: 16),
                             Text(
@@ -276,7 +276,7 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
                                   : 'No sites available',
                               style: const TextStyle(
                                 fontSize: 16,
-                                color: AppColors.deepNavy,
+                                color: const Color(0xFF1A1A2E),
                               ),
                             ),
                           ],
@@ -317,7 +317,7 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
               child: ElevatedButton(
                 onPressed: _isSubmitting ? null : _submitAssignment,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.statusCompleted,
+                  backgroundColor: const Color(0xFF4CAF50),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
@@ -352,13 +352,13 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: isSelected ? AppColors.statusCompleted : Colors.transparent,
+          color: isSelected ? const Color(0xFF4CAF50) : Colors.transparent,
           width: 2,
         ),
-        boxShadow: [AppColors.cardShadow],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2))],
       ),
       child: Column(
         children: [
@@ -378,10 +378,10 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: AppColors.deepNavy,
+                color: const Color(0xFF1A1A2E),
               ),
             ),
-            activeColor: AppColors.statusCompleted,
+            activeColor: const Color(0xFF4CAF50),
             controlAffinity: ListTileControlAffinity.leading,
           ),
           
@@ -395,7 +395,7 @@ class _AssignWorkingSitesScreenState extends State<AssignWorkingSitesScreen> {
                 decoration: InputDecoration(
                   hintText: 'Add description (optional)',
                   filled: true,
-                  fillColor: AppColors.lightSlate,
+                  fillColor: const Color(0xFFF8F9FA),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,

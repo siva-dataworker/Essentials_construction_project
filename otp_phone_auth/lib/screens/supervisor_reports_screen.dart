@@ -75,25 +75,25 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text(
           'Reports',
           style: TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
       ),
       body: Column(
         children: [
           // Site Selector
           Container(
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,16 +103,16 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                 ),
                 const SizedBox(height: 8),
                 DropdownButtonFormField<String>(
                   value: _selectedSiteId,
                   decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.location_on, color: AppColors.deepNavy, size: 20),
+                    prefixIcon: const Icon(Icons.location_on, color: const Color(0xFF1A1A2E), size: 20),
                     filled: true,
-                    fillColor: AppColors.lightSlate,
+                    fillColor: const Color(0xFFF8F9FA),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
@@ -120,13 +120,13 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: AppColors.deepNavy.withValues(alpha: 0.1),
+                        color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: const BorderSide(
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                         width: 2,
                       ),
                     ),
@@ -137,7 +137,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                     'Select a site',
                     style: TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                   items: _sites.map((site) {
@@ -147,7 +147,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                         site['display_name'] as String? ?? site['site_name'] as String,
                         style: const TextStyle(
                           fontSize: 14,
-                          color: AppColors.deepNavy,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                     );
@@ -156,8 +156,8 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                     setState(() => _selectedSiteId = value);
                     _loadArchitectData();
                   },
-                  icon: const Icon(Icons.arrow_drop_down, color: AppColors.deepNavy),
-                  dropdownColor: AppColors.cleanWhite,
+                  icon: const Icon(Icons.arrow_drop_down, color: const Color(0xFF1A1A2E)),
+                  dropdownColor: Colors.white,
                 ),
               ],
             ),
@@ -182,14 +182,14 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
           Icon(
             Icons.folder_open,
             size: 80,
-            color: AppColors.textSecondary.withValues(alpha: 0.3),
+            color: const Color(0xFF6B7280).withValues(alpha: 0.3),
           ),
           const SizedBox(height: 16),
           const Text(
             'Select a site to view reports',
             style: TextStyle(
               fontSize: 16,
-              color: AppColors.textSecondary,
+              color: const Color(0xFF6B7280),
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -201,7 +201,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
   Widget _buildContent() {
     return RefreshIndicator(
       onRefresh: _loadArchitectData,
-      color: AppColors.deepNavy,
+      color: const Color(0xFF1A1A2E),
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.all(16),
@@ -243,10 +243,10 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: AppColors.deepNavy.withValues(alpha: 0.1),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(icon, color: AppColors.deepNavy, size: 20),
+          child: Icon(icon, color: const Color(0xFF1A1A2E), size: 20),
         ),
         const SizedBox(width: 12),
         Text(
@@ -254,14 +254,14 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
           ),
         ),
         const Spacer(),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           decoration: BoxDecoration(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
@@ -281,11 +281,11 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
       ),
       child: const Center(
-        child: CircularProgressIndicator(color: AppColors.deepNavy),
+        child: CircularProgressIndicator(color: const Color(0xFF1A1A2E)),
       ),
     );
   }
@@ -294,10 +294,10 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.deepNavy.withValues(alpha: 0.1),
+          color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
         ),
       ),
       child: Center(
@@ -305,7 +305,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
           message,
           style: const TextStyle(
             fontSize: 14,
-            color: AppColors.textSecondary,
+            color: const Color(0xFF6B7280),
           ),
         ),
       ),
@@ -323,11 +323,11 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.05),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -340,7 +340,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppColors.deepNavy.withValues(alpha: 0.05),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
               borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
             ),
             child: Row(
@@ -348,7 +348,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
@@ -363,7 +363,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                 const Spacer(),
                 Icon(
                   Icons.insert_drive_file,
-                  color: AppColors.deepNavy.withValues(alpha: 0.5),
+                  color: const Color(0xFF1A1A2E).withValues(alpha: 0.5),
                   size: 20,
                 ),
               ],
@@ -381,7 +381,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 if (description.isNotEmpty) ...[
@@ -390,7 +390,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                     description,
                     style: const TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -400,28 +400,28 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                     Icon(
                       Icons.person,
                       size: 16,
-                      color: AppColors.textSecondary.withValues(alpha: 0.7),
+                      color: const Color(0xFF6B7280).withValues(alpha: 0.7),
                     ),
                     const SizedBox(width: 6),
                     Text(
                       architectName,
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary.withValues(alpha: 0.9),
+                        color: const Color(0xFF6B7280).withValues(alpha: 0.9),
                       ),
                     ),
                     const SizedBox(width: 16),
                     Icon(
                       Icons.calendar_today,
                       size: 16,
-                      color: AppColors.textSecondary.withValues(alpha: 0.7),
+                      color: const Color(0xFF6B7280).withValues(alpha: 0.7),
                     ),
                     const SizedBox(width: 6),
                     Text(
                       uploadDate,
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary.withValues(alpha: 0.9),
+                        color: const Color(0xFF6B7280).withValues(alpha: 0.9),
                       ),
                     ),
                   ],
@@ -440,7 +440,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                       icon: const Icon(Icons.download, size: 18),
                       label: const Text('View Document'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.deepNavy,
+                        backgroundColor: const Color(0xFF1A1A2E),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         shape: RoundedRectangleBorder(
@@ -481,7 +481,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
     Color statusColor;
     switch (status.toLowerCase()) {
       case 'resolved':
-        statusColor = AppColors.statusCompleted;
+        statusColor = const Color(0xFF4CAF50);
         break;
       case 'in_progress':
         statusColor = Colors.orange;
@@ -493,7 +493,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: priorityColor.withValues(alpha: 0.3),
@@ -501,7 +501,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepNavy.withValues(alpha: 0.05),
+            color: const Color(0xFF1A1A2E).withValues(alpha: 0.05),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -571,7 +571,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 if (description.isNotEmpty) ...[
@@ -580,7 +580,7 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                     description,
                     style: const TextStyle(
                       fontSize: 14,
-                      color: AppColors.textSecondary,
+                      color: const Color(0xFF6B7280),
                     ),
                   ),
                 ],
@@ -590,28 +590,28 @@ class _SupervisorReportsScreenState extends State<SupervisorReportsScreen> {
                     Icon(
                       Icons.person,
                       size: 16,
-                      color: AppColors.textSecondary.withValues(alpha: 0.7),
+                      color: const Color(0xFF6B7280).withValues(alpha: 0.7),
                     ),
                     const SizedBox(width: 6),
                     Text(
                       architectName,
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary.withValues(alpha: 0.9),
+                        color: const Color(0xFF6B7280).withValues(alpha: 0.9),
                       ),
                     ),
                     const SizedBox(width: 16),
                     Icon(
                       Icons.calendar_today,
                       size: 16,
-                      color: AppColors.textSecondary.withValues(alpha: 0.7),
+                      color: const Color(0xFF6B7280).withValues(alpha: 0.7),
                     ),
                     const SizedBox(width: 6),
                     Text(
                       uploadDate,
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary.withValues(alpha: 0.9),
+                        color: const Color(0xFF6B7280).withValues(alpha: 0.9),
                       ),
                     ),
                   ],

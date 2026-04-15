@@ -78,7 +78,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
       textStyle: const TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.bold,
-        color: AppColors.darkBlue,
+        color: const Color(0xFF1A1A2E),
       ),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -97,11 +97,11 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
     final focusedPinTheme = defaultPinTheme.copyWith(
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: AppColors.primaryOrange, width: 2),
+        border: Border.all(color: const Color(0xFFFF9800), width: 2),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryOrange.withOpacity(0.2),
+            color: const Color(0xFFFF9800).withOpacity(0.2),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -111,8 +111,8 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
 
     final submittedPinTheme = defaultPinTheme.copyWith(
       decoration: BoxDecoration(
-        color: AppColors.primaryOrange.withOpacity(0.1),
-        border: Border.all(color: AppColors.primaryOrange, width: 2),
+        color: const Color(0xFFFF9800).withOpacity(0.1),
+        border: Border.all(color: const Color(0xFFFF9800), width: 2),
         borderRadius: BorderRadius.circular(12),
       ),
     );
@@ -139,7 +139,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                         ],
                       ),
                       child: IconButton(
-                        icon: const Icon(Icons.arrow_back, color: AppColors.darkBlue),
+                        icon: const Icon(Icons.arrow_back, color: const Color(0xFF1A1A2E)),
                         onPressed: () => Navigator.pop(context),
                       ),
                     ),
@@ -172,7 +172,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                           child: const Icon(
                             Icons.lock_outline,
                             size: 80,
-                            color: AppColors.primaryOrange,
+                            color: const Color(0xFFFF9800),
                           ),
                         ),
                         const SizedBox(height: 40),
@@ -183,7 +183,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.darkBlue,
+                            color: const Color(0xFF1A1A2E),
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -202,7 +202,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.primaryOrange,
+                            color: const Color(0xFFFF9800),
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -228,7 +228,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                             borderRadius: BorderRadius.circular(12),
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.primaryOrange.withOpacity(0.3),
+                                color: const Color(0xFFFF9800).withOpacity(0.3),
                                 blurRadius: 15,
                                 offset: const Offset(0, 8),
                               ),
@@ -238,7 +238,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                             onPressed: _isLoading ? null : _verifyOTP,
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 18),
-                              backgroundColor: AppColors.primaryOrange,
+                              backgroundColor: const Color(0xFFFF9800),
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
@@ -285,7 +285,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                           child: const Text(
                             'Didn\'t receive code? Resend',
                             style: TextStyle(
-                              color: AppColors.primaryOrange,
+                              color: const Color(0xFFFF9800),
                               fontWeight: FontWeight.w600,
                             ),
                           ),

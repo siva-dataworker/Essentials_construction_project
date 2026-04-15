@@ -84,7 +84,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: const Color(0xFFF8F9FA),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
@@ -101,7 +101,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     'assets/logo.png',
                     height: 80,
                     errorBuilder: (context, error, stackTrace) {
-                      return const Icon(Icons.construction, size: 80, color: AppColors.primary);
+                      return const Icon(Icons.construction, size: 80, color: const Color(0xFF1A1A2E));
                     },
                   ),
                 ),
@@ -114,7 +114,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary,
+                    color: const Color(0xFF1A1A2E),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -125,7 +125,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   'Register to get started',
                   style: TextStyle(
                     fontSize: 16,
-                    color: AppColors.textSecondary,
+                    color: const Color(0xFF6B7280),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -288,7 +288,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ElevatedButton(
                   onPressed: _isLoading ? null : _register,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
+                    backgroundColor: const Color(0xFF1A1A2E),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -321,7 +321,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   children: [
                     Text(
                       'Already have an account? ',
-                      style: TextStyle(color: AppColors.textSecondary),
+                      style: TextStyle(color: const Color(0xFF6B7280)),
                     ),
                     TextButton(
                       onPressed: () {
@@ -336,7 +336,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         'Login',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: AppColors.primary,
+                          color: const Color(0xFF1A1A2E),
                         ),
                       ),
                     ),

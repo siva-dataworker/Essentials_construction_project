@@ -183,10 +183,10 @@ class _MaterialBillUploadDialogState extends State<MaterialBillUploadDialog> {
             children: [
               const Text(
                 'Upload Material Bill',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
               ),
               const SizedBox(height: 8),
-              Text(widget.siteName, style: TextStyle(fontSize: 14, color: AppColors.textSecondary)),
+              Text(widget.siteName, style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280))),
               const SizedBox(height: 24),
               
               // Bill Number
@@ -426,7 +426,7 @@ class _MaterialBillUploadDialogState extends State<MaterialBillUploadDialog> {
                     child: ElevatedButton(
                       onPressed: _isUploading ? null : _upload,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.deepNavy,
+                        backgroundColor: const Color(0xFF1A1A2E),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
@@ -598,10 +598,10 @@ class _VendorBillUploadDialogState extends State<VendorBillUploadDialog> {
             children: [
               const Text(
                 'Upload Vendor Bill',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
               ),
               const SizedBox(height: 8),
-              Text(widget.siteName, style: TextStyle(fontSize: 14, color: AppColors.textSecondary)),
+              Text(widget.siteName, style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280))),
               const SizedBox(height: 24),
               
               TextField(
@@ -780,7 +780,7 @@ class _VendorBillUploadDialogState extends State<VendorBillUploadDialog> {
                     child: ElevatedButton(
                       onPressed: _isUploading ? null : _upload,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.deepNavy,
+                        backgroundColor: const Color(0xFF1A1A2E),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
@@ -943,10 +943,10 @@ class _SiteAgreementUploadDialogState extends State<SiteAgreementUploadDialog> {
             children: [
               const Text(
                 'Upload Site Agreement',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepNavy),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF1A1A2E)),
               ),
               const SizedBox(height: 8),
-              Text(widget.siteName, style: TextStyle(fontSize: 14, color: AppColors.textSecondary)),
+              Text(widget.siteName, style: TextStyle(fontSize: 14, color: const Color(0xFF6B7280))),
               const SizedBox(height: 24),
               
               DropdownButtonFormField<String>(
@@ -1137,7 +1137,7 @@ class _SiteAgreementUploadDialogState extends State<SiteAgreementUploadDialog> {
                     child: ElevatedButton(
                       onPressed: _isUploading ? null : _upload,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.deepNavy,
+                        backgroundColor: const Color(0xFF1A1A2E),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),

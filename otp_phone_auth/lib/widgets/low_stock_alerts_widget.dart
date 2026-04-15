@@ -31,7 +31,7 @@ class _LowStockAlertsWidgetState extends State<LowStockAlertsWidget> {
       case 'LOW_STOCK':
         return AppColors.mediumGray;
       default:
-        return AppColors.textSecondary;
+        return const Color(0xFF6B7280);
     }
   }
 
@@ -82,7 +82,7 @@ class _LowStockAlertsWidgetState extends State<LowStockAlertsWidget> {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.textPrimary,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -90,7 +90,7 @@ class _LowStockAlertsWidgetState extends State<LowStockAlertsWidget> {
                           'No low stock alerts at this time.',
                           style: TextStyle(
                             fontSize: 14,
-                            color: AppColors.textSecondary,
+                            color: const Color(0xFF6B7280),
                           ),
                         ),
                       ],
@@ -148,7 +148,7 @@ class _LowStockAlertsWidgetState extends State<LowStockAlertsWidget> {
                             '$outOfStock out of stock, $lowStock running low',
                             style: TextStyle(
                               fontSize: 12,
-                              color: AppColors.textSecondary,
+                              color: const Color(0xFF6B7280),
                             ),
                           ),
                         ],
@@ -233,7 +233,7 @@ class _LowStockAlertsWidgetState extends State<LowStockAlertsWidget> {
                                     : siteName,
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: AppColors.textSecondary,
+                                  color: const Color(0xFF6B7280),
                                 ),
                               ),
                             ],
@@ -256,7 +256,7 @@ class _LowStockAlertsWidgetState extends State<LowStockAlertsWidget> {
                               unit,
                               style: TextStyle(
                                 fontSize: 12,
-                                color: AppColors.textSecondary,
+                                color: const Color(0xFF6B7280),
                               ),
                             ),
                           ],
@@ -282,8 +282,8 @@ class _LowStockAlertsWidgetState extends State<LowStockAlertsWidget> {
                     icon: const Icon(Icons.refresh),
                     label: const Text('Refresh Alerts'),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: AppColors.primary,
-                      side: BorderSide(color: AppColors.primary),
+                      foregroundColor: const Color(0xFF1A1A2E),
+                      side: BorderSide(color: const Color(0xFF1A1A2E)),
                     ),
                   ),
                 ),

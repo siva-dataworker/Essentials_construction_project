@@ -141,7 +141,7 @@ class _MaterialUsageDialogState extends State<MaterialUsageDialog> {
                     color: AppColors.lightGray,
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Icon(Icons.inventory_2, color: AppColors.textPrimary),
+                  child: Icon(Icons.inventory_2, color: const Color(0xFF1A1A2E)),
                 ),
                 const SizedBox(width: 12),
                 const Expanded(
@@ -228,12 +228,12 @@ class _MaterialUsageDialogState extends State<MaterialUsageDialog> {
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.info_outline, size: 20, color: AppColors.textSecondary),
+                    Icon(Icons.info_outline, size: 20, color: const Color(0xFF6B7280)),
                     const SizedBox(width: 8),
                     Text(
                       'Current Balance: $_currentBalance $_unit',
                       style: TextStyle(
-                        color: AppColors.textSecondary,
+                        color: const Color(0xFF6B7280),
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -294,7 +294,7 @@ class _MaterialUsageDialogState extends State<MaterialUsageDialog> {
               child: ElevatedButton(
                 onPressed: provider.isSubmitting ? null : _submitUsage,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
+                  backgroundColor: const Color(0xFF1A1A2E),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(

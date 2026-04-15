@@ -150,7 +150,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
     return Scaffold(
       appBar: AppBar(
         title: Text('Labour Entry - ${widget.siteName}'),
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         foregroundColor: Colors.white,
       ),
       body: Column(
@@ -158,7 +158,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
           // Header with counts
           Container(
             padding: const EdgeInsets.all(16),
-            color: AppColors.cleanWhite,
+            color: Colors.white,
             child: Row(
               children: [
                 const Text(
@@ -166,7 +166,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 const Spacer(),
@@ -176,7 +176,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
-                        gradient: AppColors.orangeGradient,
+                        gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Text(
@@ -212,15 +212,15 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
           
           // Tab Bar
           Container(
-            color: AppColors.lightSlate,
+            color: const Color(0xFFF8F9FA),
             child: TabBar(
               controller: _tabController,
               onTap: (_) => setState(() {}),
               indicator: BoxDecoration(
-                gradient: AppColors.orangeGradient,
+                gradient: LinearGradient(colors: [Color(0xFFFF9800), Color(0xFFE65100)], begin: Alignment.topLeft, end: Alignment.bottomRight),
               ),
               labelColor: Colors.white,
-              unselectedLabelColor: AppColors.textSecondary,
+              unselectedLabelColor: const Color(0xFF6B7280),
               labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               tabs: const [
                 Tab(text: '🌅 Morning'),
@@ -244,7 +244,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
       floatingActionButton: _tabController.index == 0
           ? FloatingActionButton.extended(
               onPressed: _isSubmitting ? null : _submitMorningEntry,
-              backgroundColor: AppColors.safetyOrange,
+              backgroundColor: const Color(0xFFFF9800),
               icon: _isSubmitting
                   ? const SizedBox(
                       width: 20,
@@ -269,7 +269,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
                   ),
                 );
               },
-              backgroundColor: AppColors.deepNavy,
+              backgroundColor: const Color(0xFF1A1A2E),
               icon: const Icon(Icons.history),
               label: const Text('View History'),
             ),
@@ -431,7 +431,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
       ),
       child: Row(
         children: [
-          Icon(_getLabourIcon(type), color: AppColors.deepNavy, size: 24),
+          Icon(_getLabourIcon(type), color: const Color(0xFF1A1A2E), size: 24),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -442,7 +442,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
                 Text(
@@ -460,7 +460,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
               IconButton(
                 onPressed: () => setState(() => counts[type] = (count - 1).clamp(0, 50)),
                 icon: const Icon(Icons.remove_circle_outline, size: 28),
-                color: count > 0 ? AppColors.safetyOrange : AppColors.textSecondary,
+                color: count > 0 ? const Color(0xFFFF9800) : const Color(0xFF6B7280),
               ),
               Container(
                 width: 40,
@@ -470,14 +470,14 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ),
               ),
               IconButton(
                 onPressed: () => setState(() => counts[type] = (count + 1).clamp(0, 50)),
                 icon: const Icon(Icons.add_circle_outline, size: 28),
-                color: AppColors.safetyOrange,
+                color: const Color(0xFFFF9800),
               ),
             ],
           ),
@@ -515,7 +515,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
       ),
       child: Row(
         children: [
-          Icon(_getLabourIcon(labourType), size: 20, color: AppColors.deepNavy),
+          Icon(_getLabourIcon(labourType), size: 20, color: const Color(0xFF1A1A2E)),
           const SizedBox(width: 12),
           Expanded(
             child: Text(
@@ -609,7 +609,7 @@ class _SiteEngineerLabourScreenState extends State<SiteEngineerLabourScreen>
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('✅ Labour entry submitted successfully!'),
-            backgroundColor: AppColors.statusCompleted,
+            backgroundColor: const Color(0xFF4CAF50),
           ),
         );
         Navigator.pop(context, true);

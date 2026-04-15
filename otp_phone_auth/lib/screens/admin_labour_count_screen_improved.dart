@@ -40,18 +40,18 @@ class _AdminLabourCountScreenState extends State<AdminLabourCountScreen> with Au
     super.build(context);
     
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text(
           'Labour Count View',
           style: TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
         actions: [
           if (_selectedSiteId != null)
             IconButton(
@@ -85,7 +85,7 @@ class _AdminLabourCountScreenState extends State<AdminLabourCountScreen> with Au
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.cleanWhite,
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
@@ -102,12 +102,12 @@ class _AdminLabourCountScreenState extends State<AdminLabourCountScreen> with Au
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: AppColors.statusCompleted.withOpacity(0.1),
+                  color: const Color(0xFF4CAF50).withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Icon(
                   Icons.location_city,
-                  color: AppColors.statusCompleted,
+                  color: const Color(0xFF4CAF50),
                   size: 20,
                 ),
               ),
@@ -117,7 +117,7 @@ class _AdminLabourCountScreenState extends State<AdminLabourCountScreen> with Au
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.deepNavy,
+                  color: const Color(0xFF1A1A2E),
                 ),
               ),
             ],
@@ -131,23 +131,23 @@ class _AdminLabourCountScreenState extends State<AdminLabourCountScreen> with Au
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: AppColors.statusCompleted.withOpacity(0.3)),
+                      borderSide: BorderSide(color: const Color(0xFF4CAF50).withOpacity(0.3)),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: AppColors.statusCompleted.withOpacity(0.3)),
+                      borderSide: BorderSide(color: const Color(0xFF4CAF50).withOpacity(0.3)),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: AppColors.statusCompleted, width: 2),
+                      borderSide: const BorderSide(color: const Color(0xFF4CAF50), width: 2),
                     ),
                     filled: true,
-                    fillColor: AppColors.lightSlate,
+                    fillColor: const Color(0xFFF8F9FA),
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: 16,
                       vertical: 12,
                     ),
-                    prefixIcon: const Icon(Icons.business, color: AppColors.statusCompleted),
+                    prefixIcon: const Icon(Icons.business, color: const Color(0xFF4CAF50)),
                   ),
                   hint: const Text('Choose a site'),
                   items: provider.sites.map((site) {
@@ -196,7 +196,7 @@ class _AdminLabourCountScreenState extends State<AdminLabourCountScreen> with Au
     
     return RefreshIndicator(
       onRefresh: () => provider.loadLabourData(_selectedSiteId!, forceRefresh: true),
-      color: AppColors.statusCompleted,
+      color: const Color(0xFF4CAF50),
       child: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: labourData.length,

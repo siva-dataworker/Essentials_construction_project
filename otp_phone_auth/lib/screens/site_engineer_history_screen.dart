@@ -68,21 +68,21 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightSlate,
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: Text(
           widget.siteName ?? 'Labour History',
           style: const TextStyle(
-            color: AppColors.deepNavy,
+            color: const Color(0xFF1A1A2E),
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.cleanWhite,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.deepNavy),
+        iconTheme: const IconThemeData(color: const Color(0xFF1A1A2E)),
         actions: [
           PopupMenuButton<String>(
-            icon: const Icon(Icons.more_vert, color: AppColors.deepNavy),
+            icon: const Icon(Icons.more_vert, color: const Color(0xFF1A1A2E)),
             onSelected: (value) {
               if (value == 'expand_all') {
                 _expandAllDates();
@@ -97,7 +97,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
                 value: 'expand_all',
                 child: Row(
                   children: [
-                    Icon(Icons.expand_more, size: 20, color: AppColors.deepNavy),
+                    Icon(Icons.expand_more, size: 20, color: const Color(0xFF1A1A2E)),
                     SizedBox(width: 12),
                     Text('Expand All Days'),
                   ],
@@ -107,7 +107,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
                 value: 'collapse_all',
                 child: Row(
                   children: [
-                    Icon(Icons.expand_less, size: 20, color: AppColors.deepNavy),
+                    Icon(Icons.expand_less, size: 20, color: const Color(0xFF1A1A2E)),
                     SizedBox(width: 12),
                     Text('Collapse All Days'),
                   ],
@@ -117,7 +117,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
                 value: 'refresh',
                 child: Row(
                   children: [
-                    Icon(Icons.refresh, size: 20, color: AppColors.deepNavy),
+                    Icon(Icons.refresh, size: 20, color: const Color(0xFF1A1A2E)),
                     SizedBox(width: 12),
                     Text('Refresh Data'),
                   ],
@@ -155,7 +155,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -179,7 +179,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _loadData,
-        backgroundColor: AppColors.deepNavy,
+        backgroundColor: const Color(0xFF1A1A2E),
         child: const Icon(Icons.refresh),
       ),
     );
@@ -254,7 +254,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
             child: Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.deepNavy.withOpacity(0.05),
+                color: const Color(0xFF1A1A2E).withOpacity(0.05),
                 borderRadius: BorderRadius.vertical(
                   top: const Radius.circular(16),
                   bottom: isExpanded ? Radius.zero : const Radius.circular(16),
@@ -265,7 +265,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: AppColors.deepNavy,
+                      color: const Color(0xFF1A1A2E),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Icon(
@@ -284,7 +284,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.deepNavy,
+                            color: const Color(0xFF1A1A2E),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -300,7 +300,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
                   ),
                   Icon(
                     isExpanded ? Icons.expand_less : Icons.expand_more,
-                    color: AppColors.deepNavy,
+                    color: const Color(0xFF1A1A2E),
                   ),
                 ],
               ),
@@ -335,7 +335,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
         children: [
           Row(
             children: [
-              Icon(_getLabourIcon(labourType), color: AppColors.deepNavy, size: 24),
+              Icon(_getLabourIcon(labourType), color: const Color(0xFF1A1A2E), size: 24),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -346,7 +346,7 @@ class _SiteEngineerHistoryScreenState extends State<SiteEngineerHistoryScreen> {
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepNavy,
+                        color: const Color(0xFF1A1A2E),
                       ),
                     ),
                     Text(
