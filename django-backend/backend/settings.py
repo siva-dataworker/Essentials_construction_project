@@ -66,21 +66,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# Database - Supabase PostgreSQL
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME', default='postgres'),
-        'USER': config('DB_USER', default='postgres'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT', default='5432'),
-        'OPTIONS': {
-            'sslmode': 'require',
-            'client_encoding': 'UTF8',
-        },
+# Database - Supabase PostgreSQL or SQLite fallback
+DB_HOST = config('DB_HOST', default='')
+DB_PASSWORD = config('DB_PASSWORD', default='')
+
+if DB_HOST and DB_PASSWORD:
+    # Use PostgreSQL if credentials are provided
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('DB_NAME', default='postgres'),
+            'USER': config('DB_USER', default='postgres'),
+            'PASSWORD': DB_PASSWORD,
+            'HOST': DB_HOST,
+            'PORT': config('DB_PORT', default='5432'),
+            'OPTIONS': {
+                'sslmode': 'require',
+                'client_encoding': 'UTF8',
+            },
+        }
     }
-}
+else:
+    # Fallback to SQLite for development/testing
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

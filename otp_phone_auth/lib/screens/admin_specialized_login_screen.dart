@@ -79,6 +79,10 @@ class _AdminSpecializedLoginScreenState
     if (!_formKey.currentState!.validate()) return;
     setState(() => _isLoading = true);
     try {
+      print('🔍 Attempting login to: ${AuthService.baseUrl}/admin/specialized-login/');
+      print('🔍 Username: ${_usernameController.text.trim()}');
+      print('🔍 Access Type: $_selectedAccessType');
+      
       final response = await http.post(
         Uri.parse('${AuthService.baseUrl}/admin/specialized-login/'),
         headers: {'Content-Type': 'application/json'},
@@ -87,7 +91,20 @@ class _AdminSpecializedLoginScreenState
           'password': _passwordController.text,
           'access_type': _selectedAccessType,
         }),
-      );
+      ).timeout(const Duration(seconds: 30));
+      
+      print('🔍 Response status: ${response.statusCode}');
+      print('🔍 Response body length: ${response.body.length}');
+      print('🔍 Response body: ${response.body}');
+      
+      // Check if response body is empty
+      if (response.body.isEmpty) {
+        if (mounted) {
+          _showError('Server returned empty response. Status: ${response.statusCode}');
+        }
+        return;
+      }
+      
       final data = json.decode(response.body);
       if (response.statusCode == 200 && data['success'] == true) {
         await _authService.clearAuthData();
@@ -115,7 +132,8 @@ class _AdminSpecializedLoginScreenState
         }
       }
     } catch (e) {
-      if (mounted) _showError('Error: $e');
+      print('❌ Login error: $e');
+      if (mounted) _showError('Network error: $e');
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
@@ -480,7 +498,7 @@ class _AdminSpecializedLoginScreenState
     return Container(
       height: 56,
       decoration: BoxDecoration(
-        color: const const Color(0xFF1A1A2E),
+        color: const Color(0xFF1A1A2E),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
