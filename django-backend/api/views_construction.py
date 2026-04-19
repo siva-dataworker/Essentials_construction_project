@@ -3587,15 +3587,31 @@ def supervisor_upload_photos(request):
         photo_ids = []
         
         for photo in photos:
-            # Upload to Supabase Storage
+            # Try to upload to Supabase Storage first
             from api.supabase_storage import storage
             upload_result = storage.upload_file(photo, folder='site_photos')
             
-            if not upload_result['success']:
-                print(f"Failed to upload photo: {upload_result.get('error')}")
-                continue
-            
-            image_url = upload_result['url']
+            if upload_result['success']:
+                # Supabase upload successful
+                image_url = upload_result['url']
+            else:
+                # Fallback to local storage if Supabase fails
+                print(f"Supabase upload failed: {upload_result.get('error')}, using local storage")
+                
+                # Save to local media folder
+                import os
+                from django.conf import settings
+                from django.core.files.storage import default_storage
+                
+                # Create unique filename
+                timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+                unique_id = str(uuid.uuid4())[:8]
+                file_ext = os.path.splitext(photo.name)[1]
+                filename = f"site_photos/{timestamp}_{unique_id}{file_ext}"
+                
+                # Save file
+                file_path = default_storage.save(filename, photo)
+                image_url = f'/media/{file_path}'
             
             # Insert into database
             photo_id = str(uuid.uuid4())
