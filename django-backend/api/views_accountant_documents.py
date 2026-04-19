@@ -70,31 +70,15 @@ def upload_material_bill(request):
         if not file.name.lower().endswith('.pdf'):
             return Response({'error': 'Only PDF files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Try to upload to Supabase Storage first
+        # Upload to Supabase Storage
         from api.supabase_storage import storage
         upload_result = storage.upload_file(file, folder='material_bills')
         
-        if upload_result['success']:
-            # Supabase upload successful
-            file_url = upload_result['url']
-        else:
-            # Fallback to local storage if Supabase fails
-            print(f"Supabase upload failed: {upload_result.get('error')}, using local storage")
-            
-            # Save to local media folder
-            import os
-            from django.conf import settings
-            from django.core.files.storage import default_storage
-            
-            # Create unique filename
-            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            unique_id = str(uuid.uuid4())[:8]
-            file_ext = os.path.splitext(file.name)[1]
-            filename = f"material_bills/{timestamp}_{unique_id}{file_ext}"
-            
-            # Save file
-            file_path = default_storage.save(filename, file)
-            file_url = f'/media/{file_path}'
+        if not upload_result['success']:
+            return Response({'error': f"Failed to upload file: {upload_result.get('error')}"}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+        file_url = upload_result['url']
         
         # Get current date and day of week
         today = datetime.now().date()
@@ -255,31 +239,15 @@ def upload_vendor_bill(request):
         if not file.name.lower().endswith('.pdf'):
             return Response({'error': 'Only PDF files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Try to upload to Supabase Storage first
+        # Upload to Supabase Storage
         from api.supabase_storage import storage
         upload_result = storage.upload_file(file, folder='vendor_bills')
         
-        if upload_result['success']:
-            # Supabase upload successful
-            file_url = upload_result['url']
-        else:
-            # Fallback to local storage if Supabase fails
-            print(f"Supabase upload failed: {upload_result.get('error')}, using local storage")
-            
-            # Save to local media folder
-            import os
-            from django.conf import settings
-            from django.core.files.storage import default_storage
-            
-            # Create unique filename
-            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            unique_id = str(uuid.uuid4())[:8]
-            file_ext = os.path.splitext(file.name)[1]
-            filename = f"vendor_bills/{timestamp}_{unique_id}{file_ext}"
-            
-            # Save file
-            file_path = default_storage.save(filename, file)
-            file_url = f'/media/{file_path}'
+        if not upload_result['success']:
+            return Response({'error': f"Failed to upload file: {upload_result.get('error')}"}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+        file_url = upload_result['url']
         
         # Get current date and day of week
         today = datetime.now().date()
@@ -427,31 +395,15 @@ def upload_site_agreement(request):
         if not file.name.lower().endswith('.pdf'):
             return Response({'error': 'Only PDF files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Try to upload to Supabase Storage first
+        # Upload to Supabase Storage
         from api.supabase_storage import storage
         upload_result = storage.upload_file(file, folder='site_agreements')
         
-        if upload_result['success']:
-            # Supabase upload successful
-            file_url = upload_result['url']
-        else:
-            # Fallback to local storage if Supabase fails
-            print(f"Supabase upload failed: {upload_result.get('error')}, using local storage")
-            
-            # Save to local media folder
-            import os
-            from django.conf import settings
-            from django.core.files.storage import default_storage
-            
-            # Create unique filename
-            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            unique_id = str(uuid.uuid4())[:8]
-            file_ext = os.path.splitext(file.name)[1]
-            filename = f"site_agreements/{timestamp}_{unique_id}{file_ext}"
-            
-            # Save file
-            file_path = default_storage.save(filename, file)
-            file_url = f'/media/{file_path}'
+        if not upload_result['success']:
+            return Response({'error': f"Failed to upload file: {upload_result.get('error')}"}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+        file_url = upload_result['url']
         
         # Get current date and day of week
         today = datetime.now().date()
