@@ -1956,19 +1956,15 @@ def upload_site_photo(request):
             return Response({'error': f'{update_type} photo already uploaded today'}, 
                           status=status.HTTP_400_BAD_REQUEST)
         
-        # Create media directory if it doesn't exist
-        media_dir = os.path.join(settings.MEDIA_ROOT, 'site_photos')
-        os.makedirs(media_dir, exist_ok=True)
+        # Upload to Supabase Storage
+        from api.supabase_storage import storage
+        upload_result = storage.upload_file(photo, folder='site_photos')
         
-        # Generate unique filename
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        ext = os.path.splitext(photo.name)[1]
-        filename = f"{site_id}_{update_type}_{timestamp}{ext}"
-        filepath = os.path.join('site_photos', filename)
+        if not upload_result['success']:
+            return Response({'error': f"Failed to upload photo: {upload_result.get('error')}"}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-        # Save file
-        saved_path = default_storage.save(filepath, photo)
-        image_url = f"{settings.MEDIA_URL}{saved_path}"
+        image_url = upload_result['url']
         
         # Insert into database
         update_id = str(uuid.uuid4())
@@ -3591,17 +3587,15 @@ def supervisor_upload_photos(request):
         photo_ids = []
         
         for photo in photos:
-            # Save photo file
-            from django.core.files.storage import default_storage
-            from django.core.files.base import ContentFile
-            import os
+            # Upload to Supabase Storage
+            from api.supabase_storage import storage
+            upload_result = storage.upload_file(photo, folder='site_photos')
             
-            # Generate unique filename
-            ext = os.path.splitext(photo.name)[1]
-            filename = f"supervisor_photos/{site_id}/{time_of_day}/{uuid.uuid4()}{ext}"
+            if not upload_result['success']:
+                print(f"Failed to upload photo: {upload_result.get('error')}")
+                continue
             
-            # Save file
-            file_path = default_storage.save(filename, ContentFile(photo.read()))
+            image_url = upload_result['url']
             
             # Insert into database
             photo_id = str(uuid.uuid4())
@@ -3613,7 +3607,7 @@ def supervisor_upload_photos(request):
                 photo_id,
                 site_id,
                 user_id,
-                f'/media/{file_path}',
+                image_url,
                 upload_date,
                 time_of_day,
                 f'{time_of_day.capitalize()} photo uploaded by supervisor'

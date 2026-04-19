@@ -70,19 +70,15 @@ def upload_material_bill(request):
         if not file.name.lower().endswith('.pdf'):
             return Response({'error': 'Only PDF files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Create media directory
-        media_dir = os.path.join(settings.MEDIA_ROOT, 'material_bills')
-        os.makedirs(media_dir, exist_ok=True)
+        # Upload to Supabase Storage
+        from api.supabase_storage import storage
+        upload_result = storage.upload_file(file, folder='material_bills')
         
-        # Generate unique filename
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        ext = os.path.splitext(file.name)[1]
-        filename = f"{site_id}_MaterialBill_{bill_number}_{timestamp}{ext}"
-        filepath = os.path.join('material_bills', filename)
+        if not upload_result['success']:
+            return Response({'error': f"Failed to upload file: {upload_result.get('error')}"}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-        # Save file
-        saved_path = default_storage.save(filepath, file)
-        file_url = f"{settings.MEDIA_URL}{saved_path}"
+        file_url = upload_result['url']
         
         # Get current date and day of week
         today = datetime.now().date()
@@ -243,19 +239,15 @@ def upload_vendor_bill(request):
         if not file.name.lower().endswith('.pdf'):
             return Response({'error': 'Only PDF files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Create media directory
-        media_dir = os.path.join(settings.MEDIA_ROOT, 'vendor_bills')
-        os.makedirs(media_dir, exist_ok=True)
+        # Upload to Supabase Storage
+        from api.supabase_storage import storage
+        upload_result = storage.upload_file(file, folder='vendor_bills')
         
-        # Generate unique filename
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        ext = os.path.splitext(file.name)[1]
-        filename = f"{site_id}_VendorBill_{bill_number}_{timestamp}{ext}"
-        filepath = os.path.join('vendor_bills', filename)
+        if not upload_result['success']:
+            return Response({'error': f"Failed to upload file: {upload_result.get('error')}"}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-        # Save file
-        saved_path = default_storage.save(filepath, file)
-        file_url = f"{settings.MEDIA_URL}{saved_path}"
+        file_url = upload_result['url']
         
         # Get current date and day of week
         today = datetime.now().date()
@@ -403,19 +395,15 @@ def upload_site_agreement(request):
         if not file.name.lower().endswith('.pdf'):
             return Response({'error': 'Only PDF files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Create media directory
-        media_dir = os.path.join(settings.MEDIA_ROOT, 'site_agreements')
-        os.makedirs(media_dir, exist_ok=True)
+        # Upload to Supabase Storage
+        from api.supabase_storage import storage
+        upload_result = storage.upload_file(file, folder='site_agreements')
         
-        # Generate unique filename
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        ext = os.path.splitext(file.name)[1]
-        filename = f"{site_id}_Agreement_{agreement_type.replace(' ', '_')}_{timestamp}{ext}"
-        filepath = os.path.join('site_agreements', filename)
+        if not upload_result['success']:
+            return Response({'error': f"Failed to upload file: {upload_result.get('error')}"}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-        # Save file
-        saved_path = default_storage.save(filepath, file)
-        file_url = f"{settings.MEDIA_URL}{saved_path}"
+        file_url = upload_result['url']
         
         # Get current date and day of week
         today = datetime.now().date()
