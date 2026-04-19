@@ -3451,7 +3451,7 @@ class _AccountantDocumentsViewState extends State<_AccountantDocumentsView> with
   }
 
   Future<void> _openDocument(String fileUrl) async {
-    final url = 'https://essentials-construction-project.onrender.com$fileUrl';
+    final url = 'https://new-essentials.onrender.com$fileUrl';
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
     } else {

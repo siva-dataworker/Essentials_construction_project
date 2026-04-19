@@ -8,8 +8,8 @@ class ConstructionService {
   ConstructionService._internal();
 
   final _authService = AuthService();
-  static const String baseUrl = 'https://essentials-construction-project.onrender.com/api';
-  static const String mediaBaseUrl = 'https://essentials-construction-project.onrender.com'; // For media files
+  static const String baseUrl = 'https://new-essentials.onrender.com/api';
+  static const String mediaBaseUrl = 'https://new-essentials.onrender.com'; // For media files
 
   // Helper method to convert relative image URLs to full URLs
   static String getFullImageUrl(String? relativeUrl) {

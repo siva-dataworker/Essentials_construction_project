@@ -8,7 +8,7 @@ class AuthService {
   AuthService._internal();
 
   // Django backend URL
-  static const String baseUrl = 'https://essentials-construction-project.onrender.com/api';
+  static const String baseUrl = 'https://new-essentials.onrender.com/api';
   
   String? _token;
   Map<String, dynamic>? _currentUser;
