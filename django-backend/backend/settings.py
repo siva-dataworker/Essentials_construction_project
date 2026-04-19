@@ -116,9 +116,14 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # For Render deployment
 # Whitenoise configuration for serving static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files (uploaded photos)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# Supabase Storage configuration for media files (photos, documents)
+SUPABASE_URL = config('SUPABASE_URL', default='https://ctwthgjuccioxivnzifb.supabase.co')
+SUPABASE_KEY = config('SUPABASE_KEY', default='')
+SUPABASE_STORAGE_BUCKET = config('SUPABASE_STORAGE_BUCKET', default='construction-media')
+
+# Media files (uploaded photos) - Will be stored in Supabase Storage
+MEDIA_URL = f'{SUPABASE_URL}/storage/v1/object/public/{SUPABASE_STORAGE_BUCKET}/'
+MEDIA_ROOT = BASE_DIR / 'media'  # Local fallback (not used in production)
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
